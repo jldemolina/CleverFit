@@ -38,6 +38,7 @@
 		8263C6031D8894570090F0B1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C6021D8894570090F0B1 /* HistoryViewController.swift */; };
 		8263C6051D8894620090F0B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C6041D8894620090F0B1 /* SettingsViewController.swift */; };
 		8263C6071D8894C20090F0B1 /* CleverFitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C6061D8894C20090F0B1 /* CleverFitViewController.swift */; };
+		82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */; };
 		82C2F4FE1D894D7D00378176 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2F4FC1D894D7800378176 /* XLForm.framework */; };
 		82C2F4FF1D894D7D00378176 /* XLForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2F4FC1D894D7800378176 /* XLForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82C2F5031D89557200378176 /* CleverFitFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2F5021D89557200378176 /* CleverFitFormViewController.swift */; };
@@ -112,6 +113,7 @@
 		8263C6021D8894570090F0B1 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		8263C6041D8894620090F0B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8263C6061D8894C20090F0B1 /* CleverFitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitViewController.swift; sourceTree = "<group>"; };
+		82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutGenerator.swift; sourceTree = "<group>"; };
 		82C2F4FC1D894D7800378176 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = "<group>"; };
 		82C2F5021D89557200378176 /* CleverFitFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitFormViewController.swift; sourceTree = "<group>"; };
 		82F8E3221D8A9DE0009593B8 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 		8263C5E01D8892C50090F0B1 /* Cleverfit */ = {
 			isa = PBXGroup;
 			children = (
+				82BAF4D21E45F2BA000B5C00 /* Core */,
 				8238A7211E45677B004CDBF9 /* Persistence */,
 				8238A7171E454745004CDBF9 /* Views */,
 				8263C6061D8894C20090F0B1 /* CleverFitViewController.swift */,
@@ -307,6 +310,22 @@
 				8263C5E61D8892C50090F0B1 /* MeViewController.swift */,
 			);
 			name = Me;
+			sourceTree = "<group>";
+		};
+		82BAF4D21E45F2BA000B5C00 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				82BAF4D51E45F463000B5C00 /* Generators */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		82BAF4D51E45F463000B5C00 /* Generators */ = {
+			isa = PBXGroup;
+			children = (
+				82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */,
+			);
+			name = Generators;
 			sourceTree = "<group>";
 		};
 		82F8E3241D8A9EFB009593B8 /* Modules */ = {
@@ -520,6 +539,7 @@
 				8263C6031D8894570090F0B1 /* HistoryViewController.swift in Sources */,
 				8222F8971D89ECE5002B8580 /* ResumeViewController.swift in Sources */,
 				8238A71E1E454CBC004CDBF9 /* WorkoutRoutine.swift in Sources */,
+				82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */,
 				8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */,
 				8263C5F61D8892C50090F0B1 /* LeftMenuViewController.swift in Sources */,
 				8238A7281E456B98004CDBF9 /* User.swift in Sources */,

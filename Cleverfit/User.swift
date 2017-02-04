@@ -14,6 +14,7 @@ class User: Object {
     dynamic var name = ""
     dynamic var weight = 0
     dynamic var height = 0
+    dynamic var maxRoutineDurationInSeconds = 0
     dynamic var birthDate = NSDate();
     private dynamic var objective = UserObjective.slimDown.rawValue
     private dynamic var experience = UserExperience.low.rawValue
@@ -42,7 +43,6 @@ class User: Object {
             alertsPreference = newValue.rawValue
         }
     }
-
 }
 
 enum UserObjective: String {

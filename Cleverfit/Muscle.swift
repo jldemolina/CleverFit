@@ -11,5 +11,23 @@ import Foundation
 
 final class Muscle: Object {
     dynamic var id = ""
-    dynamic var name = ""
+    private dynamic var muscleName = MuscleName.biceps.rawValue
+    var name: MuscleName {
+        get {
+            return MuscleName(rawValue: muscleName)!
+        }
+        set {
+            muscleName = newValue.rawValue
+        }
+    }
+}
+
+enum MuscleName: String {
+    case biceps
+    case triceps
+    case forearm
+    case back
+    case chest
+    case abdominals
+    case quadriceps
 }
