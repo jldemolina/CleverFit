@@ -1,0 +1,2 @@
+github "xmartlabs/XLForm" ~> 3.0
+github "realm/realm-cocoa.git" "master"
