@@ -12,6 +12,7 @@ class CleverFitViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
         self.configureNavigationBar()
     }
     

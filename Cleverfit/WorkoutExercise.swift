@@ -6,20 +6,24 @@
 //  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
+import RealmSwift
 import Foundation
 
-class WorkoutExercise {
-    let exercise: Exercise
-    let durationInSeconds: Int
-    var feedback: WorkoutExerciseFeedback = WorkoutExerciseFeedback.normal
-    
-    init(exercise: Exercise, withDuration: Int) {
-        self.exercise = exercise
-        self.durationInSeconds = withDuration
+class WorkoutExercise: Object {
+    dynamic var exercise: Exercise? = nil
+    dynamic var durationInSeconds = 0
+    private dynamic var feedback = WorkoutExerciseFeedback.normal.rawValue
+    var workoutExerciseFeedback: WorkoutExerciseFeedback {
+        get {
+            return WorkoutExerciseFeedback(rawValue: feedback)!
+        }
+        set {
+            feedback = newValue.rawValue
+        }
     }
 }
 
-enum WorkoutExerciseFeedback {
+enum WorkoutExerciseFeedback: String {
     case bad
     case normal
     case good

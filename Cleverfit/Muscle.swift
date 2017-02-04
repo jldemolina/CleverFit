@@ -6,12 +6,9 @@
 //  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
+import RealmSwift
 import Foundation
 
-final class Muscle {
-    let name: String
-    
-    init(name: String) {
-        self.name = name
-    }
+final class Muscle: Object {
+    dynamic var name = ""
 }

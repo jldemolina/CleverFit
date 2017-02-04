@@ -24,6 +24,8 @@
 		8238A71C1E454BAB004CDBF9 /* Muscle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A71B1E454BAB004CDBF9 /* Muscle.swift */; };
 		8238A71E1E454CBC004CDBF9 /* WorkoutRoutine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A71D1E454CBC004CDBF9 /* WorkoutRoutine.swift */; };
 		8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A71F1E454E2E004CDBF9 /* WorkoutExercise.swift */; };
+		8238A7241E4567B8004CDBF9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A7231E4567B8004CDBF9 /* DatabaseManager.swift */; };
+		8238A7281E456B98004CDBF9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A7271E456B98004CDBF9 /* User.swift */; };
 		8263C5F01D8892C50090F0B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C5E11D8892C50090F0B1 /* AppDelegate.swift */; };
 		8263C5F11D8892C50090F0B1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8263C5E21D8892C50090F0B1 /* LaunchScreen.xib */; };
 		8263C5F21D8892C50090F0B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8263C5E41D8892C50090F0B1 /* Main.storyboard */; };
@@ -95,6 +97,8 @@
 		8238A71B1E454BAB004CDBF9 /* Muscle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Muscle.swift; sourceTree = "<group>"; };
 		8238A71D1E454CBC004CDBF9 /* WorkoutRoutine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutRoutine.swift; sourceTree = "<group>"; };
 		8238A71F1E454E2E004CDBF9 /* WorkoutExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
+		8238A7231E4567B8004CDBF9 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		8238A7271E456B98004CDBF9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8263C5E11D8892C50090F0B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8263C5E31D8892C50090F0B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8263C5E51D8892C50090F0B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -207,15 +211,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8238A7151E4546C1004CDBF9 /* Models */ = {
+		8238A7151E4546C1004CDBF9 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
 				8238A7181E454A17004CDBF9 /* Exercise.swift */,
 				8238A71B1E454BAB004CDBF9 /* Muscle.swift */,
 				8238A71D1E454CBC004CDBF9 /* WorkoutRoutine.swift */,
 				8238A71F1E454E2E004CDBF9 /* WorkoutExercise.swift */,
+				8238A7271E456B98004CDBF9 /* User.swift */,
 			);
-			name = Models;
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		8238A7171E454745004CDBF9 /* Views */ = {
@@ -226,11 +231,28 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		8238A7211E45677B004CDBF9 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				8238A7221E45678A004CDBF9 /* Managers */,
+				8238A7151E4546C1004CDBF9 /* Entities */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		8238A7221E45678A004CDBF9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8238A7231E4567B8004CDBF9 /* DatabaseManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		8263C5E01D8892C50090F0B1 /* Cleverfit */ = {
 			isa = PBXGroup;
 			children = (
+				8238A7211E45677B004CDBF9 /* Persistence */,
 				8238A7171E454745004CDBF9 /* Views */,
-				8238A7151E4546C1004CDBF9 /* Models */,
 				8263C6061D8894C20090F0B1 /* CleverFitViewController.swift */,
 				82C2F5021D89557200378176 /* CleverFitFormViewController.swift */,
 				82F8E3241D8A9EFB009593B8 /* Modules */,
@@ -485,6 +507,7 @@
 				8222F8991D89ED01002B8580 /* GenerateWorkoutViewController.swift in Sources */,
 				8222F8951D89EC71002B8580 /* TrainViewController.swift in Sources */,
 				8263C5F01D8892C50090F0B1 /* AppDelegate.swift in Sources */,
+				8238A7241E4567B8004CDBF9 /* DatabaseManager.swift in Sources */,
 				8263C5F31D8892C50090F0B1 /* MeViewController.swift in Sources */,
 				8263C5F71D8892C50090F0B1 /* RightMenuViewController.swift in Sources */,
 				82C2F5031D89557200378176 /* CleverFitFormViewController.swift in Sources */,
@@ -499,6 +522,7 @@
 				8238A71E1E454CBC004CDBF9 /* WorkoutRoutine.swift in Sources */,
 				8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */,
 				8263C5F61D8892C50090F0B1 /* LeftMenuViewController.swift in Sources */,
+				8238A7281E456B98004CDBF9 /* User.swift in Sources */,
 				8218D8A51D8B64AB003055DA /* ResumeExerciseCell.swift in Sources */,
 				8218D8A81D8B6B97003055DA /* ExerciseViewController.swift in Sources */,
 				8263C6051D8894620090F0B1 /* SettingsViewController.swift in Sources */,

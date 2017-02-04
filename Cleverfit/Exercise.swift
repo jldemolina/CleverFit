@@ -6,24 +6,25 @@
 //  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
+import RealmSwift
 import Foundation
 
-final class Exercise {
-    let name: String
-    let description: String
-    let affectedMuscles: [Muscle]
-    let difficulty: ExerciseDifficulty
-    
-    init(name: String, description: String,
-         affectedMuscles: [Muscle], difficulty: ExerciseDifficulty) {
-        self.name = name
-        self.description = description
-        self.affectedMuscles = affectedMuscles
-        self.difficulty = difficulty
+final class Exercise: Object {
+    dynamic var name = ""
+    dynamic var information = ""
+    let affectedMuscles = List<Muscle>()
+    private dynamic var difficulty = ExerciseDifficulty.medium.rawValue
+    var exerciseDifficulty: ExerciseDifficulty {
+        get {
+            return ExerciseDifficulty(rawValue: difficulty)!
+        }
+        set {
+            difficulty = newValue.rawValue
+        }
     }
 }
 
-enum ExerciseDifficulty {
+enum ExerciseDifficulty: String {
     case low
     case medium
     case hard

@@ -15,6 +15,5 @@ class ExerciseViewController: UIViewController {
     @IBAction func closeModal(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: {});
     }
-    
-    
+
 }
