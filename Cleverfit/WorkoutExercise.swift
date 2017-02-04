@@ -10,6 +10,7 @@ import RealmSwift
 import Foundation
 
 class WorkoutExercise: Object {
+    dynamic var id = ""
     dynamic var exercise: Exercise? = nil
     dynamic var durationInSeconds = 0
     private dynamic var feedback = WorkoutExerciseFeedback.normal.rawValue

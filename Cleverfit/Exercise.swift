@@ -10,6 +10,7 @@ import RealmSwift
 import Foundation
 
 final class Exercise: Object {
+    dynamic var id = ""
     dynamic var name = ""
     dynamic var information = ""
     let affectedMuscles = List<Muscle>()

@@ -10,7 +10,8 @@ import RealmSwift
 import Foundation
 
 class WorkoutRoutine: Object {
-    let workoutExercises = List<WorkoutExercise>()
+    dynamic var id = ""
     dynamic var startDate = NSDate()
     dynamic var endDate = NSDate();
+    let workoutExercises = List<WorkoutExercise>()
 }

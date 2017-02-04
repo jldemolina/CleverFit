@@ -8,31 +8,74 @@
 
 import RealmSwift
 
-class TableManager {
-    let realm = try! Realm()
+class DatabaseManager {
+    private let realm = try! Realm()
+    static let sharedInstance = DatabaseManager()
 
-    func load() -> User {
-        return User()
+    func load() -> User? {
+        return realm.objects(User.self).first as User?
     }
     
-    func save(workoutRoutine: User) -> Bool {
-        return false
+    func load() -> [WorkoutRoutine]? {
+        let storedRoutines = realm.objects(WorkoutRoutine.self)
+        return Array(storedRoutines)
     }
     
-    func load() -> WorkoutExercise {
-        return WorkoutExercise()
+    func add(user: User) -> Bool {
+        var added = false
+        try! realm.write {
+            realm.add(user)
+            added = true;
+        }
+        return added
     }
     
-    func save(workoutRoutine: WorkoutExercise) -> Bool {
-        return false
+    func add(routine: WorkoutRoutine) -> Bool {
+        var added = false
+        try! realm.write {
+            realm.add(routine)
+            added = true;
+        }
+        return added
     }
     
-    func load() -> [WorkoutExercise] {
-        return [WorkoutExercise]()
+    func update(user: User) -> Bool {
+        var updated = false
+        let storedUser = realm.objects(User.self).first
+        try! realm.write {
+            storedUser!.birthDate = user.birthDate
+            storedUser!.height = user.height
+            storedUser!.name = user.name
+            storedUser!.objectiveFeedback = user.objectiveFeedback
+            storedUser!.userAlertsPreference = user.userAlertsPreference
+            storedUser!.userExperience = user.userExperience
+            storedUser!.weight = user.weight
+            updated = true
+        }
+        return updated
     }
     
-    func save(workoutRoutine: [WorkoutExercise]) -> Bool {
-        return false
+    func update(routine: WorkoutRoutine) -> Bool {
+        var updated = false
+        let storedRoutine = realm.objects(WorkoutRoutine.self).filter("id = \(routine.id)").first
+        try! realm.write {
+            storedRoutine!.startDate = routine.startDate
+            storedRoutine!.endDate = routine.endDate
+            storedRoutine!.workoutExercises.removeAll()
+            storedRoutine!.workoutExercises.append(objectsIn: routine.workoutExercises)
+            updated = true
+        }
+        return updated
+    }
+    
+    func delete(routine: WorkoutRoutine) -> Bool {
+        var updated = false
+        let storedRoutine = realm.objects(WorkoutRoutine.self).filter("id = \(routine.id)").first
+        try! realm.write {
+            realm.delete(storedRoutine!)
+            updated = true
+        }
+        return updated
     }
     
 }

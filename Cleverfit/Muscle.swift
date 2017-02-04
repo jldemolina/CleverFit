@@ -10,5 +10,6 @@ import RealmSwift
 import Foundation
 
 final class Muscle: Object {
+    dynamic var id = ""
     dynamic var name = ""
 }
