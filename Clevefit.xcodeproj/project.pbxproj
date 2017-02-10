@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8218D89E1D8B5CC1003055DA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89C1D8B5CC1003055DA /* Realm.framework */; };
-		8218D89F1D8B5CC1003055DA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89D1D8B5CC1003055DA /* RealmSwift.framework */; };
 		8218D8A01D8B5CD3003055DA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89C1D8B5CC1003055DA /* Realm.framework */; };
 		8218D8A11D8B5CD3003055DA /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89C1D8B5CC1003055DA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8218D8A21D8B5CD3003055DA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89D1D8B5CC1003055DA /* RealmSwift.framework */; };
@@ -147,9 +145,7 @@
 			files = (
 				8218D8A01D8B5CD3003055DA /* Realm.framework in Frameworks */,
 				8218D8A21D8B5CD3003055DA /* RealmSwift.framework in Frameworks */,
-				8218D89E1D8B5CC1003055DA /* Realm.framework in Frameworks */,
 				82C2F4FE1D894D7D00378176 /* XLForm.framework in Frameworks */,
-				8218D89F1D8B5CC1003055DA /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +464,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = SebastianAndersen;
 				TargetAttributes = {
 					8222F8781D89BEB0002B8580 = {
