@@ -38,6 +38,8 @@
 		8263C6031D8894570090F0B1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C6021D8894570090F0B1 /* HistoryViewController.swift */; };
 		8263C6051D8894620090F0B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C6041D8894620090F0B1 /* SettingsViewController.swift */; };
 		8263C6071D8894C20090F0B1 /* CleverFitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C6061D8894C20090F0B1 /* CleverFitViewController.swift */; };
+		82BA73E41E4E706700C8C1A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82BA73E31E4E706700C8C1A4 /* Localizable.strings */; };
+		82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BA73E81E4E724800C8C1A4 /* Strings.swift */; };
 		82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */; };
 		82C2F4FE1D894D7D00378176 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2F4FC1D894D7800378176 /* XLForm.framework */; };
 		82C2F4FF1D894D7D00378176 /* XLForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2F4FC1D894D7800378176 /* XLForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -113,6 +115,8 @@
 		8263C6021D8894570090F0B1 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		8263C6041D8894620090F0B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8263C6061D8894C20090F0B1 /* CleverFitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitViewController.swift; sourceTree = "<group>"; };
+		82BA73E31E4E706700C8C1A4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		82BA73E81E4E724800C8C1A4 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutGenerator.swift; sourceTree = "<group>"; };
 		82C2F4FC1D894D7800378176 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = "<group>"; };
 		82C2F5021D89557200378176 /* CleverFitFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitFormViewController.swift; sourceTree = "<group>"; };
@@ -253,11 +257,8 @@
 		8263C5E01D8892C50090F0B1 /* Cleverfit */ = {
 			isa = PBXGroup;
 			children = (
-				82BAF4D21E45F2BA000B5C00 /* Core */,
-				8238A7211E45677B004CDBF9 /* Persistence */,
-				8238A7171E454745004CDBF9 /* Views */,
-				8263C6061D8894C20090F0B1 /* CleverFitViewController.swift */,
-				82C2F5021D89557200378176 /* CleverFitFormViewController.swift */,
+				82BA73E21E4E703B00C8C1A4 /* Resources */,
+				82BA73E51E4E71AE00C8C1A4 /* Common */,
 				82F8E3241D8A9EFB009593B8 /* Modules */,
 				8263C5E11D8892C50090F0B1 /* AppDelegate.swift */,
 				8263C5E41D8892C50090F0B1 /* Main.storyboard */,
@@ -310,6 +311,43 @@
 				8263C5E61D8892C50090F0B1 /* MeViewController.swift */,
 			);
 			name = Me;
+			sourceTree = "<group>";
+		};
+		82BA73E21E4E703B00C8C1A4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				82BA73E31E4E706700C8C1A4 /* Localizable.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		82BA73E51E4E71AE00C8C1A4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				82BA73E71E4E721800C8C1A4 /* Controllers */,
+				82BAF4D21E45F2BA000B5C00 /* Core */,
+				8238A7171E454745004CDBF9 /* Views */,
+				82BA73E61E4E71D500C8C1A4 /* Utilities */,
+				8238A7211E45677B004CDBF9 /* Persistence */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		82BA73E61E4E71D500C8C1A4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				82BA73E81E4E724800C8C1A4 /* Strings.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		82BA73E71E4E721800C8C1A4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				82C2F5021D89557200378176 /* CleverFitFormViewController.swift */,
+				8263C6061D8894C20090F0B1 /* CleverFitViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		82BAF4D21E45F2BA000B5C00 /* Core */ = {
@@ -493,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8263C5F41D8892C50090F0B1 /* Images.xcassets in Resources */,
+				82BA73E41E4E706700C8C1A4 /* Localizable.strings in Resources */,
 				8263C5F11D8892C50090F0B1 /* LaunchScreen.xib in Resources */,
 				8263C5F21D8892C50090F0B1 /* Main.storyboard in Resources */,
 			);
@@ -541,6 +580,7 @@
 				8238A71E1E454CBC004CDBF9 /* WorkoutRoutine.swift in Sources */,
 				82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */,
 				8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */,
+				82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */,
 				8263C5F61D8892C50090F0B1 /* LeftMenuViewController.swift in Sources */,
 				8238A7281E456B98004CDBF9 /* User.swift in Sources */,
 				8218D8A51D8B64AB003055DA /* ResumeExerciseCell.swift in Sources */,

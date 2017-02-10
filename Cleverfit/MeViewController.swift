@@ -18,7 +18,7 @@ class MeViewController: CleverFitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Yo"
+        self.title = "EXERCISE_VIEW_TITLE".localized
     }
     
 }

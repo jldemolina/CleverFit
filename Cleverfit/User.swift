@@ -16,7 +16,7 @@ class User: Object {
     dynamic var height = 0
     dynamic var maxRoutineDurationInSeconds = 0
     dynamic var birthDate = NSDate();
-    private dynamic var objective = UserObjective.slimDown.rawValue
+    private dynamic var objective = UserObjective.loseWeight.rawValue
     private dynamic var experience = UserExperience.low.rawValue
     private dynamic var alertsPreference = UserAlertsPreference.notifyMe.rawValue
     var objectiveFeedback: UserObjective {
@@ -46,17 +46,17 @@ class User: Object {
 }
 
 enum UserObjective: String {
-    case slimDown
-    case loseWeight
+    case loseWeight = "USER_OBJECTIVE_LOSE_WEIGHT"
+    case maintenanceWeight = "USER_OBJECTIVE_MAINTENANCE"
 }
 
 enum UserExperience: String {
-    case low
-    case half
-    case high
+    case low = "USER_EXPERIENCE_NEW"
+    case half = "USER_EXPERIENCE_HALF"
+    case hard = "USER_EXPERIENCE_HIGH"
 }
 
 enum UserAlertsPreference: String {
-    case doNotNotifyMe
-    case notifyMe
+    case doNotNotifyMe = "USER_ALERT_NOT_NOTIFY"
+    case notifyMe = "USER_ALERT_NOTIFY"
 }

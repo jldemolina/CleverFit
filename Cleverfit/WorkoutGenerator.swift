@@ -33,12 +33,18 @@ class WorkoutGenerator {
     }
     
     private func generateRoutineForUserWithoutHistory(currentRoutine: WorkoutRoutine) -> WorkoutRoutine {
-        let totalExercises = numberOfExercises()
+        var currentExercisesInRoutine = 0;
+        while (currentExercisesInRoutine != totalNumberOfExercises()) {
+            
+        }
         return currentRoutine
     }
     
     private func generateRoutineForUser(currentRoutine: WorkoutRoutine) -> WorkoutRoutine {
-        
+        var currentExercisesInRoutine = 0;
+        while (currentExercisesInRoutine != totalNumberOfExercises()) {
+            
+        }
         return currentRoutine
     }
     
@@ -83,7 +89,7 @@ class WorkoutGenerator {
         return searchExercises
     }
     
-    private func numberOfExercises() -> Int {
+    private func totalNumberOfExercises() -> Int {
         return (user.objectiveFeedback == UserObjective.loseWeight) ? 20 : 0
     }
     

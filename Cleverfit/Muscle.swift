@@ -23,11 +23,11 @@ final class Muscle: Object {
 }
 
 enum MuscleName: String {
-    case biceps
-    case triceps
-    case forearm
-    case back
-    case chest
-    case abdominals
-    case quadriceps
+    case biceps = "MUSCLE_BICEPS"
+    case triceps = "MUSCLE_TRICEPS"
+    case forearm = "MUSCLE_FOREARMS"
+    case back = "MUSCLE_BACK"
+    case chest = "MUSCLE_CHEST"
+    case abdominals = "MUSCLE_ABDOMINALS"
+    case quadriceps = "MUSCLE_QUADRICEPS"
 }

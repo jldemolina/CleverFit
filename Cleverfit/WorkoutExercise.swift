@@ -13,7 +13,7 @@ class WorkoutExercise: Object {
     dynamic var id = ""
     dynamic var exercise: Exercise? = nil
     dynamic var durationInSeconds = 0
-    private dynamic var feedback = WorkoutExerciseFeedback.normal.rawValue
+    private dynamic var feedback = WorkoutExerciseFeedback.well.rawValue
     var workoutExerciseFeedback: WorkoutExerciseFeedback {
         get {
             return WorkoutExerciseFeedback(rawValue: feedback)!
@@ -25,7 +25,6 @@ class WorkoutExercise: Object {
 }
 
 enum WorkoutExerciseFeedback: String {
-    case bad
-    case normal
-    case good
+    case bad = "EXERCISE_FEEDBACK_BAD"
+    case well = "EXERCISE_FEEDBACK_WELL"
 }

@@ -13,13 +13,13 @@ class SettingsViewController: CleverFitFormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Ajustes"
+        self.title = "SETTINGS_VIEW_TITLE".localized
         
-        self.configureFormWithParams(name: "Test", weight: 65.0, height: 67.0, date: NSDate(), objective: "", alerta: "")
+        loadData()
     }
     
     func configureFormWithParams(name: String, weight: Float, height: Float, date: NSDate, objective: String, alerta: String) {
-        let form = XLFormDescriptor(title: "Settings") as XLFormDescriptor
+        let form = XLFormDescriptor(title: SettingsViewControllerConstants.settingsTag) as XLFormDescriptor
         
         addBasicInformationSection(to: form, with: name, weight: weight, height: height, date: date)
         addTrainingConfigurationSection(to: form)
@@ -30,7 +30,7 @@ class SettingsViewController: CleverFitFormViewController {
     func addBasicInformationSection(to form: XLFormDescriptor, with name: String, weight: Float, height: Float, date: NSDate) {
         var section : XLFormSectionDescriptor
         
-        section = XLFormSectionDescriptor.formSection(withTitle: "INFORMACIÓN BÁSICA") as XLFormSectionDescriptor
+        section = XLFormSectionDescriptor.formSection(withTitle: "BASIC_INFORMATION_SECTION_TITLE".localized) as XLFormSectionDescriptor
         form.addFormSection(section)
         
         addDateDescriptor(to: section, with: date)
@@ -45,42 +45,40 @@ class SettingsViewController: CleverFitFormViewController {
     func addTrainingConfigurationSection(to form: XLFormDescriptor) {
         var section : XLFormSectionDescriptor
         
-        section = XLFormSectionDescriptor.formSection(withTitle: "Configuración de entrenamiento") as XLFormSectionDescriptor
+        section = XLFormSectionDescriptor.formSection(withTitle: "WORKOUT_CONFIGURATION_SECTION_TITLE".localized) as XLFormSectionDescriptor
         form.addFormSection(section)
         
         self.addObjectiveDescriptor(to: section)
         self.addExperienceDescriptor(to: section)
         self.addAlertDescriptor(to: section)
-        
     }
     
     // TODO VALUE
     func addAlertDescriptor(to section: XLFormSectionDescriptor) {
         var row : XLFormRowDescriptor
         
-        row = XLFormRowDescriptor(tag: "alert", rowType:XLFormRowDescriptorTypeSelectorPush, title:"Alerta")
-        row.value = XLFormOptionsObject(value: 0, displayText: "No me notifiques")
+        row = XLFormRowDescriptor(tag: SettingsViewControllerConstants.alertTag, rowType:XLFormRowDescriptorTypeSelectorPush, title:"ALERT_DESCRIPTOR_TITLE".localized)
+        // row.value = XLFormOptionsObject(value: UserAlertsPreference.doNotNotifyMe, displayText: "No me notifiques")
         row.selectorOptions = [
-            XLFormOptionsObject(value: 0, displayText: "No me notifiques"),
-            XLFormOptionsObject(value: 1, displayText: "Justo en el momento"),
-            XLFormOptionsObject(value: 2, displayText: "5 minutos antes"),
-            XLFormOptionsObject(value: 3, displayText: "15 minutos antes"),
-            XLFormOptionsObject(value: 4, displayText: "30 minutos antes"),
-            XLFormOptionsObject(value: 5, displayText: "1 hora antes"),
-            XLFormOptionsObject(value: 6, displayText: "2 horas antes"),
-            XLFormOptionsObject(value: 7, displayText: "1 día antes"),
-            XLFormOptionsObject(value: 8, displayText: "2 días antes")]
+            XLFormOptionsObject(value: UserAlertsPreference.doNotNotifyMe,
+                                displayText: UserAlertsPreference.doNotNotifyMe.rawValue.localized),
+            XLFormOptionsObject(value: UserAlertsPreference.notifyMe,
+                                displayText: UserAlertsPreference.notifyMe.rawValue.localized)]
         section.addFormRow(row)
     }
     
     func addExperienceDescriptor(to section: XLFormSectionDescriptor) {
         var row : XLFormRowDescriptor
         
-        row = XLFormRowDescriptor(tag: "experience", rowType:XLFormRowDescriptorTypeSelectorPush, title:"Experiencia")
-        row.value = XLFormOptionsObject(value: 0, displayText: "Nuevo")
+        row = XLFormRowDescriptor(tag: SettingsViewControllerConstants.experienceTag, rowType:XLFormRowDescriptorTypeSelectorPush, title:"EXPERIENCE_DESCRIPTOR_TITLE".localized)
+        // row.value = XLFormOptionsObject(value: UserExperience.low, displayText: "Nuevo")
         row.selectorOptions = [
-            XLFormOptionsObject(value: 0, displayText: "Intermedio"),
-            XLFormOptionsObject(value: 1, displayText: "Avanzado")]
+            XLFormOptionsObject(value: UserExperience.low,
+                                displayText: UserExperience.low.rawValue.localized),
+            XLFormOptionsObject(value: UserExperience.half,
+                                displayText: UserExperience.half.rawValue.localized),
+            XLFormOptionsObject(value: UserExperience.hard,
+                                displayText: UserExperience.hard.rawValue.localized)]
         section.addFormRow(row)
     }
     
@@ -88,17 +86,19 @@ class SettingsViewController: CleverFitFormViewController {
     func addObjectiveDescriptor(to section: XLFormSectionDescriptor) {
         var row : XLFormRowDescriptor
         
-        row = XLFormRowDescriptor(tag: "objective", rowType:XLFormRowDescriptorTypeSelectorPush, title:"Objetivo")
-        row.value = XLFormOptionsObject(value: 0, displayText: "Bajar de peso")
-        row.selectorOptions = [XLFormOptionsObject(value: 0, displayText: "Bajar de peso"),
-                               XLFormOptionsObject(value: 1, displayText: "Mantener peso actual")]
+        row = XLFormRowDescriptor(tag: SettingsViewControllerConstants.objectiveTag, rowType:XLFormRowDescriptorTypeSelectorPush, title:"OBJECTIVE_DESCRIPTOR_TITLE".localized)
+        // row.value = XLFormOptionsObject(value: UserObjective.loseWeight, displayText: "Bajar de peso")
+        row.selectorOptions = [XLFormOptionsObject(value: UserObjective.loseWeight,
+                                                   displayText: UserObjective.loseWeight.rawValue.localized),
+                               XLFormOptionsObject(value: UserObjective.maintenanceWeight,
+                                                   displayText: UserObjective.maintenanceWeight.rawValue.localized)]
         section.addFormRow(row)
     }
     
     func addDateDescriptor(to section: XLFormSectionDescriptor, with value: NSDate) {
         var row : XLFormRowDescriptor
         
-        row = XLFormRowDescriptor(tag: "", rowType: XLFormRowDescriptorTypeDateInline, title:"Fecha de nacimiento")
+        row = XLFormRowDescriptor(tag: SettingsViewControllerConstants.birthdateTag, rowType: XLFormRowDescriptorTypeDateInline, title:"BIRTHDATE_DESCRIPTOR_TITLE".localized)
         row.value = value
         section.addFormRow(row)
     }
@@ -106,7 +106,7 @@ class SettingsViewController: CleverFitFormViewController {
     func addNameDescriptor(to section: XLFormSectionDescriptor, with value: String) {
         var row : XLFormRowDescriptor
         
-        row = XLFormRowDescriptor(tag: "name", rowType: XLFormRowDescriptorTypeName, title: "Nombre")
+        row = XLFormRowDescriptor(tag: SettingsViewControllerConstants.nameTag, rowType: XLFormRowDescriptorTypeName, title: "NAME_DESCRIPTOR_TITLE".localized)
         row.value = value
         section.addFormRow(row)
     }
@@ -114,7 +114,7 @@ class SettingsViewController: CleverFitFormViewController {
     func addWeightDescriptor(to section: XLFormSectionDescriptor, with value: Float) {
         var row : XLFormRowDescriptor
         
-        row = XLFormRowDescriptor(tag: "weight", rowType: XLFormRowDescriptorTypeDecimal, title: "Peso")
+        row = XLFormRowDescriptor(tag: SettingsViewControllerConstants.weightTag, rowType: XLFormRowDescriptorTypeDecimal, title: "WEIGHT_DESCRIPTOR_TITLE".localized)
         row.value = value
         section.addFormRow(row)
     }
@@ -122,10 +122,31 @@ class SettingsViewController: CleverFitFormViewController {
     func addHeightDescriptor(to section: XLFormSectionDescriptor, with value: Float) {
         var row : XLFormRowDescriptor
         
-        row = XLFormRowDescriptor(tag: "height", rowType: XLFormRowDescriptorTypeDecimal, title: "Altura")
+        row = XLFormRowDescriptor(tag: SettingsViewControllerConstants.heightTag, rowType: XLFormRowDescriptorTypeDecimal, title: "HEIGHT_DESCRIPTOR_TITLE".localized)
         row.value = value
         section.addFormRow(row)
     }
     
+    func loadData() {
+        let user : User? = DatabaseManager.sharedInstance.load()
+        if user != nil {
+            self.configureFormWithParams(name: user!.name, weight: Float(user!.weight), height: Float(user!.height), date: user!.birthDate, objective: user!.objectiveFeedback.rawValue, alerta: user!.userAlertsPreference.rawValue)
+        } else {
+            self.configureFormWithParams(name: "", weight: 65.0, height: 67.0, date: NSDate(), objective: "", alerta: "")
+        }
+    }
+    
+}
+
+fileprivate struct SettingsViewControllerConstants {
+    static let settingsTag = "settings"
+    static let alertTag = "alert"
+    static let experienceTag = "experience"
+    static let objectiveTag = "objective"
+    static let heightTag = "height"
+    static let weightTag = "weight"
+    static let nameTag = "name"
+    static let birthdateTag = "birthdate"
+
     
 }

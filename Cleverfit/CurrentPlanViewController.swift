@@ -24,7 +24,7 @@ class CurrentPlanViewController: CleverFitViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Plan actual"
+        self.title = "CURRENT_PLAN_VIEW_TITLE".localized
         self.exercisesTableView.delegate = self
         self.exercisesTableView.dataSource = self
     }

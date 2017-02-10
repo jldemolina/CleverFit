@@ -26,7 +26,7 @@ final class Exercise: Object {
 }
 
 enum ExerciseDifficulty: String {
-    case low
-    case medium
-    case hard
+    case low = "EXERCISE_DIFFICULTY_LOW"
+    case medium = "EXERCISE_DIFFICULTY_HALF"
+    case hard = "EXERCISE_DIFFICULTY_HIGH"
 }

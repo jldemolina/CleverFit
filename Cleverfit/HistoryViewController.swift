@@ -13,7 +13,7 @@ class HistoryViewController: CleverFitViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Historial"
+        self.title = "HISTORY_VIEW_TITLE".localized
         self.workoutsTableView.delegate = self
         self.workoutsTableView.dataSource = self
     }
