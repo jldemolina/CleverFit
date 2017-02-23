@@ -30,4 +30,23 @@ enum MuscleName: String {
     case chest = "MUSCLE_CHEST"
     case abdominals = "MUSCLE_ABDOMINALS"
     case quadriceps = "MUSCLE_QUADRICEPS"
+    
+    static func from(muscleName: String) ->MuscleName {
+        switch muscleName {
+        case MuscleName.biceps.rawValue:
+            return .biceps
+        case MuscleName.triceps.rawValue:
+            return .triceps
+        case MuscleName.forearm.rawValue:
+            return .forearm
+        case MuscleName.back.rawValue:
+            return .back
+        case MuscleName.chest.rawValue:
+            return .chest
+        case MuscleName.abdominals.rawValue:
+            return .abdominals
+        default:
+            return .quadriceps
+        }
+    }
 }

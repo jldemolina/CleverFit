@@ -48,15 +48,44 @@ class User: Object {
 enum UserObjective: String {
     case loseWeight = "USER_OBJECTIVE_LOSE_WEIGHT"
     case maintenanceWeight = "USER_OBJECTIVE_MAINTENANCE"
+    
+    static func from(userObjectiveName: String) ->UserObjective {
+        switch userObjectiveName {
+        case UserObjective.loseWeight.rawValue:
+            return .loseWeight
+        default:
+            return .maintenanceWeight
+        }
+    }
 }
 
 enum UserExperience: String {
     case low = "USER_EXPERIENCE_NEW"
     case half = "USER_EXPERIENCE_HALF"
     case hard = "USER_EXPERIENCE_HIGH"
+    
+    static func from(userExperience: String) ->UserExperience {
+        switch userExperience {
+        case UserExperience.low.rawValue:
+            return .low
+        case UserExperience.half.rawValue:
+            return .half
+        default:
+            return .hard
+        }
+    }
 }
 
 enum UserAlertsPreference: String {
     case doNotNotifyMe = "USER_ALERT_NOT_NOTIFY"
     case notifyMe = "USER_ALERT_NOTIFY"
+    
+    static func from(userAlertsPreference: String) ->UserAlertsPreference {
+        switch userAlertsPreference {
+        case UserAlertsPreference.doNotNotifyMe.rawValue:
+            return .doNotNotifyMe
+        default:
+            return .notifyMe
+        }
+    }
 }

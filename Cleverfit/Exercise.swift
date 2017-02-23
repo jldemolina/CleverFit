@@ -29,4 +29,16 @@ enum ExerciseDifficulty: String {
     case low = "EXERCISE_DIFFICULTY_LOW"
     case medium = "EXERCISE_DIFFICULTY_HALF"
     case hard = "EXERCISE_DIFFICULTY_HIGH"
+    
+    static func from(difficultyName: String) ->ExerciseDifficulty {
+        switch difficultyName {
+        case ExerciseDifficulty.hard.rawValue:
+            return .hard
+        case ExerciseDifficulty.medium.rawValue:
+            return .medium
+        default:
+            return .low
+        }
+    }
+
 }

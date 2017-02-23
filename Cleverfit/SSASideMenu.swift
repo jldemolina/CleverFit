@@ -29,13 +29,11 @@ extension UIViewController {
     }
     
     @IBAction func presentLeftMenuViewController() {
-        
         sideMenuViewController?._presentLeftMenuViewController()
         
     }
     
     @IBAction func presentRightMenuViewController() {
-        
         sideMenuViewController?._presentRightMenuViewController()
     }
 }

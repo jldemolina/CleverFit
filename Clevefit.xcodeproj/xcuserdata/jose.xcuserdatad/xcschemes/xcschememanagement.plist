@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SSASideMenuStoryboardExample.xcscheme</key>
+		<key>Clevefit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -23,11 +23,6 @@
 			<true/>
 		</dict>
 		<key>DC00C7621ACC65CD00BB4A99</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DC00C7771ACC65CD00BB4A99</key>
 		<dict>
 			<key>primary</key>
 			<true/>

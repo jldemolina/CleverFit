@@ -31,9 +31,8 @@ class LeftMenuViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

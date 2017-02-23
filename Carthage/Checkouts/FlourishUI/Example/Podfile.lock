@@ -1,0 +1,16 @@
+PODS:
+  - FlourishUI (2.1.0)
+
+DEPENDENCIES:
+  - FlourishUI (from `../`)
+
+EXTERNAL SOURCES:
+  FlourishUI:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FlourishUI: 9d56121c62a7c3ce01f6fbda138bc90c587fac68
+
+PODFILE CHECKSUM: 6fbd03e488f2de527fc12b5f60ee4778ffb0927c
+
+COCOAPODS: 1.0.0.beta.2
