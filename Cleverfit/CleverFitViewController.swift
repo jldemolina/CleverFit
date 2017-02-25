@@ -10,14 +10,19 @@ import UIKit
 
 class CleverFitViewController: UIViewController {
     
-    override func viewDidLoad() {
-        super.viewDidLoad();
-        
-        self.configureNavigationBar()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureNavigationBarForRootView()
     }
     
-    func configureNavigationBar() {
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Menú", style: .plain, target: self, action: #selector(SSASideMenu.presentLeftMenuViewController))
+    override func viewDidLoad() {
+        super.viewDidLoad();
     }
+    
+    func configureNavigationBarForRootView() {
+        navigationItem.setHidesBackButton(true, animated: false);
+    }
+    
+    
     
 }

@@ -13,26 +13,30 @@ final class MainNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeView()
+    }
+    
+    func initializeView() {
         if let _ : User = DatabaseManager.sharedInstance.load() {
-            pushMeViewController()
+            pushMainTabbarViewController()
         } else {
             pushRegisterViewController()
         }
     }
-    
-    func pushMeViewController() {
-        pushCleverFitViewController(viewControllerToOpen: CleverFitParams.ViewController.meViewController)
+
+    func pushMainTabbarViewController() {
+        pushCleverFitViewController(viewControllerToOpen: CleverFitParams.ViewController.mainTabbarController)
+        
     }
     
     func pushRegisterViewController() {
         pushCleverFitViewController(viewControllerToOpen: CleverFitParams.ViewController.registerUserViewController)
     }
-}
-
-extension MainNavigationController {
-    func pushCleverFitViewController(viewControllerToOpen: CleverFitParams.ViewController) {
+    
+    private func pushCleverFitViewController(viewControllerToOpen: CleverFitParams.ViewController) {
         let storyboard = UIStoryboard(name: CleverFitParams.storyboardName, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: viewControllerToOpen.rawValue)
         self.pushViewController(controller, animated: true)
     }
+    
 }

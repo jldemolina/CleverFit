@@ -9,35 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Side Menu-->
-        <scene sceneID="ufC-wZ-h7g">
-            <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SSASideMenu" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" restorationIdentifier="mainMenuController" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="contentViewStoryboardID" value="FirstViewController"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="leftMenuViewStoryboardID" value="LeftMenuViewController"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="scaleBackgroundImageView" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="scaleMenuView" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="fadeMenuView" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="rightMenuViewStoryboardID" value="RightMenuViewController"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="parallaxEnabled" value="YES"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="bouncesHorizontally" value="YES"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="backgroundImage" value="Background"/>
-                        <userDefinedRuntimeAttribute type="size" keyPath="contentViewShadowOffset">
-                            <size key="value" width="0.0" height="0.0"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-514" y="-589"/>
-        </scene>
-        <!--Me View Controller-->
+        <!--Item-->
         <scene sceneID="9za-2d-hzg">
             <objects>
                 <viewController storyboardIdentifier="meViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7vD-ZI-s7S" customClass="MeViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,6 +119,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1914929152" green="0.21139010790000001" blue="0.23636779190000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="0LH-Ac-NEY"/>
                     <navigationItem key="navigationItem" id="z7q-f2-8Xt"/>
                     <connections>
                         <outlet property="minutesLabel" destination="KdJ-gR-9vT" id="e4z-mi-BH2"/>
@@ -159,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oug-Uq-J3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-19" y="264"/>
+            <point key="canvasLocation" x="-36" y="264"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="sSX-fu-EDx">
@@ -173,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T2f-Sj-QgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-515" y="-1418"/>
+            <point key="canvasLocation" x="-1063" y="-1388"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="JdY-FP-eYs">
@@ -191,7 +164,27 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBZ-dd-4TM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-18.125" y="-588.0716666666666"/>
+            <point key="canvasLocation" x="-583" y="-814"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="aUz-4X-O5l">
+            <objects>
+                <tabBarController storyboardIdentifier="mainTabbarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="LYW-EA-5vM" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Jdi-p3-ff8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7vD-ZI-s7S" kind="relationship" relationship="viewControllers" id="k4v-kN-tPl"/>
+                        <segue destination="wFR-6R-NcD" kind="relationship" relationship="viewControllers" id="5sl-Bh-xGV"/>
+                        <segue destination="TpP-1o-lMj" kind="relationship" relationship="viewControllers" id="Aj5-7B-1w9"/>
+                        <segue destination="RN9-fi-UsF" kind="relationship" relationship="viewControllers" id="hWP-Pa-pTo"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvs-ef-zGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-37" y="-813"/>
         </scene>
         <!--Right Menu View Controller-->
         <scene sceneID="QIS-tf-shj">
@@ -205,9 +198,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dXv-BH-M6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-19.375" y="-1417.3750000000002"/>
+            <point key="canvasLocation" x="-584" y="-1612"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Item-->
         <scene sceneID="gqF-62-WjG">
             <objects>
                 <viewController storyboardIdentifier="settingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wFR-6R-NcD" customClass="SettingsViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
@@ -216,13 +209,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="nWG-LF-pa5"/>
                     <navigationItem key="navigationItem" id="WPf-nJ-tdh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMt-Q4-puZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="395" y="264"/>
         </scene>
-        <!--History View Controller-->
+        <!--Item-->
         <scene sceneID="GyN-OB-l5r">
             <objects>
                 <viewController storyboardIdentifier="historyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TpP-1o-lMj" customClass="HistoryViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
@@ -270,6 +264,7 @@
                             </tableView>
                         </subviews>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="s8G-R5-pGT"/>
                     <navigationItem key="navigationItem" id="u7e-FT-NDG"/>
                     <connections>
                         <outlet property="workoutsTableView" destination="moG-OB-dhP" id="ybL-6n-z9v"/>
@@ -279,7 +274,7 @@
             </objects>
             <point key="canvasLocation" x="822" y="264"/>
         </scene>
-        <!--Current Plan View Controller-->
+        <!--Item-->
         <scene sceneID="cWt-n2-c2N">
             <objects>
                 <viewController storyboardIdentifier="currentPlanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RN9-fi-UsF" customClass="CurrentPlanViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
@@ -373,6 +368,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="psa-5c-6KB"/>
                     <navigationItem key="navigationItem" id="132-Mv-19D"/>
                     <connections>
                         <outlet property="exercisesTableView" destination="M7H-DA-YNM" id="5je-az-vK0"/>
@@ -641,7 +637,7 @@
         <!--RegisterUserViewController-->
         <scene sceneID="20f-x7-7fY">
             <objects>
-                <viewController storyboardIdentifier="registerUserViewController" title="RegisterUserViewController" nibName="registerUserView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3B3-KH-J7Z" customClass="RegisterUserViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerUserViewController" title="RegisterUserViewController" nibName="registerUserView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3B3-KH-J7Z" customClass="RegisterViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kZx-LG-ekY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

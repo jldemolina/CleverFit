@@ -147,6 +147,4 @@ fileprivate struct SettingsViewControllerConstants {
     static let weightTag = "weight"
     static let nameTag = "name"
     static let birthdateTag = "birthdate"
-
-    
 }

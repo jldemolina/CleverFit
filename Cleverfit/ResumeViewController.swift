@@ -10,20 +10,11 @@ import UIKit
 class ResumeViewController: UIViewController {
     @IBOutlet weak var exercisesTableView: UITableView!
     
-    @IBAction func closeModal(_ sender: AnyObject) {
-        sideMenuViewController?.contentViewController = UINavigationController(rootViewController: self.storyboard!.instantiateViewController(withIdentifier: "historyViewController") as UIViewController)
-    }
-    
-    
-    
     override func viewDidLoad() {
         self.exercisesTableView.delegate = self
         self.exercisesTableView.dataSource = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        //self.navigationController?.isNavigationBarHidden = false
-    }
 }
 
 extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -38,12 +29,6 @@ extension ResumeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.exerciseTimeLabel.text = "0 segundos"
         cell.exerciseIndexLabel.text = "\(indexPath.row + 1)"
         return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "WebSegue", sender: indexPath)
-        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }

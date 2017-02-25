@@ -22,6 +22,7 @@ final class CleverFitParams {
         case generateWorkoutViewController
         case registerUserViewController
         case settingsViewController
+        case mainTabbarController
         case mainNavigationController
         case registerNavigationController
     }
