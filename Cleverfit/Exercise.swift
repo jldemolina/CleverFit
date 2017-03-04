@@ -13,7 +13,6 @@ final class Exercise: Object {
     dynamic var id = ""
     dynamic var name = ""
     dynamic var information = ""
-    let affectedMuscles = List<Muscle>()
     private dynamic var difficulty = ExerciseDifficulty.medium.rawValue
     var exerciseDifficulty: ExerciseDifficulty {
         get {
@@ -23,6 +22,7 @@ final class Exercise: Object {
             difficulty = newValue.rawValue
         }
     }
+    let affectedMuscles = List<Muscle>()
 }
 
 enum ExerciseDifficulty: String {

@@ -1,3 +1,4 @@
 github "xmartlabs/XLForm"
 github "realm/realm-cocoa.git"
-github "thinkclay/FlourishUI"
+github "xmartlabs/XLPagerTabStrip" ~> 7.0
+

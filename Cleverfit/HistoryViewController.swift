@@ -14,8 +14,11 @@ class HistoryViewController: CleverFitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "HISTORY_VIEW_TITLE".localized
-        self.workoutsTableView.delegate = self
-        self.workoutsTableView.dataSource = self
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
 }
@@ -38,5 +41,4 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         //performSegue(withIdentifier: "WebSegue", sender: indexPath)
         //tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
-    
 }

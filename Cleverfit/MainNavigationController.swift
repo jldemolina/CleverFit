@@ -13,30 +13,18 @@ final class MainNavigationController: UINavigationController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        initializeView()
+        configureNavigationBar()
     }
     
-    func initializeView() {
-        if let _ : User = DatabaseManager.sharedInstance.load() {
-            pushMainTabbarViewController()
-        } else {
-            pushRegisterViewController()
-        }
-    }
-
-    func pushMainTabbarViewController() {
-        pushCleverFitViewController(viewControllerToOpen: CleverFitParams.ViewController.mainTabbarController)
-        
-    }
-    
-    func pushRegisterViewController() {
-        pushCleverFitViewController(viewControllerToOpen: CleverFitParams.ViewController.registerUserViewController)
+    private func configureNavigationBar() {
+        self.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationBar.shadowImage = UIImage()
     }
     
     private func pushCleverFitViewController(viewControllerToOpen: CleverFitParams.ViewController) {
         let storyboard = UIStoryboard(name: CleverFitParams.storyboardName, bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: viewControllerToOpen.rawValue)
-        self.pushViewController(controller, animated: true)
+        self.present(controller, animated: true)
     }
     
 }

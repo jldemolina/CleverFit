@@ -76,7 +76,7 @@ class RegisterViewController: CleverFitFormViewController {
     func validateForm(_ buttonItem: UIBarButtonItem) {
         if (formValidationErrors().isEmpty) {
             if (addUser()) {
-                (navigationController as! MainNavigationController).pushMainTabbarViewController()
+                present(MainNavigationController(), animated: true, completion: nil)
             }
         } else {
             showFormErrors()

@@ -9,17 +9,10 @@
 import UIKit
 
 class MeViewController: CleverFitViewController {
-    @IBOutlet weak var weightLabel: UILabel!
-    @IBOutlet weak var weightProgressView: KDCircularProgress!
-    @IBOutlet weak var minutesLabel: UILabel!
-    @IBOutlet weak var minutesProgressView: KDCircularProgress!
-    @IBOutlet weak var muscularMassLabel: UILabel!
-    @IBOutlet weak var muscularMassProgressView: KDCircularProgress!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "EXERCISE_VIEW_TITLE".localized
+        self.title = "ME_VIEW_TITLE".localized
     }
-    
-}
 
+}

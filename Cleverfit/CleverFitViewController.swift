@@ -23,6 +23,4 @@ class CleverFitViewController: UIViewController {
         navigationItem.setHidesBackButton(true, animated: false);
     }
     
-    
-    
 }
