@@ -9,18 +9,18 @@
 import UIKit
 
 class CleverFitViewController: UIViewController {
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBarForRootView()
     }
-    
+
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
     }
-    
+
     func configureNavigationBarForRootView() {
-        navigationItem.setHidesBackButton(true, animated: false);
+        navigationItem.setHidesBackButton(true, animated: false)
     }
-    
+
 }

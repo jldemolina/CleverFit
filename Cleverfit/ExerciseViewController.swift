@@ -11,9 +11,9 @@ import UIKit
 class ExerciseViewController: UIViewController {
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var exerciseDescriptionLabel: UILabel!
-    
+
     @IBAction func closeModal(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: {});
+        self.dismiss(animated: true, completion: {})
     }
 
 }

@@ -7,90 +7,276 @@
 //
 
 import Foundation
+import RealmSwift
 
 class WorkoutGenerator {
     private let user: User
-    private let userRoutines: [WorkoutRoutine]
     private let exercises: [Exercise]
-    
-    init(currentUserRoutines: [WorkoutRoutine]?, forUser: User, andExercises: [Exercise]) {
+
+    init(forUser: User, andExercises: [Exercise]) {
         user = forUser
         exercises = andExercises
-        if currentUserRoutines != nil {
-            userRoutines = currentUserRoutines!
-        } else {
-            userRoutines = [WorkoutRoutine]()
-        }
     }
-    
+
+    // TODO CALCULATE EXERCISE INTENSITY
     func generateRoutine() -> WorkoutRoutine {
-        let currentRoutine = WorkoutRoutine()
-        if userRoutines.isEmpty {
-            return generateRoutineForUserWithoutHistory(currentRoutine: currentRoutine)
-        } else {
-            return generateRoutineForUser(currentRoutine: currentRoutine)
+        let workoutRoutine = WorkoutRoutine()
+        workoutRoutine.startDate = NSDate()
+        
+        let exerciseTree = ExererciseTree(exercises: exercises, for: user)
+        exerciseTree.generateTree()
+        if let generatedExercises = exerciseTree.branchWithHigherHeuristicValue {
+            for generatedExercise in generatedExercises {
+                let workoutExercise = WorkoutExercise()
+                workoutExercise.durationInSeconds = 30
+                workoutExercise.exercise = generatedExercise
+                workoutRoutine.workoutExercises.append(workoutExercise)
+            }
         }
+
+        return workoutRoutine
     }
-    
-    private func generateRoutineForUserWithoutHistory(currentRoutine: WorkoutRoutine) -> WorkoutRoutine {
-        var currentExercisesInRoutine = 0;
-        while (currentExercisesInRoutine != totalNumberOfExercises()) {
-            
-        }
-        return currentRoutine
+
+
+    private func totalNumberOfExercises() -> Int {
+        return (user.objectiveFeedback == UserObjective.loseWeight) ? 20 : 20
     }
+
+}
+
+class ExererciseTree {
+    private var treeRoot: [ExerciseTreeNode]
+    private let exercises: [Exercise]
+    private let user: User
     
-    private func generateRoutineForUser(currentRoutine: WorkoutRoutine) -> WorkoutRoutine {
-        var currentExercisesInRoutine = 0;
-        while (currentExercisesInRoutine != totalNumberOfExercises()) {
-            
-        }
-        return currentRoutine
-    }
-    
-    private func lowPriorityExercises() -> [Exercise] {
-        var exercises = [Exercise]()
-        for routine in userRoutines {
-            for workoutExercise in Array(routine.workoutExercises) {
-                if workoutExercise.workoutExerciseFeedback == WorkoutExerciseFeedback.bad {
-                    if workoutExercise.exercise != nil {
-                        exercises.append(workoutExercise.exercise!)
+    var branchWithHigherHeuristicValue: [Exercise]? {
+        get {
+            var exercises = [Exercise]()
+            if var currentNode = getRootNodeWithHighestHeuristic() {
+                while (!currentNode.children.isEmpty) {
+                    exercises.append(currentNode.value)
+                    if currentNode.childWithHighestHeuristic != nil {
+                        currentNode = currentNode.childWithHighestHeuristic!
+                    } else {
+                        break
                     }
                 }
             }
+            return exercises
         }
-        return exercises
     }
     
-    private func filterExercises(forList: [Exercise], withMuscleWithName: MuscleName) -> [Exercise] {
-        var searchExercises = [Exercise]()
+    init(exercises: [Exercise], for user: User) {
+        self.exercises = exercises
+        self.user = user
+        self.treeRoot = [ExerciseTreeNode]()
+    }
+    
+    
+    public func generateTree() {
+        let permutations = Permutator.combinationsWithoutRepetitionFrom(elements: exercises, taking: exercises.count)
         
-        for exercise in forList {
-            for muscle in exercise.affectedMuscles {
-                if muscle.name == withMuscleWithName {
-                    searchExercises.append(exercise)
-                    break;
+        initRoot(with: permutations)
+        generateChildren(for: treeRoot, with: 0, permutations: permutations)
+
+    }
+    
+    private func generateChildren(for nodes: [ExerciseTreeNode], with level: Int, permutations: [[Exercise]]) {
+        for node in nodes {
+            for currentColumn in 0...permutations.count {
+                var currentExerciseList = [Exercise]()
+                currentExerciseList.append(permutations[currentColumn][level])
+                if current(node: node, have:currentExerciseList) {
+                    add(exercise: permutations[currentColumn][level], to: node)
+                }
+            }
+            if !node.children.isEmpty {
+                generateChildren(for: node.children, with: level + 1, permutations: permutations)
+            }
+        }
+
+    }
+    
+    private func current(node: ExerciseTreeNode, have parentExercises: [Exercise])-> Bool {
+        if (node.parentsExercises.reversed() == parentExercises) {
+            return true
+        }
+        return false
+    }
+    
+    private func initRoot(with permutations: [[Exercise]]) {
+        for currentColumn in 0...permutations.count {
+            for depthLevel in 0...permutations[currentColumn].count {
+                if (depthLevel == 0) {
+                    addToRootIfNotExist(exercise: permutations[currentColumn][depthLevel])
                 }
             }
         }
-        
-        return searchExercises
     }
     
-    private func filterExercisesWithDifficulty(forList: [Exercise], withDifficulty: ExerciseDifficulty) -> [Exercise] {
-        var searchExercises = [Exercise]()
-        
-        for exercise in forList {
-            if exercise.exerciseDifficulty == withDifficulty {
-                searchExercises.append(exercise)
+    private func add(exercise: Exercise, to node: ExerciseTreeNode) {
+        node.add(child: ExerciseTreeNode(value: exercise, for: user, with: node))
+    }
+ 
+    private func addToRootIfNotExist(exercise: Exercise) {
+        for node in treeRoot {
+            if node.value.name == exercise.name {
+                return
             }
         }
-        
-        return searchExercises
+        treeRoot.append(ExerciseTreeNode(value: exercise, for: user, with: nil))
     }
     
-    private func totalNumberOfExercises() -> Int {
-        return (user.objectiveFeedback == UserObjective.loseWeight) ? 20 : 0
+    private func getRootNodeWithHighestHeuristic()-> ExerciseTreeNode? {
+        if treeRoot.isEmpty {
+            return nil
+        }
+        
+        var highestChildren = treeRoot[0]
+        for child in treeRoot {
+            if child.heuristicValue > highestChildren.heuristicValue {
+                highestChildren = child
+            }
+        }
+        return highestChildren
+    }
+}
+
+class ExerciseTreeNode {
+    var value: Exercise
+    var user: User
+    var children: [ExerciseTreeNode] = []
+    var parent: ExerciseTreeNode?
+    var heuristicValue: Int {
+        get {
+            return calculateHeuristicValueForNode()
+        }
+    }
+    var parentsExercises: [Exercise] {
+        get {
+            var parentExercises = [Exercise]()
+            if parent == nil {
+                return parentExercises
+            }
+            
+            var parentToCheck : ExerciseTreeNode? = parent
+            while (parentToCheck != nil) {
+                parentExercises.append(parentToCheck!.value)
+                parentToCheck = parentToCheck!.parent
+            }
+            
+            return parentExercises
+        }
+    }
+    var childWithHighestHeuristic : ExerciseTreeNode? {
+        get {
+            if children.isEmpty {
+                return nil
+            }
+            var highestChildren = children[0]
+            for child in children {
+                if child.heuristicValue > highestChildren.heuristicValue {
+                    highestChildren = child
+                }
+            }
+            return highestChildren
+        }
+    }
+    
+    init(value: Exercise, for user: User, with parent: ExerciseTreeNode?) {
+        self.value = value
+        self.user = user
+        self.parent = parent
+    }
+    
+    func add(child: ExerciseTreeNode) {
+        children.append(child)
+        child.parent = self
+    }
+    
+    func add(children: [ExerciseTreeNode]) {
+        for child in children {
+            self.children.append(child)
+        }
+        
+    }
+    
+    public func calculateHeuristicValueForChildren()-> Int {
+        var total = 0
+        for exerciseTreeNode in children {
+            total += exerciseTreeNode.heuristicValue
+        }
+        return total
+    }
+    
+    private func calculateHeuristicValueForNode()-> Int {
+        return calculateExperienceValue() + calculateValueForRepetitiveExercise() - numberOfTimesTrainedInParent()
+    }
+    
+    private func calculateExperienceValue()-> Int {
+        if user.isNotExperimented() && value.isEasy() {
+            return 3
+        } else if user.isNotExperimented() && value.isNormal() {
+            return 2
+        }
+        
+        if user.isModeratelyExperimented() && value.isNormal() {
+            return 3
+        } else if user.isNotExperimented() && value.isEasy() {
+            return 2
+        }
+    
+        if (user.isExperimented() && value.isHard()) {
+            return 3
+        } else if user.isNotExperimented() && value.isNormal() {
+            return 2
+        }
+        
+        return 0
+    }
+    
+    private func calculateValueForRepetitiveExercise()-> Int {
+        if exerciseExistsInParent() {
+            return 0
+        }
+        return 3
+    }
+    
+    private func exerciseExistsInParent()-> Bool {
+        if parent == nil {
+            return false
+        }
+        
+        var parentToCheck : ExerciseTreeNode? = parent
+        while (parentToCheck != nil) {
+            if parentToCheck?.value.id == value.id {
+                return true
+            }
+            parentToCheck = parentToCheck?.parent
+        }
+        
+        return false
+    }
+    
+    private func numberOfTimesTrainedInParent()-> Int {
+        if parent == nil {
+            return 0
+        }
+        
+        var repetitions = 0
+        var parentToCheck = parent
+        while (parentToCheck != nil) {
+            for currentMuscle in value.affectedMuscles {
+                for parentMuscle in parentToCheck!.value.affectedMuscles {
+                    if currentMuscle.name == parentMuscle.name {
+                        repetitions += 1
+                    }
+                }
+            }
+            parentToCheck = parentToCheck?.parent
+        }
+        
+        return repetitions
     }
     
 }

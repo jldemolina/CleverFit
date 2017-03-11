@@ -22,15 +22,29 @@ final class Exercise: Object {
             difficulty = newValue.rawValue
         }
     }
-    let affectedMuscles = List<Muscle>()
+    var affectedMuscles = List<Muscle>()
+    
+    public func isEasy()-> Bool {
+        return exerciseDifficulty == ExerciseDifficulty.low
+    }
+    
+    public func isNormal()-> Bool {
+        return exerciseDifficulty == ExerciseDifficulty.medium
+    }
+    
+    public func isHard()-> Bool {
+        return exerciseDifficulty == ExerciseDifficulty.hard
+
+    }
+
 }
 
 enum ExerciseDifficulty: String {
     case low = "EXERCISE_DIFFICULTY_LOW"
     case medium = "EXERCISE_DIFFICULTY_HALF"
     case hard = "EXERCISE_DIFFICULTY_HIGH"
-    
-    static func from(difficultyName: String) ->ExerciseDifficulty {
+
+    static func from(difficultyName: String) -> ExerciseDifficulty {
         switch difficultyName {
         case ExerciseDifficulty.hard.rawValue:
             return .hard

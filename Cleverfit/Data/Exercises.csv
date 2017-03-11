@@ -1,3 +1,4 @@
+id,name,information,difficulty,affectedMuscles
 0;”Flexiones inchworm”;”Las flexiones inchworm o de gusano son un ejercicio donde, usando el peso corporal, imitaremos el movimiento de pliegue de un gusano”;”EXERCISE_DIFFICULTY_HALF”;”MUSCLE_CHEST”
 1;”Uppercut o ganchos de boxeo”;”El uppercut o gancho es una técnica de boxeo que consiste en dar un golpe cruzado.  De manera semejante, este ejercicio plantea dar un paso al frente, en tanto se da un golpe de gancho hacia arriba.”;”EXERCISE_DIFFICULTY_LOW”;”MUSCLE_BICEPS”,”MUSCLE_QUADRICEPS”
 2;”Puñetazos”;”El punch o puñetazo es un ejercicio de boxeo similar al uppercut”;”EXERCISE_DIFFICULTY_LOW”;”MUSCLE_BICEPS”

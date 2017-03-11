@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8213AA251E6C3E2F00466335 /* CleverFitPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8213AA241E6C3E2F00466335 /* CleverFitPreferences.swift */; };
 		8218D8A01D8B5CD3003055DA /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89C1D8B5CC1003055DA /* Realm.framework */; };
 		8218D8A11D8B5CD3003055DA /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89C1D8B5CC1003055DA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8218D8A21D8B5CD3003055DA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89D1D8B5CC1003055DA /* RealmSwift.framework */; };
@@ -26,6 +27,7 @@
 		8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A71F1E454E2E004CDBF9 /* WorkoutExercise.swift */; };
 		8238A7241E4567B8004CDBF9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A7231E4567B8004CDBF9 /* DatabaseManager.swift */; };
 		8238A7281E456B98004CDBF9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A7271E456B98004CDBF9 /* User.swift */; };
+		823A147B1E6B2299000556B3 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A147A1E6B2299000556B3 /* CSVParser.swift */; };
 		824DF6471E55F6280074F6CF /* CleverFitParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6461E55F6280074F6CF /* CleverFitParams.swift */; };
 		824DF6491E55F97C0074F6CF /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6481E55F97C0074F6CF /* MainNavigationController.swift */; };
 		8263C5F01D8892C50090F0B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C5E11D8892C50090F0B1 /* AppDelegate.swift */; };
@@ -42,6 +44,7 @@
 		82C2F4FE1D894D7D00378176 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2F4FC1D894D7800378176 /* XLForm.framework */; };
 		82C2F4FF1D894D7D00378176 /* XLForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2F4FC1D894D7800378176 /* XLForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82C2F5031D89557200378176 /* CleverFitFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2F5021D89557200378176 /* CleverFitFormViewController.swift */; };
+		82E1E3A91E73169B0065C4E3 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E1E3A81E73169B0065C4E3 /* Collection.swift */; };
 		82E1F8DF1E61FA3A008C45CC /* CleverFitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E1F8DE1E61FA3A008C45CC /* CleverFitViewController.swift */; };
 		82F8E3231D8A9DE0009593B8 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8E3221D8A9DE0009593B8 /* KDCircularProgress.swift */; };
 		82F8E3261D8B073D009593B8 /* CurrentPlanExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8E3251D8B073D009593B8 /* CurrentPlanExerciseCell.swift */; };
@@ -82,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8213AA241E6C3E2F00466335 /* CleverFitPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitPreferences.swift; sourceTree = "<group>"; };
 		8218D89C1D8B5CC1003055DA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		8218D89D1D8B5CC1003055DA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		8218D8A41D8B64AB003055DA /* ResumeExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeExerciseCell.swift; sourceTree = "<group>"; };
@@ -103,6 +107,7 @@
 		8238A71F1E454E2E004CDBF9 /* WorkoutExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutExercise.swift; sourceTree = "<group>"; };
 		8238A7231E4567B8004CDBF9 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		8238A7271E456B98004CDBF9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		823A147A1E6B2299000556B3 /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
 		824DF6461E55F6280074F6CF /* CleverFitParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitParams.swift; sourceTree = "<group>"; };
 		824DF6481E55F97C0074F6CF /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		8263C5E11D8892C50090F0B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +124,7 @@
 		82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutGenerator.swift; sourceTree = "<group>"; };
 		82C2F4FC1D894D7800378176 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = "<group>"; };
 		82C2F5021D89557200378176 /* CleverFitFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitFormViewController.swift; sourceTree = "<group>"; };
+		82E1E3A81E73169B0065C4E3 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		82E1F8DE1E61FA3A008C45CC /* CleverFitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitViewController.swift; sourceTree = "<group>"; };
 		82F8E3221D8A9DE0009593B8 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		82F8E3251D8B073D009593B8 /* CurrentPlanExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentPlanExerciseCell.swift; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				824DF6461E55F6280074F6CF /* CleverFitParams.swift */,
+				8213AA241E6C3E2F00466335 /* CleverFitPreferences.swift */,
 			);
 			name = Configuration;
 			sourceTree = "<group>";
@@ -352,6 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				82BA73E81E4E724800C8C1A4 /* Strings.swift */,
+				823A147A1E6B2299000556B3 /* CSVParser.swift */,
+				82E1E3A81E73169B0065C4E3 /* Collection.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -465,6 +474,7 @@
 				DC00C7601ACC65CD00BB4A99 /* Frameworks */,
 				DC00C7611ACC65CD00BB4A99 /* Resources */,
 				82305D901D88D6D8002094AD /* Embed Frameworks */,
+				82B0C2041E6C481000691A1B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -554,6 +564,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		82B0C2041E6C481000691A1B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8222F8751D89BEB0002B8580 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -594,11 +620,14 @@
 				8263C5F81D8892C50090F0B1 /* CurrentPlanViewController.swift in Sources */,
 				8263C6031D8894570090F0B1 /* HistoryViewController.swift in Sources */,
 				8222F8971D89ECE5002B8580 /* ResumeViewController.swift in Sources */,
+				823A147B1E6B2299000556B3 /* CSVParser.swift in Sources */,
 				8238A71E1E454CBC004CDBF9 /* WorkoutRoutine.swift in Sources */,
+				82E1E3A91E73169B0065C4E3 /* Collection.swift in Sources */,
 				82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */,
 				8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */,
 				82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */,
 				8238A7281E456B98004CDBF9 /* User.swift in Sources */,
+				8213AA251E6C3E2F00466335 /* CleverFitPreferences.swift in Sources */,
 				8218D8A51D8B64AB003055DA /* ResumeExerciseCell.swift in Sources */,
 				8218D8A81D8B6B97003055DA /* ExerciseViewController.swift in Sources */,
 				8263C6051D8894620090F0B1 /* SettingsViewController.swift in Sources */,

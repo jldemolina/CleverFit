@@ -10,11 +10,11 @@ import Foundation
 import UIKit
 
 class UIButtonCorner: UIButton {
-    
-    @IBInspectable var cornerRadius : CGFloat = 10 {
+
+    @IBInspectable var cornerRadius: CGFloat = 10 {
         didSet {
             self.layer.cornerRadius = self.cornerRadius
         }
     }
-    
+
 }

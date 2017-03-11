@@ -10,33 +10,32 @@ import UIKit
 
 class HistoryViewController: CleverFitViewController {
     @IBOutlet weak var workoutsTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "HISTORY_VIEW_TITLE".localized
 
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    
+
 }
 
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "historyWorkoutCell") as! HistoryWorkoutCell
         cell.workoutNameLabel.text = "ENTRENAMIENTO DE EJEMPLO 1".uppercased()
-        cell.workoutDateLabel.text = "02/02/16";
+        cell.workoutDateLabel.text = "02/02/16"
         return cell
     }
-    
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //performSegue(withIdentifier: "WebSegue", sender: indexPath)
         //tableView.deselectRowAtIndexPath(indexPath, animated: true)

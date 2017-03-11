@@ -9,9 +9,9 @@
 import Foundation
 
 final class CleverFitParams {
-    
+
     static let storyboardName = "Main"
-    
+
     enum ViewController: String {
         case historyViewController
         case exerciseViewController
@@ -26,5 +26,12 @@ final class CleverFitParams {
         case mainNavigationController
         case registerNavigationController
     }
-    
+
+    enum ExerciseStorage: String {
+        static let headerParams = ["id", "name", "information", "difficulty", "affectedMuscles"]
+        case path = "./Data/Exercises.csv"
+        case paramsSeparator = ";"
+        case paramListSeparator = ","
+    }
+
 }

@@ -11,7 +11,7 @@ import Foundation
 
 class WorkoutExercise: Object {
     dynamic var id = ""
-    dynamic var exercise: Exercise? = nil
+    dynamic var exercise: Exercise?
     dynamic var durationInSeconds = 0
     private dynamic var feedback = WorkoutExerciseFeedback.well.rawValue
     var workoutExerciseFeedback: WorkoutExerciseFeedback {

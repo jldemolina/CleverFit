@@ -1,4 +1,3 @@
 github "xmartlabs/XLForm"
 github "realm/realm-cocoa.git"
 github "xmartlabs/XLPagerTabStrip" ~> 7.0
-

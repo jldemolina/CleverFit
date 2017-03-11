@@ -12,4 +12,12 @@ extension String {
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
+
+    var isEmptyOrWhitespace: Bool {
+        return isEmpty || trimmingCharacters(in: .whitespaces) == ""
+    }
+
+    var isNotEmptyOrWhitespace: Bool {
+        return !isEmptyOrWhitespace
+    }
 }
