@@ -90,28 +90,36 @@ fileprivate class CSVManager {
 
     func loadExercises() -> [Exercise] {
         var exercises = [Exercise]()
-        let parser = CSVParser(with: CleverFitParams.ExerciseStorage.path.rawValue, separator: CleverFitParams.ExerciseStorage.paramsSeparator.rawValue, headers: CleverFitParams.ExerciseStorage.headerParams)
-
-        for row in parser.rows {
-            let exercise = Exercise()
-            exercise.id = row[0]
-            exercise.name = row[1]
-            exercise.information = row[2]
-            exercise.exerciseDifficulty = ExerciseDifficulty.from(difficultyName: row[3])
-            exercise.affectedMuscles = affectedMuscles(affectedMuscles: row[4])
-            exercises.append(Exercise())
+        print(CleverFitParams.ExerciseStorage.path)
+        
+        do {
+            let stringToParser = try String(contentsOfFile: CleverFitParams.ExerciseStorage.path)
+            
+            let parser = CSVParser(with: stringToParser, separator: CleverFitParams.ExerciseStorage.paramsSeparator.rawValue, headers: CleverFitParams.ExerciseStorage.headerParams)
+            
+            for row in parser.rows {
+                let exercise = Exercise()
+                exercise.id = row[0]
+                exercise.name = row[1]
+                exercise.information = row[2]
+                exercise.exerciseDifficulty = ExerciseDifficulty.from(difficultyName: row[3])
+                exercise.affectedMuscles = affectedMuscles(affectedMuscles: row[4])
+                exercises.append(exercise)
+            }
+            return exercises
+        } catch {
+            return [Exercise]()
         }
 
-        return exercises
     }
 
     private func affectedMuscles(affectedMuscles: String)-> List<Muscle> {
         let muscles = List<Muscle>()
-        let stringList = affectedMuscles.components(separatedBy: CleverFitParams.ExerciseStorage.paramListSeparator.rawValue)
+        let stringList = CSVParser(with: affectedMuscles, separator: CleverFitParams.ExerciseStorage.paramListSeparator.rawValue, headers: CleverFitParams.ExerciseStorage.headerMuscleListParams)
 
-        for string in stringList {
+        for string in stringList.rows {
             let muscle = Muscle()
-            muscle.name = MuscleName(rawValue: string)!
+            muscle.name = MuscleName(rawValue: string[0])!
             muscles.append(muscle)
         }
 

@@ -27,9 +27,22 @@ final class CleverFitParams {
         case registerNavigationController
     }
 
+    enum CellHeights: Int {
+        case currentPlanNotExistsCell = 253
+        case currentPlanExerciseCell = 79
+    }
+
     enum ExerciseStorage: String {
         static let headerParams = ["id", "name", "information", "difficulty", "affectedMuscles"]
-        case path = "./Data/Exercises.csv"
+        static let headerMuscleListParams = ["name"]
+        static var path : String {
+            if let filePath = Bundle.main.path(forResource: "Exercises", ofType: "csv", inDirectory: "Data") {
+                if FileManager().fileExists(atPath: filePath) {
+                    return filePath
+                }
+            }
+            return ""
+        }
         case paramsSeparator = ";"
         case paramListSeparator = ","
     }

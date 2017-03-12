@@ -9,6 +9,10 @@
 import RealmSwift
 import Foundation
 
+func ==(lhs: Exercise, rhs: Exercise) -> Bool {
+    return lhs.id == rhs.id
+}
+
 final class Exercise: Object {
     dynamic var id = ""
     dynamic var name = ""
@@ -42,7 +46,7 @@ final class Exercise: Object {
 enum ExerciseDifficulty: String {
     case low = "EXERCISE_DIFFICULTY_LOW"
     case medium = "EXERCISE_DIFFICULTY_HALF"
-    case hard = "EXERCISE_DIFFICULTY_HIGH"
+    case hard = "EXERCISE_DIFFICULTY_HARD"
 
     static func from(difficultyName: String) -> ExerciseDifficulty {
         switch difficultyName {

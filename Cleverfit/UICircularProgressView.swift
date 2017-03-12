@@ -1,5 +1,5 @@
 //
-//  KDCircularProgress.swift
+//  UICircularProgressView.swift
 //  Clevefit
 //
 //  Created by Jose Luis Molina on 15/9/16.

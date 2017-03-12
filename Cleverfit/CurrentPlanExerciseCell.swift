@@ -12,4 +12,11 @@ class CurrentPlanExerciseCell: UITableViewCell {
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var exerciseIndexLabel: UILabel!
     @IBOutlet weak var exerciseTimeLabel: UILabel!
+
+    // TODO STORE STRINGS
+    func initView(with workoutExercise: WorkoutExercise, number: Int) {
+        self.exerciseNameLabel.text = workoutExercise.exercise!.name
+        self.exerciseTimeLabel.text = "\(workoutExercise.durationInSeconds) segundos"
+        self.exerciseIndexLabel.text = "\(number)"
+    }
 }
