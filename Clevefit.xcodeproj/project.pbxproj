@@ -41,8 +41,6 @@
 		82BA73E41E4E706700C8C1A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82BA73E31E4E706700C8C1A4 /* Localizable.strings */; };
 		82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BA73E81E4E724800C8C1A4 /* Strings.swift */; };
 		82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */; };
-		82C2F4FE1D894D7D00378176 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2F4FC1D894D7800378176 /* XLForm.framework */; };
-		82C2F4FF1D894D7D00378176 /* XLForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2F4FC1D894D7800378176 /* XLForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82C2F5031D89557200378176 /* CleverFitFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82C2F5021D89557200378176 /* CleverFitFormViewController.swift */; };
 		82DB44F51E75805C00E35D2D /* Data in Resources */ = {isa = PBXBuildFile; fileRef = 82DB44F41E75805C00E35D2D /* Data */; };
 		82E1E3A91E73169B0065C4E3 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E1E3A81E73169B0065C4E3 /* Collection.swift */; };
@@ -50,6 +48,8 @@
 		82F8E3231D8A9DE0009593B8 /* UICircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8E3221D8A9DE0009593B8 /* UICircularProgressView.swift */; };
 		82F8E3261D8B073D009593B8 /* CurrentPlanExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8E3251D8B073D009593B8 /* CurrentPlanExerciseCell.swift */; };
 		82F8E3281D8B0B0E009593B8 /* HistoryWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8E3271D8B0B0E009593B8 /* HistoryWorkoutCell.swift */; };
+		82FB58A81E7B094A006908D7 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FB58A71E7B094A006908D7 /* XLForm.framework */; };
+		82FB58AA1E7B094F006908D7 /* XLForm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82FB58A71E7B094A006908D7 /* XLForm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8218D8A11D8B5CD3003055DA /* Realm.framework in Embed Frameworks */,
-				82C2F4FF1D894D7D00378176 /* XLForm.framework in Embed Frameworks */,
+				82FB58AA1E7B094F006908D7 /* XLForm.framework in Embed Frameworks */,
 				8218D8A31D8B5CD3003055DA /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -123,7 +123,6 @@
 		82BA73E31E4E706700C8C1A4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		82BA73E81E4E724800C8C1A4 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutGenerator.swift; sourceTree = "<group>"; };
-		82C2F4FC1D894D7800378176 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = "<group>"; };
 		82C2F5021D89557200378176 /* CleverFitFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitFormViewController.swift; sourceTree = "<group>"; };
 		82DB44F41E75805C00E35D2D /* Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Data; sourceTree = "<group>"; };
 		82E1E3A81E73169B0065C4E3 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
@@ -131,6 +130,7 @@
 		82F8E3221D8A9DE0009593B8 /* UICircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularProgressView.swift; sourceTree = "<group>"; };
 		82F8E3251D8B073D009593B8 /* CurrentPlanExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentPlanExerciseCell.swift; sourceTree = "<group>"; };
 		82F8E3271D8B0B0E009593B8 /* HistoryWorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryWorkoutCell.swift; sourceTree = "<group>"; };
+		82FB58A71E7B094A006908D7 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = "<group>"; };
 		DC00C7631ACC65CD00BB4A99 /* Clevefit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clevefit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,8 +154,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8218D8A01D8B5CD3003055DA /* Realm.framework in Frameworks */,
+				82FB58A81E7B094A006908D7 /* XLForm.framework in Frameworks */,
 				8218D8A21D8B5CD3003055DA /* RealmSwift.framework in Frameworks */,
-				82C2F4FE1D894D7D00378176 /* XLForm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,9 +208,9 @@
 		82305D851D88D44C002094AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82FB58A71E7B094A006908D7 /* XLForm.framework */,
 				8218D89C1D8B5CC1003055DA /* Realm.framework */,
 				8218D89D1D8B5CC1003055DA /* RealmSwift.framework */,
-				82C2F4FC1D894D7800378176 /* XLForm.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
