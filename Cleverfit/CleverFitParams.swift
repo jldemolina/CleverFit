@@ -24,7 +24,6 @@ final class CleverFitParams {
         case settingsViewController
         case mainTabbarController
         case mainNavigationController
-        case registerNavigationController
     }
 
     enum CellHeights: Int {

@@ -11,6 +11,20 @@ import XLForm
 
 class RegisterViewController: CleverFitFormViewController {
 
+    var userFromForm : User {
+        get {
+            let user = User()
+            user.name = form.formRow(withTag: FormTag.name.rawValue)?.value as! String
+            user.birthDate = form.formRow(withTag: FormTag.birthdate.rawValue)?.value as! NSDate
+            user.height = form.formRow(withTag: FormTag.height.rawValue)?.value as! Int
+            user.weight = form.formRow(withTag: FormTag.weight.rawValue)?.value as! Int
+            user.objectiveFeedback = (form.formRow(withTag: FormTag.objective.rawValue)?.value as! XLFormOptionObject).formValue() as! UserObjective
+            user.userExperience = (form.formRow(withTag: FormTag.experience.rawValue)?.value as! XLFormOptionObject).formValue() as! UserExperience
+            
+            return user
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "REGISTER_VIEW_TITLE".localized
@@ -75,24 +89,11 @@ class RegisterViewController: CleverFitFormViewController {
 
     func validateForm(_ buttonItem: UIBarButtonItem) {
         if (formValidationErrors().isEmpty) {
-            if (addUser()) {
-                present(MainNavigationController(), animated: true, completion: nil)
-            }
+            RegisterCommand(currentNavigationController: navigationController!, user: userFromForm).execute() // TODO - FUNC RESULT
         } else {
             showFormErrors()
         }
     }
 
-    private func addUser() -> Bool {
-        let user = User()
-        user.name = form.formRow(withTag: FormTag.name.rawValue)?.value as! String
-        user.birthDate = form.formRow(withTag: FormTag.birthdate.rawValue)?.value as! NSDate
-        user.height = form.formRow(withTag: FormTag.height.rawValue)?.value as! Int
-        user.weight = form.formRow(withTag: FormTag.weight.rawValue)?.value as! Int
-        user.objectiveFeedback = (form.formRow(withTag: FormTag.objective.rawValue)?.value as! XLFormOptionObject).formValue() as! UserObjective
-        user.userExperience = (form.formRow(withTag: FormTag.experience.rawValue)?.value as! XLFormOptionObject).formValue() as! UserExperience
-
-        return DatabaseManager.sharedInstance.add(user: user)
-    }
 
 }

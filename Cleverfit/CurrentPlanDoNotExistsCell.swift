@@ -38,8 +38,6 @@ class CurrentPlanDoNotExists: UITableViewCell {
             delegate.generationFinished(workoutRoutine: workoutRoutine)
         }
     }
-    
-
 }
 
 protocol CurrentPlanDoNotExistDelegate {
