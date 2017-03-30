@@ -23,6 +23,7 @@ class CurrentPlanViewController: CleverFitViewController {
 
     }
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "CURRENT_PLAN_VIEW_TITLE".localized
@@ -39,7 +40,7 @@ class CurrentPlanViewController: CleverFitViewController {
             }
         }
     }
-
+    
 }
 
 extension CurrentPlanViewController: UITableViewDelegate, UITableViewDataSource {
@@ -88,9 +89,14 @@ extension CurrentPlanViewController: CurrentPlanDoNotExistDelegate {
 
     func generationFinished(workoutRoutine: WorkoutRoutine) {
         print("GENERATION FINISHED")
-        self.exercises = Array(workoutRoutine.workoutExercises)
-        self.tableView.reloadData()
+        if saveExercises(workoutRoutine: workoutRoutine) {
+            self.exercises = Array(workoutRoutine.workoutExercises)
+            self.tableView.reloadData()
+        }
     }
 
+    private func saveExercises(workoutRoutine: WorkoutRoutine)-> Bool {
+        return DatabaseManager.sharedInstance.add(routine: workoutRoutine)
+    }
 
 }

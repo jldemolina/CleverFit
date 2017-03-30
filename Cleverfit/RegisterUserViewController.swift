@@ -63,7 +63,7 @@ class RegisterViewController: CleverFitFormViewController {
     private func addExperienceDescriptor(to section: XLFormSectionDescriptor) {
         let options = [
             XLFormOptionsObject(value: UserExperience.low,
-                                displayText: UserExperience.low.rawValue.localized),
+                                displayText: UserExperience.low.rawValue.localized), 
             XLFormOptionsObject(value: UserExperience.half,
                                 displayText: UserExperience.half.rawValue.localized),
             XLFormOptionsObject(value: UserExperience.hard,

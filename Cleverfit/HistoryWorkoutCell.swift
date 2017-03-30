@@ -11,4 +11,11 @@ import UIKit
 class HistoryWorkoutCell: UITableViewCell {
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var workoutDateLabel: UILabel!
+    
+    func initView(with workoutRoutine: WorkoutRoutine) {
+        workoutDateLabel.text = workoutRoutine.startDate.description
+        workoutNameLabel.text = "Rutina"
+    }
+
+    
 }
