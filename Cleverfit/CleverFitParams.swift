@@ -29,6 +29,7 @@ final class CleverFitParams {
     enum CellHeights: Int {
         case currentPlanNotExistsCell = 253
         case currentPlanExerciseCell = 79
+        case historyCell = 80
     }
 
     enum ExerciseStorage: String {

@@ -66,5 +66,10 @@
 "MUSCLE_ABDOMINALS" = "Abdominales";
 "MUSCLE_QUADRICEPS" = "Cuádriceps";
 
-
+// PLAN VIEW
+"GENERATE_ROUTINE_DIALOG_TITLE" = "¡Ey!";
+"GENERATE_ROUTINE_DIALOG_BODY" = "Has terminado esta rutina de ejercicios, ¿quieres que generemos una nueva?";
+"GENERATE_ROUTINE_DIALOG_BUTTON" = "¡Vamos allá!";
+"UPDATE_DATA_DIALOG_BUTTON" = "Quiero actualizar mis datos";
+"CLOSE_DIALOG_BUTTON" = "Mejor otro día";
 

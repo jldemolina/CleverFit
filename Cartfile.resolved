@@ -1,3 +1,5 @@
-github "realm/realm-cocoa" "v2.5.0"
+github "danielgindi/Charts" "v3.0.1"
+github "realm/realm-cocoa" "b8fc43e6d41627dd24be8e77239997701f6ad20e"
+github "vikmeup/SCLAlertView-Swift" "e0747dfc77e75e1081159d9d9ce77c7f117b4abf"
 github "xmartlabs/XLForm" "3.3.0"
 github "xmartlabs/XLPagerTabStrip" "7.0.0"

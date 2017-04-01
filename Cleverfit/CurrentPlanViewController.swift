@@ -7,38 +7,91 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class CurrentPlanViewController: CleverFitViewController {
+    
     @IBOutlet weak var exercisesTableView: UITableView!
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var trainButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    fileprivate var exercises = [WorkoutExercise]()
-
-    @IBAction func startWorkoutAction(_ sender: AnyObject) {
-
+    public var workoutRoutine: WorkoutRoutine
+    
+    convenience init?(coder aDecoder: NSCoder, with workoutRoutine: WorkoutRoutine) {
+        self.init(coder: aDecoder)
+        self.workoutRoutine = workoutRoutine
     }
-
-    @IBAction func generateWorkoutAction(_ sender: AnyObject) {
-
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.workoutRoutine = WorkoutRoutine()
+        super.init(coder: aDecoder)
     }
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "CURRENT_PLAN_VIEW_TITLE".localized
-        self.exercisesTableView.delegate = self
-        self.exercisesTableView.dataSource = self
-        self.loadExercises()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureTitle()
+        if loadExercisesIfNeeded() && currentRoutineHasFinished() {
+            showGenerateNewRoutineModal()
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        workoutRoutine = WorkoutRoutine()
+    }
+    
+    private func configureTitle() {
+        if workoutRoutine.workoutExercises.isEmpty {
+            self.title = "CURRENT_PLAN_VIEW_TITLE".localized
+        } else {
+            self.title = workoutRoutine.startDate.description
+        }
+    }
+    
+    private func loadExercisesIfNeeded()-> Bool {
+        if workoutRoutine.workoutExercises.isEmpty {
+            loadExercises()
+            return true
+        }
+        return false
+    }
+    
+    private func currentRoutineHasFinished()-> Bool {
+        return Date() >= workoutRoutine.endDate as Date
     }
     
     private func loadExercises() {
         let routines: [WorkoutRoutine]? = DatabaseManager.sharedInstance.load()
         if (routines != nil) {
             if let workoutExercises = routines?.last?.workoutExercises {
-                exercises.append(contentsOf: workoutExercises)
+                fillWorkoutRoutine(with: Array(workoutExercises))
             }
         }
+    }
+    
+    private func fillWorkoutRoutine(with exercises: [WorkoutExercise]) {
+        for workoutExercise in exercises {
+            workoutRoutine.workoutExercises.append(workoutExercise)
+        }
+    }
+    
+    private func showGenerateNewRoutineModal() {
+        let appearance = SCLAlertView.SCLAppearance(showCloseButton: false)
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.addButton("GENERATE_ROUTINE_DIALOG_BUTTON".localized) {
+            GenerateRoutineCommand(with: self).execute()
+        }
+        alertView.addButton("UPDATE_DATA_DIALOG_BUTTON".localized) {
+            OpenSettingsViewCommand(currentNavigationController: self.navigationController!).execute()
+        }
+        alertView.addButton("CLOSE_DIALOG_BUTTON".localized) {
+            alertView.dismiss(animated: true, completion: nil)
+        }
+        alertView.showSuccess("GENERATE_ROUTINE_DIALOG_TITLE".localized, subTitle: "GENERATE_ROUTINE_DIALOG_BODY".localized)
     }
     
 }
@@ -46,28 +99,28 @@ class CurrentPlanViewController: CleverFitViewController {
 extension CurrentPlanViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if exercises.isEmpty {
+        if workoutRoutine.workoutExercises.isEmpty {
             return 1
         }
-        return exercises.count
+        return workoutRoutine.workoutExercises.count
     }
 
     // TODO REFACTOR AND STORE IDS, CREATE CELLS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (exercises.isEmpty) {
+        if (workoutRoutine.workoutExercises.isEmpty) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "currentPlanDoNotExistsCell") as! CurrentPlanDoNotExists
             cell.delegates.append(self)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "currentPlanExerciseCell") as! CurrentPlanExerciseCell
-            cell.initView(with: exercises[indexPath.row], number: indexPath.row + 1)
+            cell.initView(with: workoutRoutine.workoutExercises[indexPath.row], number: indexPath.row + 1)
             return cell
         }
 
     }
 
     func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreGraphics.CGFloat {
-        if (exercises.isEmpty) {
+        if (workoutRoutine.workoutExercises.isEmpty) {
             return CGFloat(CleverFitParams.CellHeights.currentPlanNotExistsCell.rawValue)
         }
         return CGFloat(CleverFitParams.CellHeights.currentPlanExerciseCell.rawValue)
@@ -81,22 +134,22 @@ extension CurrentPlanViewController: UITableViewDelegate, UITableViewDataSource 
 
 }
 
-extension CurrentPlanViewController: CurrentPlanDoNotExistDelegate {
-
+extension CurrentPlanViewController: GenerateRoutineCommandDelegate {
+    
     func generationStarted() {
         print("GENERATION STARTED")
     }
-
+    
     func generationFinished(workoutRoutine: WorkoutRoutine) {
         print("GENERATION FINISHED")
         if saveExercises(workoutRoutine: workoutRoutine) {
-            self.exercises = Array(workoutRoutine.workoutExercises)
+            self.workoutRoutine = workoutRoutine
             self.tableView.reloadData()
         }
     }
-
+    
     private func saveExercises(workoutRoutine: WorkoutRoutine)-> Bool {
         return DatabaseManager.sharedInstance.add(routine: workoutRoutine)
     }
-
+    
 }

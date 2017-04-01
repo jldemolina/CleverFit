@@ -30,6 +30,10 @@
 		823A147B1E6B2299000556B3 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A147A1E6B2299000556B3 /* CSVParser.swift */; };
 		824DF6471E55F6280074F6CF /* CleverFitParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6461E55F6280074F6CF /* CleverFitParams.swift */; };
 		824DF6491E55F97C0074F6CF /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6481E55F97C0074F6CF /* MainNavigationController.swift */; };
+		825B31E91E904318002D579C /* GenerateRoutineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E51E904318002D579C /* GenerateRoutineCommand.swift */; };
+		825B31EA1E904318002D579C /* OpenViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E61E904318002D579C /* OpenViewCommand.swift */; };
+		825B31EB1E904318002D579C /* RegisterCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E71E904318002D579C /* RegisterCommand.swift */; };
+		825B31EC1E904318002D579C /* UpdateUserCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E81E904318002D579C /* UpdateUserCommand.swift */; };
 		8263C5F01D8892C50090F0B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C5E11D8892C50090F0B1 /* AppDelegate.swift */; };
 		8263C5F11D8892C50090F0B1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8263C5E21D8892C50090F0B1 /* LaunchScreen.xib */; };
 		8263C5F21D8892C50090F0B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8263C5E41D8892C50090F0B1 /* Main.storyboard */; };
@@ -112,6 +116,10 @@
 		823A147A1E6B2299000556B3 /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
 		824DF6461E55F6280074F6CF /* CleverFitParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitParams.swift; sourceTree = "<group>"; };
 		824DF6481E55F97C0074F6CF /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		825B31E51E904318002D579C /* GenerateRoutineCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateRoutineCommand.swift; sourceTree = "<group>"; };
+		825B31E61E904318002D579C /* OpenViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenViewCommand.swift; sourceTree = "<group>"; };
+		825B31E71E904318002D579C /* RegisterCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCommand.swift; sourceTree = "<group>"; };
+		825B31E81E904318002D579C /* UpdateUserCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateUserCommand.swift; sourceTree = "<group>"; };
 		8263C5E11D8892C50090F0B1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8263C5E31D8892C50090F0B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		8263C5E51D8892C50090F0B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -393,6 +401,10 @@
 			isa = PBXGroup;
 			children = (
 				82E22E0A1E7CB200001E2F5C /* Command.swift */,
+				825B31E51E904318002D579C /* GenerateRoutineCommand.swift */,
+				825B31E61E904318002D579C /* OpenViewCommand.swift */,
+				825B31E71E904318002D579C /* RegisterCommand.swift */,
+				825B31E81E904318002D579C /* UpdateUserCommand.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -610,14 +622,17 @@
 			files = (
 				82E22E0B1E7CB200001E2F5C /* Command.swift in Sources */,
 				824DF6491E55F97C0074F6CF /* MainNavigationController.swift in Sources */,
+				825B31EC1E904318002D579C /* UpdateUserCommand.swift in Sources */,
 				8236686B1E61DF9B00A832B3 /* UIButtonCorner.swift in Sources */,
 				82E1F8DF1E61FA3A008C45CC /* CleverFitViewController.swift in Sources */,
 				82F8E3281D8B0B0E009593B8 /* HistoryWorkoutCell.swift in Sources */,
 				82F8E3261D8B073D009593B8 /* CurrentPlanExerciseCell.swift in Sources */,
 				8222F8951D89EC71002B8580 /* TrainViewController.swift in Sources */,
+				825B31E91E904318002D579C /* GenerateRoutineCommand.swift in Sources */,
 				8263C5F01D8892C50090F0B1 /* AppDelegate.swift in Sources */,
 				8238A7241E4567B8004CDBF9 /* DatabaseManager.swift in Sources */,
 				8263C5F31D8892C50090F0B1 /* MeViewController.swift in Sources */,
+				825B31EA1E904318002D579C /* OpenViewCommand.swift in Sources */,
 				824DF6471E55F6280074F6CF /* CleverFitParams.swift in Sources */,
 				822A398C1E606DB000572C7D /* RegisterUserViewController.swift in Sources */,
 				82C2F5031D89557200378176 /* CleverFitFormViewController.swift in Sources */,
@@ -630,6 +645,7 @@
 				823A147B1E6B2299000556B3 /* CSVParser.swift in Sources */,
 				8238A71E1E454CBC004CDBF9 /* WorkoutRoutine.swift in Sources */,
 				82E1E3A91E73169B0065C4E3 /* Collection.swift in Sources */,
+				825B31EB1E904318002D579C /* RegisterCommand.swift in Sources */,
 				82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */,
 				8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */,
 				82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */,
