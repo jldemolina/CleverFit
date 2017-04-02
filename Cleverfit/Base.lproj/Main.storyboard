@@ -13,7 +13,7 @@
         <!--Inicio-->
         <scene sceneID="9za-2d-hzg">
             <objects>
-                <viewController storyboardIdentifier="meViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7vD-ZI-s7S" customClass="MeViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="meViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7vD-ZI-s7S" customClass="MeViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5zy-9M-uJl"/>
                         <viewControllerLayoutGuide type="bottom" id="sxO-Y0-tDg"/>
@@ -90,6 +90,9 @@
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <connections>
+                                            <segue destination="XyP-Ww-RWx" kind="push" id="lGW-N9-HgK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -149,7 +152,7 @@
                                     <constraint firstItem="fwJ-ZE-g1g" firstAttribute="centerY" secondItem="Sby-3G-Qcf" secondAttribute="centerY" id="xir-KL-efO"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFo-EB-b9L" customClass="UIButtonCorner" customModule="Clevefit" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFo-EB-b9L" customClass="UIButtonCorner" customModule="Cleverfit" customModuleProvider="target">
                                 <rect key="frame" x="-6" y="617" width="381" height="50"/>
                                 <color key="backgroundColor" red="0.21030384302139282" green="0.7143668532371521" blue="0.47547751665115356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -206,12 +209,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oug-Uq-J3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="Xae-PG-mbY" customClass="RAMBounceAnimation"/>
             </objects>
-            <point key="canvasLocation" x="173.5" y="-756.5"/>
+            <point key="canvasLocation" x="170" y="-757"/>
         </scene>
         <!--Main Navigation Controller-->
         <scene sceneID="JdY-FP-eYs">
             <objects>
-                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k2e-ix-jGH" customClass="MainNavigationController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="k2e-ix-jGH" customClass="MainNavigationController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" barStyle="black" translucent="NO" id="rFI-h4-hna">
@@ -234,7 +237,7 @@
         <!--Ajustes-->
         <scene sceneID="gqF-62-WjG">
             <objects>
-                <viewController storyboardIdentifier="settingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wFR-6R-NcD" customClass="SettingsViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settingsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wFR-6R-NcD" customClass="SettingsViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7R-Fa-Pnk"/>
                         <viewControllerLayoutGuide type="bottom" id="HFH-HG-wYV"/>
@@ -252,10 +255,61 @@
             </objects>
             <point key="canvasLocation" x="672" y="-1563"/>
         </scene>
+        <!--Progress View Controller-->
+        <scene sceneID="QCr-Je-2Ft">
+            <objects>
+                <viewController id="XyP-Ww-RWx" customClass="ProgressViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kvw-M3-HwC"/>
+                        <viewControllerLayoutGuide type="bottom" id="FpB-Fv-jh7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PXt-kq-Hhi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8p8-8W-B2Z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-R7-FK1" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="30" width="375" height="324"/>
+                                        <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="324" id="657-bo-uPJ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="2Qq-R7-FK1" firstAttribute="leading" secondItem="8p8-8W-B2Z" secondAttribute="leading" id="5Qv-i3-dJS"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Qq-R7-FK1" secondAttribute="bottom" constant="313" id="OzR-u1-Ja2"/>
+                                    <constraint firstItem="2Qq-R7-FK1" firstAttribute="top" secondItem="8p8-8W-B2Z" secondAttribute="top" constant="30" id="hlY-Xq-crj"/>
+                                    <constraint firstItem="2Qq-R7-FK1" firstAttribute="centerX" secondItem="8p8-8W-B2Z" secondAttribute="centerX" id="nkq-Li-s60"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Qq-R7-FK1" secondAttribute="trailing" id="z6a-RQ-Zev"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="8p8-8W-B2Z" firstAttribute="leading" secondItem="PXt-kq-Hhi" secondAttribute="leading" id="EUP-Bh-79v"/>
+                            <constraint firstItem="8p8-8W-B2Z" firstAttribute="top" secondItem="PXt-kq-Hhi" secondAttribute="top" id="Odv-1S-VTL"/>
+                            <constraint firstItem="8p8-8W-B2Z" firstAttribute="bottom" secondItem="FpB-Fv-jh7" secondAttribute="top" id="SpO-1h-7MR"/>
+                            <constraint firstAttribute="trailing" secondItem="8p8-8W-B2Z" secondAttribute="trailing" id="lWU-Ps-Z5G"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sf0-hI-oZl"/>
+                    <connections>
+                        <outlet property="barChartView" destination="2Qq-R7-FK1" id="Yaq-bq-enT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9W-Us-zUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="671.5" y="-2447.5"/>
+        </scene>
         <!--Historial-->
         <scene sceneID="GyN-OB-l5r">
             <objects>
-                <viewController storyboardIdentifier="historyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TpP-1o-lMj" customClass="HistoryViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="historyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TpP-1o-lMj" customClass="HistoryViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Buj-3C-dqt"/>
                         <viewControllerLayoutGuide type="bottom" id="ngT-ny-ZLF"/>
@@ -268,7 +322,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="historyWorkoutCell" rowHeight="79" id="eCT-Bd-7x8" customClass="HistoryWorkoutCell" customModule="Clevefit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="historyWorkoutCell" rowHeight="79" id="eCT-Bd-7x8" customClass="HistoryWorkoutCell" customModule="Cleverfit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eCT-Bd-7x8" id="sPw-YE-udp">
@@ -337,7 +391,7 @@
         <!--Entrenar-->
         <scene sceneID="cWt-n2-c2N">
             <objects>
-                <viewController storyboardIdentifier="currentPlanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RN9-fi-UsF" customClass="CurrentPlanViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="currentPlanViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RN9-fi-UsF" customClass="CurrentPlanViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="B7v-IL-dzy"/>
                         <viewControllerLayoutGuide type="bottom" id="4iy-iu-3hk"/>
@@ -350,7 +404,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="598"/>
                                 <color key="backgroundColor" red="0.10492736850000001" green="0.1190329567" blue="0.22272413969999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="currentPlanExerciseCell" rowHeight="79" id="zX0-WP-XGA" customClass="CurrentPlanExerciseCell" customModule="Clevefit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="currentPlanExerciseCell" rowHeight="79" id="zX0-WP-XGA" customClass="CurrentPlanExerciseCell" customModule="Cleverfit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zX0-WP-XGA" id="fcF-zT-my1">
@@ -410,7 +464,7 @@
                                             <segue destination="ynk-Qm-3AN" kind="modal" id="iQm-gU-kwX"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="currentPlanDoNotExistsCell" rowHeight="263" id="8mw-jU-vD6" customClass="CurrentPlanDoNotExists" customModule="Clevefit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="currentPlanDoNotExistsCell" rowHeight="263" id="8mw-jU-vD6" customClass="CurrentPlanDoNotExists" customModule="Cleverfit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="107" width="375" height="263"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8mw-jU-vD6" id="UAk-2l-rXz">
@@ -449,7 +503,7 @@
                                                             </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EYP-Z9-7Dd" customClass="UIButtonCorner" customModule="Clevefit" customModuleProvider="target">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EYP-Z9-7Dd" customClass="UIButtonCorner" customModule="Cleverfit" customModuleProvider="target">
                                                             <rect key="frame" x="55" y="142" width="264" height="52"/>
                                                             <color key="backgroundColor" red="0.21030384299999999" green="0.71436685320000004" blue="0.47547751669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <state key="normal">
@@ -509,7 +563,7 @@
                                     <outlet property="delegate" destination="RN9-fi-UsF" id="Pda-m5-t51"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BDw-XC-iHs" customClass="UIButtonCorner" customModule="Clevefit" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BDw-XC-iHs" customClass="UIButtonCorner" customModule="Cleverfit" customModuleProvider="target">
                                 <rect key="frame" x="-3" y="617" width="381" height="50"/>
                                 <color key="backgroundColor" red="0.21030384299999999" green="0.71436685320000004" blue="0.47547751669999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -557,12 +611,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKo-ch-asw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="zVk-0m-mIE" customClass="RAMBounceAnimation"/>
             </objects>
-            <point key="canvasLocation" x="1257.5" y="-710.5"/>
+            <point key="canvasLocation" x="1255" y="-712"/>
         </scene>
         <!--Train View Controller-->
         <scene sceneID="ZJc-vC-R7C">
             <objects>
-                <viewController id="b3e-Sd-1SP" customClass="TrainViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="b3e-Sd-1SP" customClass="TrainViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X9e-M1-Om7"/>
                         <viewControllerLayoutGuide type="bottom" id="Wdz-Lg-CoU"/>
@@ -571,7 +625,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdP-AL-VgY" customClass="KDCircularProgress" customModule="Clevefit" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdP-AL-VgY" customClass="KDCircularProgress" customModule="Cleverfit" customModuleProvider="target">
                                 <rect key="frame" x="37" y="202" width="300" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -679,7 +733,7 @@
         <!--Resume View Controller-->
         <scene sceneID="oBb-dx-3rQ">
             <objects>
-                <viewController id="zm9-x7-qwl" customClass="ResumeViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zm9-x7-qwl" customClass="ResumeViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NVw-cm-dV1"/>
                         <viewControllerLayoutGuide type="bottom" id="e1E-WC-NOB"/>
@@ -692,7 +746,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resumeExerciseCell" rowHeight="79" id="jOQ-5Z-bn7" customClass="ResumeExerciseCell" customModule="Clevefit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="resumeExerciseCell" rowHeight="79" id="jOQ-5Z-bn7" customClass="ResumeExerciseCell" customModule="Cleverfit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jOQ-5Z-bn7" id="Cb9-am-ebd">
@@ -796,7 +850,7 @@
         <!--Exercise View Controller-->
         <scene sceneID="vMy-w6-FrA">
             <objects>
-                <viewController id="ynk-Qm-3AN" customClass="ExerciseViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ynk-Qm-3AN" customClass="ExerciseViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f7l-Bd-rLP"/>
                         <viewControllerLayoutGuide type="bottom" id="dFy-Yq-qim"/>
@@ -859,12 +913,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd2-M4-rAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2593" y="-685"/>
+            <point key="canvasLocation" x="2566" y="-668"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="20f-x7-7fY">
             <objects>
-                <viewController storyboardIdentifier="registerUserViewController" nibName="registerUserView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3B3-KH-J7Z" customClass="RegisterViewController" customModule="Clevefit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="registerUserViewController" nibName="registerUserView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3B3-KH-J7Z" customClass="RegisterViewController" customModule="Cleverfit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ok9-b9-Gm4"/>
                         <viewControllerLayoutGuide type="bottom" id="M0I-oI-pEv"/>

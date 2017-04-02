@@ -38,6 +38,7 @@
 		82557EEA1E910CCF00A76805 /* ChartsRealm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EE31E910CB600A76805 /* ChartsRealm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82557EEB1E910CD200A76805 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EE11E910CAF00A76805 /* Charts.framework */; };
 		82557EEC1E910CD200A76805 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EE11E910CAF00A76805 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		82557EEF1E91107700A76805 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82557EEE1E91107700A76805 /* ProgressViewController.swift */; };
 		825B31E91E904318002D579C /* GenerateRoutineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E51E904318002D579C /* GenerateRoutineCommand.swift */; };
 		825B31EA1E904318002D579C /* OpenViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E61E904318002D579C /* OpenViewCommand.swift */; };
 		825B31EB1E904318002D579C /* RegisterCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E71E904318002D579C /* RegisterCommand.swift */; };
@@ -132,6 +133,7 @@
 		82557EDF1E910CA700A76805 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
 		82557EE11E910CAF00A76805 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		82557EE31E910CB600A76805 /* ChartsRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChartsRealm.framework; path = Carthage/Build/iOS/ChartsRealm.framework; sourceTree = "<group>"; };
+		82557EEE1E91107700A76805 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		825B31E51E904318002D579C /* GenerateRoutineCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateRoutineCommand.swift; sourceTree = "<group>"; };
 		825B31E61E904318002D579C /* OpenViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenViewCommand.swift; sourceTree = "<group>"; };
 		825B31E71E904318002D579C /* RegisterCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCommand.swift; sourceTree = "<group>"; };
@@ -304,6 +306,14 @@
 			name = "Navigation Controllers";
 			sourceTree = "<group>";
 		};
+		82557EED1E91105C00A76805 /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				82557EEE1E91107700A76805 /* ProgressViewController.swift */,
+			);
+			name = Progress;
+			sourceTree = "<group>";
+		};
 		8263C5E01D8892C50090F0B1 /* Cleverfit */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +446,7 @@
 		82F8E3241D8A9EFB009593B8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				82557EED1E91105C00A76805 /* Progress */,
 				829A84A41E4FBCC3005FD7EB /* Register */,
 				8263C6011D8893F70090F0B1 /* Me */,
 				8263C6001D8893A30090F0B1 /* History */,
@@ -659,6 +670,7 @@
 				825B31EA1E904318002D579C /* OpenViewCommand.swift in Sources */,
 				824DF6471E55F6280074F6CF /* CleverFitParams.swift in Sources */,
 				822A398C1E606DB000572C7D /* RegisterUserViewController.swift in Sources */,
+				82557EEF1E91107700A76805 /* ProgressViewController.swift in Sources */,
 				82C2F5031D89557200378176 /* CleverFitFormViewController.swift in Sources */,
 				8238A71C1E454BAB004CDBF9 /* Muscle.swift in Sources */,
 				82F8E3231D8A9DE0009593B8 /* UICircularProgressView.swift in Sources */,
