@@ -97,10 +97,10 @@
 		8218D89D1D8B5CC1003055DA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		8218D8A41D8B64AB003055DA /* ResumeExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeExerciseCell.swift; sourceTree = "<group>"; };
 		8218D8A71D8B6B97003055DA /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
-		8222F8791D89BEB1002B8580 /* ClevefitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClevefitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8222F8791D89BEB1002B8580 /* CleverfitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleverfitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8222F87B1D89BEB1002B8580 /* ClevefitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClevefitUITests.swift; sourceTree = "<group>"; };
 		8222F87D1D89BEB1002B8580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8222F8871D89BEBF002B8580 /* ClevefitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClevefitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8222F8871D89BEBF002B8580 /* CleverfitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleverfitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8222F8891D89BEBF002B8580 /* ClevefitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClevefitTests.swift; sourceTree = "<group>"; };
 		8222F88B1D89BEBF002B8580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8222F8941D89EC71002B8580 /* TrainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 		82F8E3251D8B073D009593B8 /* CurrentPlanExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentPlanExerciseCell.swift; sourceTree = "<group>"; };
 		82F8E3271D8B0B0E009593B8 /* HistoryWorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryWorkoutCell.swift; sourceTree = "<group>"; };
 		82FB58A71E7B094A006908D7 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = "<group>"; };
-		DC00C7631ACC65CD00BB4A99 /* Clevefit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clevefit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC00C7631ACC65CD00BB4A99 /* Cleverfit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cleverfit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,9 +438,9 @@
 		DC00C7641ACC65CD00BB4A99 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC00C7631ACC65CD00BB4A99 /* Clevefit.app */,
-				8222F8791D89BEB1002B8580 /* ClevefitUITests.xctest */,
-				8222F8871D89BEBF002B8580 /* ClevefitTests.xctest */,
+				DC00C7631ACC65CD00BB4A99 /* Cleverfit.app */,
+				8222F8791D89BEB1002B8580 /* CleverfitUITests.xctest */,
+				8222F8871D89BEBF002B8580 /* CleverfitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -448,9 +448,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8222F8781D89BEB0002B8580 /* ClevefitUITests */ = {
+		8222F8781D89BEB0002B8580 /* CleverfitUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8222F8801D89BEB1002B8580 /* Build configuration list for PBXNativeTarget "ClevefitUITests" */;
+			buildConfigurationList = 8222F8801D89BEB1002B8580 /* Build configuration list for PBXNativeTarget "CleverfitUITests" */;
 			buildPhases = (
 				8222F8751D89BEB0002B8580 /* Sources */,
 				8222F8761D89BEB0002B8580 /* Frameworks */,
@@ -461,14 +461,14 @@
 			dependencies = (
 				8222F87F1D89BEB1002B8580 /* PBXTargetDependency */,
 			);
-			name = ClevefitUITests;
+			name = CleverfitUITests;
 			productName = ClevefitUITests;
-			productReference = 8222F8791D89BEB1002B8580 /* ClevefitUITests.xctest */;
+			productReference = 8222F8791D89BEB1002B8580 /* CleverfitUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		8222F8861D89BEBF002B8580 /* ClevefitTests */ = {
+		8222F8861D89BEBF002B8580 /* CleverfitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8222F88E1D89BEBF002B8580 /* Build configuration list for PBXNativeTarget "ClevefitTests" */;
+			buildConfigurationList = 8222F88E1D89BEBF002B8580 /* Build configuration list for PBXNativeTarget "CleverfitTests" */;
 			buildPhases = (
 				8222F8831D89BEBF002B8580 /* Sources */,
 				8222F8841D89BEBF002B8580 /* Frameworks */,
@@ -479,14 +479,14 @@
 			dependencies = (
 				8222F88D1D89BEBF002B8580 /* PBXTargetDependency */,
 			);
-			name = ClevefitTests;
+			name = CleverfitTests;
 			productName = ClevefitTests;
-			productReference = 8222F8871D89BEBF002B8580 /* ClevefitTests.xctest */;
+			productReference = 8222F8871D89BEBF002B8580 /* CleverfitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DC00C7621ACC65CD00BB4A99 /* Clevefit */ = {
+		DC00C7621ACC65CD00BB4A99 /* Cleverfit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC00C7821ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "Clevefit" */;
+			buildConfigurationList = DC00C7821ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "Cleverfit" */;
 			buildPhases = (
 				DC00C75F1ACC65CD00BB4A99 /* Sources */,
 				DC00C7601ACC65CD00BB4A99 /* Frameworks */,
@@ -498,9 +498,9 @@
 			);
 			dependencies = (
 			);
-			name = Clevefit;
+			name = Cleverfit;
 			productName = SSASideMenuStoryboardExample;
-			productReference = DC00C7631ACC65CD00BB4A99 /* Clevefit.app */;
+			productReference = DC00C7631ACC65CD00BB4A99 /* Cleverfit.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -534,7 +534,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DC00C75E1ACC65CD00BB4A99 /* Build configuration list for PBXProject "Clevefit" */;
+			buildConfigurationList = DC00C75E1ACC65CD00BB4A99 /* Build configuration list for PBXProject "Cleverfit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -547,9 +547,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC00C7621ACC65CD00BB4A99 /* Clevefit */,
-				8222F8781D89BEB0002B8580 /* ClevefitUITests */,
-				8222F8861D89BEBF002B8580 /* ClevefitTests */,
+				DC00C7621ACC65CD00BB4A99 /* Cleverfit */,
+				8222F8781D89BEB0002B8580 /* CleverfitUITests */,
+				8222F8861D89BEBF002B8580 /* CleverfitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -663,12 +663,12 @@
 /* Begin PBXTargetDependency section */
 		8222F87F1D89BEB1002B8580 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC00C7621ACC65CD00BB4A99 /* Clevefit */;
+			target = DC00C7621ACC65CD00BB4A99 /* Cleverfit */;
 			targetProxy = 8222F87E1D89BEB1002B8580 /* PBXContainerItemProxy */;
 		};
 		8222F88D1D89BEBF002B8580 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DC00C7621ACC65CD00BB4A99 /* Clevefit */;
+			target = DC00C7621ACC65CD00BB4A99 /* Cleverfit */;
 			targetProxy = 8222F88C1D89BEBF002B8580 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -747,7 +747,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clevefit.app/Clevefit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cleverfit.app/Cleverfit";
 			};
 			name = Debug;
 		};
@@ -765,7 +765,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = es.cleverfit.ClevefitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Clevefit.app/Clevefit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cleverfit.app/Cleverfit";
 			};
 			name = Release;
 		};
@@ -872,7 +872,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.cleverfit;
-				PRODUCT_NAME = Clevefit;
+				PRODUCT_NAME = Cleverfit;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -891,7 +891,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.cleverfit;
-				PRODUCT_NAME = Clevefit;
+				PRODUCT_NAME = Cleverfit;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -899,7 +899,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8222F8801D89BEB1002B8580 /* Build configuration list for PBXNativeTarget "ClevefitUITests" */ = {
+		8222F8801D89BEB1002B8580 /* Build configuration list for PBXNativeTarget "CleverfitUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8222F8811D89BEB1002B8580 /* Debug */,
@@ -908,7 +908,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8222F88E1D89BEBF002B8580 /* Build configuration list for PBXNativeTarget "ClevefitTests" */ = {
+		8222F88E1D89BEBF002B8580 /* Build configuration list for PBXNativeTarget "CleverfitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8222F88F1D89BEBF002B8580 /* Debug */,
@@ -917,7 +917,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC00C75E1ACC65CD00BB4A99 /* Build configuration list for PBXProject "Clevefit" */ = {
+		DC00C75E1ACC65CD00BB4A99 /* Build configuration list for PBXProject "Cleverfit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC00C7801ACC65CD00BB4A99 /* Debug */,
@@ -926,7 +926,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC00C7821ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "Clevefit" */ = {
+		DC00C7821ACC65CD00BB4A99 /* Build configuration list for PBXNativeTarget "Cleverfit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC00C7831ACC65CD00BB4A99 /* Debug */,
