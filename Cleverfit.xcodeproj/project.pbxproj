@@ -30,6 +30,14 @@
 		823A147B1E6B2299000556B3 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A147A1E6B2299000556B3 /* CSVParser.swift */; };
 		824DF6471E55F6280074F6CF /* CleverFitParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6461E55F6280074F6CF /* CleverFitParams.swift */; };
 		824DF6491E55F97C0074F6CF /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6481E55F97C0074F6CF /* MainNavigationController.swift */; };
+		82557EE51E910CC800A76805 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EDF1E910CA700A76805 /* XLPagerTabStrip.framework */; };
+		82557EE61E910CC800A76805 /* XLPagerTabStrip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EDF1E910CA700A76805 /* XLPagerTabStrip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		82557EE71E910CCB00A76805 /* SCLAlertView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EDD1E910C9D00A76805 /* SCLAlertView.framework */; };
+		82557EE81E910CCB00A76805 /* SCLAlertView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EDD1E910C9D00A76805 /* SCLAlertView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		82557EE91E910CCF00A76805 /* ChartsRealm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EE31E910CB600A76805 /* ChartsRealm.framework */; };
+		82557EEA1E910CCF00A76805 /* ChartsRealm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EE31E910CB600A76805 /* ChartsRealm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		82557EEB1E910CD200A76805 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EE11E910CAF00A76805 /* Charts.framework */; };
+		82557EEC1E910CD200A76805 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EE11E910CAF00A76805 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		825B31E91E904318002D579C /* GenerateRoutineCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E51E904318002D579C /* GenerateRoutineCommand.swift */; };
 		825B31EA1E904318002D579C /* OpenViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E61E904318002D579C /* OpenViewCommand.swift */; };
 		825B31EB1E904318002D579C /* RegisterCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 825B31E71E904318002D579C /* RegisterCommand.swift */; };
@@ -81,7 +89,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				82557EE81E910CCB00A76805 /* SCLAlertView.framework in Embed Frameworks */,
 				8218D8A11D8B5CD3003055DA /* Realm.framework in Embed Frameworks */,
+				82557EE61E910CC800A76805 /* XLPagerTabStrip.framework in Embed Frameworks */,
+				82557EEC1E910CD200A76805 /* Charts.framework in Embed Frameworks */,
+				82557EEA1E910CCF00A76805 /* ChartsRealm.framework in Embed Frameworks */,
 				82FB58AA1E7B094F006908D7 /* XLForm.framework in Embed Frameworks */,
 				8218D8A31D8B5CD3003055DA /* RealmSwift.framework in Embed Frameworks */,
 			);
@@ -116,6 +128,10 @@
 		823A147A1E6B2299000556B3 /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
 		824DF6461E55F6280074F6CF /* CleverFitParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitParams.swift; sourceTree = "<group>"; };
 		824DF6481E55F97C0074F6CF /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		82557EDD1E910C9D00A76805 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
+		82557EDF1E910CA700A76805 /* XLPagerTabStrip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLPagerTabStrip.framework; path = Carthage/Build/iOS/XLPagerTabStrip.framework; sourceTree = "<group>"; };
+		82557EE11E910CAF00A76805 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		82557EE31E910CB600A76805 /* ChartsRealm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChartsRealm.framework; path = Carthage/Build/iOS/ChartsRealm.framework; sourceTree = "<group>"; };
 		825B31E51E904318002D579C /* GenerateRoutineCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerateRoutineCommand.swift; sourceTree = "<group>"; };
 		825B31E61E904318002D579C /* OpenViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenViewCommand.swift; sourceTree = "<group>"; };
 		825B31E71E904318002D579C /* RegisterCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterCommand.swift; sourceTree = "<group>"; };
@@ -163,7 +179,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82557EE71E910CCB00A76805 /* SCLAlertView.framework in Frameworks */,
 				8218D8A01D8B5CD3003055DA /* Realm.framework in Frameworks */,
+				82557EE51E910CC800A76805 /* XLPagerTabStrip.framework in Frameworks */,
+				82557EEB1E910CD200A76805 /* Charts.framework in Frameworks */,
+				82557EE91E910CCF00A76805 /* ChartsRealm.framework in Frameworks */,
 				82FB58A81E7B094A006908D7 /* XLForm.framework in Frameworks */,
 				8218D8A21D8B5CD3003055DA /* RealmSwift.framework in Frameworks */,
 			);
@@ -218,6 +238,10 @@
 		82305D851D88D44C002094AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82557EE31E910CB600A76805 /* ChartsRealm.framework */,
+				82557EE11E910CAF00A76805 /* Charts.framework */,
+				82557EDF1E910CA700A76805 /* XLPagerTabStrip.framework */,
+				82557EDD1E910C9D00A76805 /* SCLAlertView.framework */,
 				82FB58A71E7B094A006908D7 /* XLForm.framework */,
 				8218D89C1D8B5CC1003055DA /* Realm.framework */,
 				8218D89D1D8B5CC1003055DA /* RealmSwift.framework */,
