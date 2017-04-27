@@ -51,6 +51,11 @@
 		8263C5F81D8892C50090F0B1 /* CurrentPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C5EB1D8892C50090F0B1 /* CurrentPlanViewController.swift */; };
 		8263C6031D8894570090F0B1 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C6021D8894570090F0B1 /* HistoryViewController.swift */; };
 		8263C6051D8894620090F0B1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8263C6041D8894620090F0B1 /* SettingsViewController.swift */; };
+		828D02AC1EAB678A00100E47 /* ProgressLogEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D02AB1EAB678A00100E47 /* ProgressLogEntry.swift */; };
+		828D02AE1EABA05700100E47 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828D02AD1EABA05700100E47 /* Date.swift */; };
+		82AE7BD21EACF5AC0000AACB /* UICircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AE7BD11EACF5AC0000AACB /* UICircleImageView.swift */; };
+		82AE7BE11EAD285A0000AACB /* UICircularProgressRing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82AE7BDF1EAD28510000AACB /* UICircularProgressRing.framework */; };
+		82AE7BE21EAD285A0000AACB /* UICircularProgressRing.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 82AE7BDF1EAD28510000AACB /* UICircularProgressRing.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		82BA73E41E4E706700C8C1A4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82BA73E31E4E706700C8C1A4 /* Localizable.strings */; };
 		82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BA73E81E4E724800C8C1A4 /* Strings.swift */; };
 		82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */; };
@@ -59,7 +64,6 @@
 		82E1E3A91E73169B0065C4E3 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E1E3A81E73169B0065C4E3 /* Collection.swift */; };
 		82E1F8DF1E61FA3A008C45CC /* CleverFitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E1F8DE1E61FA3A008C45CC /* CleverFitViewController.swift */; };
 		82E22E0B1E7CB200001E2F5C /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82E22E0A1E7CB200001E2F5C /* Command.swift */; };
-		82F8E3231D8A9DE0009593B8 /* UICircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8E3221D8A9DE0009593B8 /* UICircularProgressView.swift */; };
 		82F8E3261D8B073D009593B8 /* CurrentPlanExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8E3251D8B073D009593B8 /* CurrentPlanExerciseCell.swift */; };
 		82F8E3281D8B0B0E009593B8 /* HistoryWorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82F8E3271D8B0B0E009593B8 /* HistoryWorkoutCell.swift */; };
 		82FB58A81E7B094A006908D7 /* XLForm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82FB58A71E7B094A006908D7 /* XLForm.framework */; };
@@ -90,6 +94,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				82AE7BE21EAD285A0000AACB /* UICircularProgressRing.framework in Embed Frameworks */,
 				82557EE81E910CCB00A76805 /* SCLAlertView.framework in Embed Frameworks */,
 				8218D8A11D8B5CD3003055DA /* Realm.framework in Embed Frameworks */,
 				82557EE61E910CC800A76805 /* XLPagerTabStrip.framework in Embed Frameworks */,
@@ -147,6 +152,10 @@
 		8263C5EB1D8892C50090F0B1 /* CurrentPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentPlanViewController.swift; sourceTree = "<group>"; };
 		8263C6021D8894570090F0B1 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		8263C6041D8894620090F0B1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		828D02AB1EAB678A00100E47 /* ProgressLogEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressLogEntry.swift; sourceTree = "<group>"; };
+		828D02AD1EABA05700100E47 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		82AE7BD11EACF5AC0000AACB /* UICircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircleImageView.swift; sourceTree = "<group>"; };
+		82AE7BDF1EAD28510000AACB /* UICircularProgressRing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UICircularProgressRing.framework; path = Carthage/Build/iOS/UICircularProgressRing.framework; sourceTree = "<group>"; };
 		82BA73E31E4E706700C8C1A4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		82BA73E81E4E724800C8C1A4 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		82BAF4D31E45F441000B5C00 /* WorkoutGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutGenerator.swift; sourceTree = "<group>"; };
@@ -155,7 +164,6 @@
 		82E1E3A81E73169B0065C4E3 /* Collection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		82E1F8DE1E61FA3A008C45CC /* CleverFitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitViewController.swift; sourceTree = "<group>"; };
 		82E22E0A1E7CB200001E2F5C /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
-		82F8E3221D8A9DE0009593B8 /* UICircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICircularProgressView.swift; sourceTree = "<group>"; };
 		82F8E3251D8B073D009593B8 /* CurrentPlanExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentPlanExerciseCell.swift; sourceTree = "<group>"; };
 		82F8E3271D8B0B0E009593B8 /* HistoryWorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryWorkoutCell.swift; sourceTree = "<group>"; };
 		82FB58A71E7B094A006908D7 /* XLForm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XLForm.framework; path = Carthage/Build/iOS/XLForm.framework; sourceTree = "<group>"; };
@@ -181,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82AE7BE11EAD285A0000AACB /* UICircularProgressRing.framework in Frameworks */,
 				82557EE71E910CCB00A76805 /* SCLAlertView.framework in Frameworks */,
 				8218D8A01D8B5CD3003055DA /* Realm.framework in Frameworks */,
 				82557EE51E910CC800A76805 /* XLPagerTabStrip.framework in Frameworks */,
@@ -240,6 +249,7 @@
 		82305D851D88D44C002094AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82AE7BDF1EAD28510000AACB /* UICircularProgressRing.framework */,
 				82557EE31E910CB600A76805 /* ChartsRealm.framework */,
 				82557EE11E910CAF00A76805 /* Charts.framework */,
 				82557EDF1E910CA700A76805 /* XLPagerTabStrip.framework */,
@@ -259,6 +269,7 @@
 				8238A71D1E454CBC004CDBF9 /* WorkoutRoutine.swift */,
 				8238A71F1E454E2E004CDBF9 /* WorkoutExercise.swift */,
 				8238A7271E456B98004CDBF9 /* User.swift */,
+				828D02AB1EAB678A00100E47 /* ProgressLogEntry.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -267,7 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				8236686A1E61DF9B00A832B3 /* UIButtonCorner.swift */,
-				82F8E3221D8A9DE0009593B8 /* UICircularProgressView.swift */,
+				82AE7BD11EACF5AC0000AACB /* UICircleImageView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -323,7 +334,6 @@
 				8263C5E11D8892C50090F0B1 /* AppDelegate.swift */,
 				8263C5E41D8892C50090F0B1 /* Main.storyboard */,
 				8263C5E21D8892C50090F0B1 /* LaunchScreen.xib */,
-				8263C5E71D8892C50090F0B1 /* Images.xcassets */,
 				8263C5E81D8892C50090F0B1 /* Info.plist */,
 			);
 			path = Cleverfit;
@@ -376,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				82DB44F41E75805C00E35D2D /* Data */,
+				8263C5E71D8892C50090F0B1 /* Images.xcassets */,
 				82BA73E31E4E706700C8C1A4 /* Localizable.strings */,
 			);
 			name = Resources;
@@ -402,6 +413,7 @@
 				82BA73E81E4E724800C8C1A4 /* Strings.swift */,
 				823A147A1E6B2299000556B3 /* CSVParser.swift */,
 				82E1E3A81E73169B0065C4E3 /* Collection.swift */,
+				828D02AD1EABA05700100E47 /* Date.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -673,7 +685,6 @@
 				82557EEF1E91107700A76805 /* ProgressViewController.swift in Sources */,
 				82C2F5031D89557200378176 /* CleverFitFormViewController.swift in Sources */,
 				8238A71C1E454BAB004CDBF9 /* Muscle.swift in Sources */,
-				82F8E3231D8A9DE0009593B8 /* UICircularProgressView.swift in Sources */,
 				8238A7191E454A17004CDBF9 /* Exercise.swift in Sources */,
 				8263C5F81D8892C50090F0B1 /* CurrentPlanViewController.swift in Sources */,
 				8263C6031D8894570090F0B1 /* HistoryViewController.swift in Sources */,
@@ -683,12 +694,15 @@
 				82E1E3A91E73169B0065C4E3 /* Collection.swift in Sources */,
 				825B31EB1E904318002D579C /* RegisterCommand.swift in Sources */,
 				82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */,
+				82AE7BD21EACF5AC0000AACB /* UICircleImageView.swift in Sources */,
 				8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */,
 				82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */,
 				8238A7281E456B98004CDBF9 /* User.swift in Sources */,
+				828D02AC1EAB678A00100E47 /* ProgressLogEntry.swift in Sources */,
 				8213AA251E6C3E2F00466335 /* CleverFitPreferences.swift in Sources */,
 				8218D8A51D8B64AB003055DA /* ResumeExerciseCell.swift in Sources */,
 				8218D8A81D8B6B97003055DA /* ExerciseViewController.swift in Sources */,
+				828D02AE1EABA05700100E47 /* Date.swift in Sources */,
 				8263C6051D8894620090F0B1 /* SettingsViewController.swift in Sources */,
 				23527A91C8F8436816EBCC37 /* CurrentPlanDoNotExistsCell.swift in Sources */,
 			);

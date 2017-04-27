@@ -12,6 +12,6 @@ import Foundation
 class WorkoutRoutine: Object {
     dynamic var id = ""
     dynamic var startDate = NSDate()
-    dynamic var endDate = NSDate()
+    dynamic var endDate = NSDate().add(days: 30)
     let workoutExercises = List<WorkoutExercise>()
 }

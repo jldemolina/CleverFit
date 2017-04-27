@@ -25,4 +25,5 @@ class CleverFitViewController: UIViewController {
     func showBackButton(animated: Bool) {
         navigationItem.setHidesBackButton(true, animated: animated)
     }
+    
 }

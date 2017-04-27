@@ -18,13 +18,8 @@ class HistoryViewController: CleverFitViewController {
         self.workoutsTableView.delegate = self
         self.workoutsTableView.dataSource = self
         loadWorkoutRoutines()
-
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     func loadWorkoutRoutines() {
         let routines: [WorkoutRoutine]? = DatabaseManager.sharedInstance.load()
         if (routines != nil) {

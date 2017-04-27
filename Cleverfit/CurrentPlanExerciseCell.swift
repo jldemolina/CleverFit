@@ -12,11 +12,15 @@ class CurrentPlanExerciseCell: UITableViewCell {
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var exerciseIndexLabel: UILabel!
     @IBOutlet weak var exerciseTimeLabel: UILabel!
-
+    @IBOutlet weak var exerciseImageView: UIImageView!
+    
     // TODO STORE STRINGS
     func initView(with workoutExercise: WorkoutExercise, number: Int) {
-        self.exerciseNameLabel.text = workoutExercise.exercise!.name
-        self.exerciseTimeLabel.text = "\(workoutExercise.durationInSeconds) segundos"
-        self.exerciseIndexLabel.text = "\(number)"
+        if let exercise = workoutExercise.exercise {
+            self.exerciseNameLabel.text = exercise.name
+            self.exerciseTimeLabel.text = "\(workoutExercise.durationInSeconds) segundos"
+            self.exerciseIndexLabel.text = "\(number)"
+            self.exerciseImageView.image = UIImage(named:exercise.id)
+        }
     }
 }

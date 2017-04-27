@@ -8,12 +8,39 @@
 
 import UIKit
 
-class ExerciseViewController: UIViewController {
-    @IBOutlet weak var exerciseNameLabel: UILabel!
+class ExerciseViewController: CleverFitViewController {
     @IBOutlet weak var exerciseDescriptionLabel: UILabel!
+    @IBOutlet weak var exerciseImage: UIImageView!
+    var workoutExercise: WorkoutExercise
 
-    @IBAction func closeModal(_ sender: AnyObject) {
-        self.dismiss(animated: true, completion: {})
+    convenience init?(coder aDecoder: NSCoder, workoutExercise: WorkoutExercise) {
+        self.init(coder: aDecoder)
+        self.workoutExercise = workoutExercise
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.workoutExercise = WorkoutExercise()
+        super.init(coder: aDecoder)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = workoutExercise.exercise?.name
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureView()
+    }
+    
+    private func configureView() {
+        if let currentExercise = workoutExercise.exercise {
+            exerciseDescriptionLabel.text = currentExercise.information
+            exerciseDescriptionLabel.numberOfLines = 0
+            exerciseDescriptionLabel.sizeToFit()
+            
+            exerciseImage.image = UIImage(named: currentExercise.id)
+        }
     }
 
 }

@@ -27,7 +27,10 @@ final class UpdateUserCommand: FeedbackCommand {
     }
     
     private func updateUserInDatabase()-> Bool {
-        return DatabaseManager.sharedInstance.update(user: user)
+        if DatabaseManager.sharedInstance.update(user: user) {
+            return DatabaseManager.sharedInstance.addProgressEntry(height: Double(user.height), weight: Double(user.weight))
+        }
+        return false;
     }
     
     private func openViewController()-> Bool {

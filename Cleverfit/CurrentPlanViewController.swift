@@ -79,6 +79,7 @@ class CurrentPlanViewController: CleverFitViewController {
         }
     }
     
+    // TODO - DATE FROM 1975...
     private func showGenerateNewRoutineModal() {
         let appearance = SCLAlertView.SCLAppearance(showCloseButton: false)
         let alertView = SCLAlertView(appearance: appearance)
@@ -128,8 +129,7 @@ extension CurrentPlanViewController: UITableViewDelegate, UITableViewDataSource 
 
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "WebSegue", sender: indexPath)
-        //tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        OpenExerciseViewCommand(currentNavigationController: self.navigationController!, exerciseToOpen: workoutRoutine.workoutExercises[indexPath.row]).execute()
     }
 
 }

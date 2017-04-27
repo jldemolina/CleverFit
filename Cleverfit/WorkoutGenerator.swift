@@ -21,7 +21,6 @@ class WorkoutGenerator {
     // TODO CALCULATE EXERCISE INTENSITY
     func generateRoutine() -> WorkoutRoutine {
         let workoutRoutine = WorkoutRoutine()
-        workoutRoutine.startDate = NSDate()
         
         let cleverExerciseList = CleverExerciseList(exercises: exercises, for: user)
         let generatedExercises = cleverExerciseList.generateRecomendedExerciseList()

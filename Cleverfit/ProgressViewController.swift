@@ -9,52 +9,66 @@
 import UIKit
 import Charts
 
+// TODO - IMPROVE DESIGN
 class ProgressViewController: CleverFitViewController {
 
     @IBOutlet weak var barChartView: BarChartView!
     
-    var months: [String]!
     var dataEntries: [BarChartDataEntry] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "PROGRESS_VIEW_TITLE".localized
-
-        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
-        setChart(dataPoints: months, values: unitsSold)
         
+        generateChart()
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
-        barChartView.noDataText = "You need to provide data for the chart."
+    func generateChart() {
+        var points = [String]()
+        var units = [Double]()
+        let entries: [ProgressLogEntry]? = DatabaseManager.sharedInstance.load()
         
+        if entries != nil {
+            for entry in entries! {
+                units.append(entry.weight)
+                points.append(String(Calendar.current.component(.month, from: entry.date as Date)))
+            }
+        }
+        
+        setChart(dataPoints: points, values: units)
+
+    }
+    
+    
+    func setChart(dataPoints: [String], values: [Double]) {
         for i in 0..<dataPoints.count {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Units Sold")
-        
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Mes")
         let chartData = BarChartData(dataSet: chartDataSet)
         
         barChartView.data = chartData
         
-        // VIEW
-        
         chartDataSet.colors = [UIColor.white]
+        barChartView.chartDescription?.text = "EVOLUCIÓN DEL PESO"
+        barChartView.chartDescription?.textColor = UIColor.white
         barChartView.tintColor = UIColor.white
+        barChartView.noDataTextColor = UIColor.white
+        barChartView.borderColor = UIColor.white
         barChartView.drawBarShadowEnabled = false
-        barChartView.borderLineWidth = 0.0
         barChartView.drawValueAboveBarEnabled = false
-        barChartView.xAxis.axisLineWidth = 0.0
         barChartView.xAxis.drawGridLinesEnabled = false
         barChartView.xAxis.drawLabelsEnabled = false
         barChartView.rightAxis.enabled = false
         barChartView.leftAxis.enabled = false
         barChartView.legend.enabled = false
-        
+        barChartView.borderLineWidth = 0.0
+        barChartView.xAxis.axisLineWidth = 0.0
+
     }
+
     
 }

@@ -49,3 +49,15 @@ final class OpenSettingsViewCommand: OpenViewCommand {
     }
     
 }
+
+final class OpenExerciseViewCommand: OpenViewCommand {
+    
+    required init(currentNavigationController: UINavigationController, exerciseToOpen: WorkoutExercise) {
+        let viewControllerToOpen : ExerciseViewController = UIStoryboard(name: CleverFitParams.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CleverFitParams.ViewController.exerciseViewController.rawValue) as! ExerciseViewController
+        viewControllerToOpen.workoutExercise = exerciseToOpen
+        
+        super.init(currentNavigationController: currentNavigationController, viewControllerToOpen: viewControllerToOpen)
+    }
+    
+}
+

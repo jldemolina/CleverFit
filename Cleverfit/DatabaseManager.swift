@@ -43,6 +43,20 @@ class DatabaseManager {
         }
         return added
     }
+    
+    func add(progressEntry: ProgressLogEntry) -> Bool {
+        var added = false
+        try! realm.write {
+            realm.add(progressEntry)
+            added = true
+        }
+        return added
+    }
+    
+    func load() -> [ProgressLogEntry]? {
+        let logEntries = realm.objects(ProgressLogEntry.self)
+        return Array(logEntries)
+    }
 
     func update(user: User) -> Bool {
         var updated = false
@@ -82,6 +96,13 @@ class DatabaseManager {
             updated = true
         }
         return updated
+    }
+    
+    func addProgressEntry(height: Double, weight: Double) -> Bool {
+        let entry = ProgressLogEntry()
+        entry.height = height
+        entry.weight = weight
+        return self.add(progressEntry: entry)
     }
 
 }
