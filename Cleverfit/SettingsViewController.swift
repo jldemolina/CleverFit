@@ -43,6 +43,11 @@ class SettingsViewController: CleverFitFormViewController {
         loadInitialValues()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showNavigationBar()
+    }
+    
     private func configureForm() {
         let form = XLFormDescriptor(title: FormTag.settings.rawValue) as XLFormDescriptor
         

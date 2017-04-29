@@ -4,4 +4,4 @@ github "xmartlabs/XLPagerTabStrip" ~> 7.0
 github "vikmeup/SCLAlertView-Swift" "master"
 github "danielgindi/Charts"
 github "luispadron/UICircularProgressRing"
-
+github "radex/SwiftyTimer"

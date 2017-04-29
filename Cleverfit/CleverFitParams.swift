@@ -3,7 +3,7 @@
 //  Clevefit
 //
 //  Created by Jose Luis Molina on 16/2/17.
-//  Copyright © 2017 SebastianAndersen. All rights reserved.
+//  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
 import Foundation
@@ -18,7 +18,7 @@ final class CleverFitParams {
         case meViewController
         case currentPlanViewController
         case trainViewController
-        case resumeViewController
+        case trainResumeViewController
         case generateWorkoutViewController
         case registerUserViewController
         case settingsViewController

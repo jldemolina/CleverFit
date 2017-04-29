@@ -17,7 +17,15 @@ class CleverFitViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func showNavigationBar() {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 
+    func hideNavigationBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     func hideBackButton(animated: Bool) {
         navigationItem.setHidesBackButton(false, animated: animated)
     }

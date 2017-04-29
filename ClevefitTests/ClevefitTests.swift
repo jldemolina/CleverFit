@@ -3,7 +3,7 @@
 //  ClevefitTests
 //
 //  Created by Jose Luis Molina on 14/9/16.
-//  Copyright © 2016 SebastianAndersen. All rights reserved.
+//  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
 import XCTest

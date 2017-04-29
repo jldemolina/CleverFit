@@ -31,6 +31,7 @@ class ExerciseViewController: CleverFitViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configureView()
+        showNavigationBar()
     }
     
     private func configureView() {

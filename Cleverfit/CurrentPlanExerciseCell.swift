@@ -20,7 +20,7 @@ class CurrentPlanExerciseCell: UITableViewCell {
             self.exerciseNameLabel.text = exercise.name
             self.exerciseTimeLabel.text = "\(workoutExercise.durationInSeconds) segundos"
             self.exerciseIndexLabel.text = "\(number)"
-            self.exerciseImageView.image = UIImage(named:exercise.id)
+            self.exerciseImageView.image = UIImage(named: exercise.id)
         }
     }
 }

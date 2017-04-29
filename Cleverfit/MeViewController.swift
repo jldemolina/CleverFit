@@ -14,5 +14,10 @@ class MeViewController: CleverFitViewController {
         super.viewDidLoad()
         self.title = "ME_VIEW_TITLE".localized
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        hideNavigationBar()
+    }
 
 }

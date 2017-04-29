@@ -3,7 +3,7 @@
 //  Clevefit
 //
 //  Created by Jose Luis Molina on 5/3/17.
-//  Copyright © 2017 SebastianAndersen. All rights reserved.
+//  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
 import Foundation

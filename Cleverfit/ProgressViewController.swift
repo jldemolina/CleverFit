@@ -3,7 +3,7 @@
 //  Cleverfit
 //
 //  Created by Jose Luis Molina on 2/4/17.
-//  Copyright © 2017 SebastianAndersen. All rights reserved.
+//  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
 import UIKit
@@ -22,6 +22,11 @@ class ProgressViewController: CleverFitViewController {
         self.title = "PROGRESS_VIEW_TITLE".localized
         
         generateChart()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showNavigationBar()
     }
     
     func generateChart() {

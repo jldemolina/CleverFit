@@ -17,6 +17,11 @@ class CurrentPlanViewController: CleverFitViewController {
     @IBOutlet weak var tableView: UITableView!
     public var workoutRoutine: WorkoutRoutine
     
+    
+    @IBAction func startworkoutAction(_ sender: Any) {
+        OpenTrainViewCommand(currentNavigationController: navigationController!, workoutToOpen: workoutRoutine).execute()
+    }
+    
     convenience init?(coder aDecoder: NSCoder, with workoutRoutine: WorkoutRoutine) {
         self.init(coder: aDecoder)
         self.workoutRoutine = workoutRoutine
@@ -34,6 +39,7 @@ class CurrentPlanViewController: CleverFitViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configureTitle()
+        showNavigationBar()
         if loadExercisesIfNeeded() && currentRoutineHasFinished() {
             showGenerateNewRoutineModal()
         }

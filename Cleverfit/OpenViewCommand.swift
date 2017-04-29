@@ -3,7 +3,7 @@
 //  Clevefit
 //
 //  Created by Jose Luis Molina on 1/4/17.
-//  Copyright © 2017 SebastianAndersen. All rights reserved.
+//  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
 import Foundation
@@ -60,4 +60,27 @@ final class OpenExerciseViewCommand: OpenViewCommand {
     }
     
 }
+
+final class OpenTrainViewCommand: OpenViewCommand {
+    
+    required init(currentNavigationController: UINavigationController, workoutToOpen: WorkoutRoutine) {
+        let viewControllerToOpen : TrainViewController = UIStoryboard(name: CleverFitParams.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CleverFitParams.ViewController.trainViewController.rawValue) as! TrainViewController
+        viewControllerToOpen.workoutRoutine = workoutToOpen
+        
+        super.init(currentNavigationController: currentNavigationController, viewControllerToOpen: viewControllerToOpen)
+    }
+    
+}
+
+final class OpenTrainResumeCommand: OpenViewCommand {
+    
+    required init(currentNavigationController: UINavigationController) {
+        let viewControllerToOpen = UIStoryboard(name: CleverFitParams.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CleverFitParams.ViewController.trainResumeViewController.rawValue)
+        
+        super.init(currentNavigationController: currentNavigationController, viewControllerToOpen: viewControllerToOpen)
+    }
+    
+}
+
+
 

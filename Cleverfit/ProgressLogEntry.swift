@@ -3,7 +3,7 @@
 //  Cleverfit
 //
 //  Created by Jose Luis Molina on 22/4/17.
-//  Copyright © 2017 SebastianAndersen. All rights reserved.
+//  Copyright © 2017 Jose Luis Molina. All rights reserved.
 //
 
 import RealmSwift

@@ -13,12 +13,14 @@
 		8218D8A11D8B5CD3003055DA /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89C1D8B5CC1003055DA /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8218D8A21D8B5CD3003055DA /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89D1D8B5CC1003055DA /* RealmSwift.framework */; };
 		8218D8A31D8B5CD3003055DA /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8218D89D1D8B5CC1003055DA /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8218D8A51D8B64AB003055DA /* ResumeExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8218D8A41D8B64AB003055DA /* ResumeExerciseCell.swift */; };
 		8218D8A81D8B6B97003055DA /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8218D8A71D8B6B97003055DA /* ExerciseViewController.swift */; };
+		821CCFEC1EB27DB8003BBA64 /* SwiftyTimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 821CCFEA1EB27DAE003BBA64 /* SwiftyTimer.framework */; };
+		821CCFED1EB27DB8003BBA64 /* SwiftyTimer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 821CCFEA1EB27DAE003BBA64 /* SwiftyTimer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		821CCFEF1EB288AD003BBA64 /* WorkoutExerciseTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821CCFEE1EB288AD003BBA64 /* WorkoutExerciseTimer.swift */; };
 		8222F87C1D89BEB1002B8580 /* ClevefitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8222F87B1D89BEB1002B8580 /* ClevefitUITests.swift */; };
 		8222F88A1D89BEBF002B8580 /* ClevefitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8222F8891D89BEBF002B8580 /* ClevefitTests.swift */; };
 		8222F8951D89EC71002B8580 /* TrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8222F8941D89EC71002B8580 /* TrainViewController.swift */; };
-		8222F8971D89ECE5002B8580 /* ResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8222F8961D89ECE5002B8580 /* ResumeViewController.swift */; };
+		8222F94E1EB3E4B200A85CA2 /* TrainResumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8222F94D1EB3E4B200A85CA2 /* TrainResumeViewController.swift */; };
 		822A398C1E606DB000572C7D /* RegisterUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822A398B1E606DB000572C7D /* RegisterUserViewController.swift */; };
 		8236686B1E61DF9B00A832B3 /* UIButtonCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8236686A1E61DF9B00A832B3 /* UIButtonCorner.swift */; };
 		8238A7191E454A17004CDBF9 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A7181E454A17004CDBF9 /* Exercise.swift */; };
@@ -28,6 +30,7 @@
 		8238A7241E4567B8004CDBF9 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A7231E4567B8004CDBF9 /* DatabaseManager.swift */; };
 		8238A7281E456B98004CDBF9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A7271E456B98004CDBF9 /* User.swift */; };
 		823A147B1E6B2299000556B3 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A147A1E6B2299000556B3 /* CSVParser.swift */; };
+		824C49D21EB4A8BB00FEFF05 /* CloseViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824C49D11EB4A8BB00FEFF05 /* CloseViewCommand.swift */; };
 		824DF6471E55F6280074F6CF /* CleverFitParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6461E55F6280074F6CF /* CleverFitParams.swift */; };
 		824DF6491E55F97C0074F6CF /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6481E55F97C0074F6CF /* MainNavigationController.swift */; };
 		82557EE51E910CC800A76805 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EDF1E910CA700A76805 /* XLPagerTabStrip.framework */; };
@@ -97,6 +100,7 @@
 				82AE7BE21EAD285A0000AACB /* UICircularProgressRing.framework in Embed Frameworks */,
 				82557EE81E910CCB00A76805 /* SCLAlertView.framework in Embed Frameworks */,
 				8218D8A11D8B5CD3003055DA /* Realm.framework in Embed Frameworks */,
+				821CCFED1EB27DB8003BBA64 /* SwiftyTimer.framework in Embed Frameworks */,
 				82557EE61E910CC800A76805 /* XLPagerTabStrip.framework in Embed Frameworks */,
 				82557EEC1E910CD200A76805 /* Charts.framework in Embed Frameworks */,
 				82557EEA1E910CCF00A76805 /* ChartsRealm.framework in Embed Frameworks */,
@@ -113,8 +117,9 @@
 		8213AA241E6C3E2F00466335 /* CleverFitPreferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitPreferences.swift; sourceTree = "<group>"; };
 		8218D89C1D8B5CC1003055DA /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		8218D89D1D8B5CC1003055DA /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		8218D8A41D8B64AB003055DA /* ResumeExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeExerciseCell.swift; sourceTree = "<group>"; };
 		8218D8A71D8B6B97003055DA /* ExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		821CCFEA1EB27DAE003BBA64 /* SwiftyTimer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyTimer.framework; path = Carthage/Build/iOS/SwiftyTimer.framework; sourceTree = "<group>"; };
+		821CCFEE1EB288AD003BBA64 /* WorkoutExerciseTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutExerciseTimer.swift; sourceTree = "<group>"; };
 		8222F8791D89BEB1002B8580 /* CleverfitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleverfitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8222F87B1D89BEB1002B8580 /* ClevefitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClevefitUITests.swift; sourceTree = "<group>"; };
 		8222F87D1D89BEB1002B8580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,7 +127,7 @@
 		8222F8891D89BEBF002B8580 /* ClevefitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClevefitTests.swift; sourceTree = "<group>"; };
 		8222F88B1D89BEBF002B8580 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8222F8941D89EC71002B8580 /* TrainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainViewController.swift; sourceTree = "<group>"; };
-		8222F8961D89ECE5002B8580 /* ResumeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeViewController.swift; sourceTree = "<group>"; };
+		8222F94D1EB3E4B200A85CA2 /* TrainResumeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainResumeViewController.swift; sourceTree = "<group>"; };
 		822A398B1E606DB000572C7D /* RegisterUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterUserViewController.swift; sourceTree = "<group>"; };
 		8236686A1E61DF9B00A832B3 /* UIButtonCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonCorner.swift; sourceTree = "<group>"; };
 		8238A7181E454A17004CDBF9 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 		8238A7231E4567B8004CDBF9 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		8238A7271E456B98004CDBF9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		823A147A1E6B2299000556B3 /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
+		824C49D11EB4A8BB00FEFF05 /* CloseViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseViewCommand.swift; sourceTree = "<group>"; };
 		824DF6461E55F6280074F6CF /* CleverFitParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitParams.swift; sourceTree = "<group>"; };
 		824DF6481E55F97C0074F6CF /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		82557EDD1E910C9D00A76805 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 				82AE7BE11EAD285A0000AACB /* UICircularProgressRing.framework in Frameworks */,
 				82557EE71E910CCB00A76805 /* SCLAlertView.framework in Frameworks */,
 				8218D8A01D8B5CD3003055DA /* Realm.framework in Frameworks */,
+				821CCFEC1EB27DB8003BBA64 /* SwiftyTimer.framework in Frameworks */,
 				82557EE51E910CC800A76805 /* XLPagerTabStrip.framework in Frameworks */,
 				82557EEB1E910CD200A76805 /* Charts.framework in Frameworks */,
 				82557EE91E910CCF00A76805 /* ChartsRealm.framework in Frameworks */,
@@ -233,22 +240,15 @@
 			isa = PBXGroup;
 			children = (
 				8222F8941D89EC71002B8580 /* TrainViewController.swift */,
+				8222F94D1EB3E4B200A85CA2 /* TrainResumeViewController.swift */,
 			);
 			name = Train;
-			sourceTree = "<group>";
-		};
-		8222F8931D89EBCB002B8580 /* Resume */ = {
-			isa = PBXGroup;
-			children = (
-				8222F8961D89ECE5002B8580 /* ResumeViewController.swift */,
-				8218D8A41D8B64AB003055DA /* ResumeExerciseCell.swift */,
-			);
-			name = Resume;
 			sourceTree = "<group>";
 		};
 		82305D851D88D44C002094AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				821CCFEA1EB27DAE003BBA64 /* SwiftyTimer.framework */,
 				82AE7BDF1EAD28510000AACB /* UICircularProgressRing.framework */,
 				82557EE31E910CB600A76805 /* ChartsRealm.framework */,
 				82557EE11E910CAF00A76805 /* Charts.framework */,
@@ -414,6 +414,7 @@
 				823A147A1E6B2299000556B3 /* CSVParser.swift */,
 				82E1E3A81E73169B0065C4E3 /* Collection.swift */,
 				828D02AD1EABA05700100E47 /* Date.swift */,
+				821CCFEE1EB288AD003BBA64 /* WorkoutExerciseTimer.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -451,6 +452,7 @@
 				825B31E61E904318002D579C /* OpenViewCommand.swift */,
 				825B31E71E904318002D579C /* RegisterCommand.swift */,
 				825B31E81E904318002D579C /* UpdateUserCommand.swift */,
+				824C49D11EB4A8BB00FEFF05 /* CloseViewCommand.swift */,
 			);
 			name = Commands;
 			sourceTree = "<group>";
@@ -466,7 +468,6 @@
 				8263C5FE1D8893680090F0B1 /* Current Plan */,
 				8222F8921D89EBAE002B8580 /* Train */,
 				8263C5FF1D8893700090F0B1 /* Settings */,
-				8222F8931D89EBCB002B8580 /* Resume */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -679,6 +680,7 @@
 				8263C5F01D8892C50090F0B1 /* AppDelegate.swift in Sources */,
 				8238A7241E4567B8004CDBF9 /* DatabaseManager.swift in Sources */,
 				8263C5F31D8892C50090F0B1 /* MeViewController.swift in Sources */,
+				821CCFEF1EB288AD003BBA64 /* WorkoutExerciseTimer.swift in Sources */,
 				825B31EA1E904318002D579C /* OpenViewCommand.swift in Sources */,
 				824DF6471E55F6280074F6CF /* CleverFitParams.swift in Sources */,
 				822A398C1E606DB000572C7D /* RegisterUserViewController.swift in Sources */,
@@ -688,19 +690,19 @@
 				8238A7191E454A17004CDBF9 /* Exercise.swift in Sources */,
 				8263C5F81D8892C50090F0B1 /* CurrentPlanViewController.swift in Sources */,
 				8263C6031D8894570090F0B1 /* HistoryViewController.swift in Sources */,
-				8222F8971D89ECE5002B8580 /* ResumeViewController.swift in Sources */,
 				823A147B1E6B2299000556B3 /* CSVParser.swift in Sources */,
 				8238A71E1E454CBC004CDBF9 /* WorkoutRoutine.swift in Sources */,
 				82E1E3A91E73169B0065C4E3 /* Collection.swift in Sources */,
 				825B31EB1E904318002D579C /* RegisterCommand.swift in Sources */,
 				82BAF4D41E45F441000B5C00 /* WorkoutGenerator.swift in Sources */,
+				824C49D21EB4A8BB00FEFF05 /* CloseViewCommand.swift in Sources */,
 				82AE7BD21EACF5AC0000AACB /* UICircleImageView.swift in Sources */,
 				8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */,
 				82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */,
 				8238A7281E456B98004CDBF9 /* User.swift in Sources */,
+				8222F94E1EB3E4B200A85CA2 /* TrainResumeViewController.swift in Sources */,
 				828D02AC1EAB678A00100E47 /* ProgressLogEntry.swift in Sources */,
 				8213AA251E6C3E2F00466335 /* CleverFitPreferences.swift in Sources */,
-				8218D8A51D8B64AB003055DA /* ResumeExerciseCell.swift in Sources */,
 				8218D8A81D8B6B97003055DA /* ExerciseViewController.swift in Sources */,
 				828D02AE1EABA05700100E47 /* Date.swift in Sources */,
 				8263C6051D8894620090F0B1 /* SettingsViewController.swift in Sources */,
@@ -919,7 +921,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Cleverfit/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.cleverfit;
 				PRODUCT_NAME = Cleverfit;
@@ -938,7 +940,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Cleverfit/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = es.cleverfit;
 				PRODUCT_NAME = Cleverfit;

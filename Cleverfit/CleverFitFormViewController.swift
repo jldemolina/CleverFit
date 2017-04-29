@@ -14,6 +14,15 @@ class CleverFitFormViewController: XLFormViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func showNavigationBar() {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    func hideNavigationBar() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
 
     func addDescriptor(to section: XLFormSectionDescriptor,
                        with tag: FormTag,
