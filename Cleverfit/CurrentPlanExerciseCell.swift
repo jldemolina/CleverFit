@@ -14,11 +14,10 @@ class CurrentPlanExerciseCell: UITableViewCell {
     @IBOutlet weak var exerciseTimeLabel: UILabel!
     @IBOutlet weak var exerciseImageView: UIImageView!
     
-    // TODO STORE STRINGS
     func initView(with workoutExercise: WorkoutExercise, number: Int) {
         if let exercise = workoutExercise.exercise {
             self.exerciseNameLabel.text = exercise.name
-            self.exerciseTimeLabel.text = "\(workoutExercise.durationInSeconds) segundos"
+            self.exerciseTimeLabel.text = "\(workoutExercise.durationInSeconds) \(LocalizedString.CurrentPlanView.seconds)"
             self.exerciseIndexLabel.text = "\(number)"
             self.exerciseImageView.image = UIImage(named: exercise.id)
         }

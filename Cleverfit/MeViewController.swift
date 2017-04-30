@@ -12,7 +12,7 @@ class MeViewController: CleverFitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "ME_VIEW_TITLE".localized
+        self.title = LocalizedString.MeView.title
     }
     
     override func viewWillAppear(_ animated: Bool) {

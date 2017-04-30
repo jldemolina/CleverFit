@@ -31,6 +31,7 @@
 		8238A7281E456B98004CDBF9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238A7271E456B98004CDBF9 /* User.swift */; };
 		823A147B1E6B2299000556B3 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823A147A1E6B2299000556B3 /* CSVParser.swift */; };
 		824C49D21EB4A8BB00FEFF05 /* CloseViewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824C49D11EB4A8BB00FEFF05 /* CloseViewCommand.swift */; };
+		824C49D41EB60B4700FEFF05 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824C49D31EB60B4700FEFF05 /* LocalizedString.swift */; };
 		824DF6471E55F6280074F6CF /* CleverFitParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6461E55F6280074F6CF /* CleverFitParams.swift */; };
 		824DF6491E55F97C0074F6CF /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824DF6481E55F97C0074F6CF /* MainNavigationController.swift */; };
 		82557EE51E910CC800A76805 /* XLPagerTabStrip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82557EDF1E910CA700A76805 /* XLPagerTabStrip.framework */; };
@@ -138,6 +139,7 @@
 		8238A7271E456B98004CDBF9 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		823A147A1E6B2299000556B3 /* CSVParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
 		824C49D11EB4A8BB00FEFF05 /* CloseViewCommand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseViewCommand.swift; sourceTree = "<group>"; };
+		824C49D31EB60B4700FEFF05 /* LocalizedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		824DF6461E55F6280074F6CF /* CleverFitParams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleverFitParams.swift; sourceTree = "<group>"; };
 		824DF6481E55F97C0074F6CF /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		82557EDD1E910C9D00A76805 /* SCLAlertView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCLAlertView.framework; path = Carthage/Build/iOS/SCLAlertView.framework; sourceTree = "<group>"; };
@@ -415,6 +417,7 @@
 				82E1E3A81E73169B0065C4E3 /* Collection.swift */,
 				828D02AD1EABA05700100E47 /* Date.swift */,
 				821CCFEE1EB288AD003BBA64 /* WorkoutExerciseTimer.swift */,
+				824C49D31EB60B4700FEFF05 /* LocalizedString.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				824C49D21EB4A8BB00FEFF05 /* CloseViewCommand.swift in Sources */,
 				82AE7BD21EACF5AC0000AACB /* UICircleImageView.swift in Sources */,
 				8238A7201E454E2E004CDBF9 /* WorkoutExercise.swift in Sources */,
+				824C49D41EB60B4700FEFF05 /* LocalizedString.swift in Sources */,
 				82BA73E91E4E724800C8C1A4 /* Strings.swift in Sources */,
 				8238A7281E456B98004CDBF9 /* User.swift in Sources */,
 				8222F94E1EB3E4B200A85CA2 /* TrainResumeViewController.swift in Sources */,

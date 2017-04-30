@@ -19,7 +19,7 @@ class ProgressViewController: CleverFitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "PROGRESS_VIEW_TITLE".localized
+        self.title = LocalizedString.ProgressView.title
         
         generateChart()
     }
@@ -52,13 +52,13 @@ class ProgressViewController: CleverFitViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Mes")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: LocalizedString.ProgressView.month)
         let chartData = BarChartData(dataSet: chartDataSet)
         
         barChartView.data = chartData
         
         chartDataSet.colors = [UIColor.white]
-        barChartView.chartDescription?.text = "EVOLUCIÓN DEL PESO"
+        barChartView.chartDescription?.text = LocalizedString.ProgressView.weightEvolution
         barChartView.chartDescription?.textColor = UIColor.white
         barChartView.tintColor = UIColor.white
         barChartView.noDataTextColor = UIColor.white

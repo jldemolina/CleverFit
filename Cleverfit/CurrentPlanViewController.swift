@@ -52,7 +52,7 @@ class CurrentPlanViewController: CleverFitViewController {
     
     private func configureTitle() {
         if workoutRoutine.workoutExercises.isEmpty {
-            self.title = "CURRENT_PLAN_VIEW_TITLE".localized
+            self.title = LocalizedString.CurrentPlanView.title
         } else {
             self.title = workoutRoutine.startDate.description
         }
@@ -89,16 +89,16 @@ class CurrentPlanViewController: CleverFitViewController {
     private func showGenerateNewRoutineModal() {
         let appearance = SCLAlertView.SCLAppearance(showCloseButton: false)
         let alertView = SCLAlertView(appearance: appearance)
-        alertView.addButton("GENERATE_ROUTINE_DIALOG_BUTTON".localized) {
+        alertView.addButton(LocalizedString.CurrentPlanView.generateRoutineDialogButton) {
             GenerateRoutineCommand(with: self).execute()
         }
-        alertView.addButton("UPDATE_DATA_DIALOG_BUTTON".localized) {
+        alertView.addButton(LocalizedString.CurrentPlanView.updateDataDialogButton) {
             OpenSettingsViewCommand(currentNavigationController: self.navigationController!).execute()
         }
-        alertView.addButton("CLOSE_DIALOG_BUTTON".localized) {
+        alertView.addButton(LocalizedString.CurrentPlanView.CloseDialogButton) {
             alertView.dismiss(animated: true, completion: nil)
         }
-        alertView.showSuccess("GENERATE_ROUTINE_DIALOG_TITLE".localized, subTitle: "GENERATE_ROUTINE_DIALOG_BODY".localized)
+        alertView.showSuccess(LocalizedString.CurrentPlanView.generateRoutineDialogtitle, subTitle: LocalizedString.CurrentPlanView.generateRoutineDialogBody)
     }
     
 }
@@ -143,11 +143,12 @@ extension CurrentPlanViewController: UITableViewDelegate, UITableViewDataSource 
 extension CurrentPlanViewController: GenerateRoutineCommandDelegate {
     
     func generationStarted() {
-        print("GENERATION STARTED")
+        print(LocalizedString.CurrentPlanView.generationStarted)
     }
     
     func generationFinished(workoutRoutine: WorkoutRoutine) {
-        print("GENERATION FINISHED")
+        print(LocalizedString.CurrentPlanView.generationFinished)
+        
         if saveExercises(workoutRoutine: workoutRoutine) {
             self.workoutRoutine = workoutRoutine
             self.tableView.reloadData()

@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO NAME?
 class HistoryWorkoutCell: UITableViewCell {
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var workoutDateLabel: UILabel!

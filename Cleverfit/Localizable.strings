@@ -62,3 +62,13 @@
 "UPDATE_DATA_DIALOG_BUTTON" = "Quiero actualizar mis datos";
 "CLOSE_DIALOG_BUTTON" = "Mejor otro día";
 
+// PROGRESS VIEW
+"WEIGHT_EVOLUTION" = "Evolución de peso";
+"MONTH" = "Mes";
+
+// HISTORY VIEW
+"GENERATION_STARTED" = "The routine generation has started";
+"GENERATION_FINISHED" = "The routine generation has finished";
+
+// CURRENT PAN EXERCISE CELL
+"SECONDS" = "segundos";

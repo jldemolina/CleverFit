@@ -14,7 +14,7 @@ class HistoryViewController: CleverFitViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "HISTORY_VIEW_TITLE".localized
+        self.title = LocalizedString.HistoryView.title
         self.workoutsTableView.delegate = self
         self.workoutsTableView.dataSource = self
         loadWorkoutRoutines()
@@ -75,11 +75,12 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
 extension HistoryViewController: GenerateRoutineCommandDelegate {
     
     func generationStarted() {
-        print("GENERATION STARTED")
+        print(LocalizedString.HistoryView.generationStarted)
     }
     
     func generationFinished(workoutRoutine: WorkoutRoutine) {
-        print("GENERATION FINISHED")
+        print(LocalizedString.HistoryView.generationFinished)
+        
         if saveRoutine(workoutRoutine: workoutRoutine) {
             self.workouts.append(workoutRoutine)
             self.workoutsTableView.reloadData()

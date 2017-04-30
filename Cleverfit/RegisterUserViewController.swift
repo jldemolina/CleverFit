@@ -27,7 +27,7 @@ class RegisterViewController: CleverFitFormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "REGISTER_VIEW_TITLE".localized
+        self.title =  LocalizedString.RegisterView.title
 
         configureForm()
         configureNextButton()
@@ -43,17 +43,17 @@ class RegisterViewController: CleverFitFormViewController {
     }
 
     private func addBasicInformationSection(to form: XLFormDescriptor) {
-        let section = XLFormSectionDescriptor.formSection(withTitle: "BASIC_INFORMATION_SECTION_TITLE".localized) as XLFormSectionDescriptor
+        let section = XLFormSectionDescriptor.formSection(withTitle: LocalizedString.FormView.basicInformationSectionTitle) as XLFormSectionDescriptor
         form.addFormSection(section)
 
-        addDescriptor(to: section, with: FormTag.name, title: "NAME_DESCRIPTOR_TITLE".localized, descriptorType: XLFormRowDescriptorTypeName, required: true)
-        addDescriptor(to: section, with: FormTag.birthdate, title: "BIRTHDATE_DESCRIPTOR_TITLE".localized, descriptorType: XLFormRowDescriptorTypeDate, required: true)
-        addDescriptor(to: section, with: FormTag.weight, title: "WEIGHT_DESCRIPTOR_TITLE".localized, descriptorType: XLFormRowDescriptorTypeInteger, required: true)
-        addDescriptor(to: section, with: FormTag.height, title: "HEIGHT_DESCRIPTOR_TITLE".localized, descriptorType: XLFormRowDescriptorTypeInteger, required: true)
+        addDescriptor(to: section, with: FormTag.name, title: LocalizedString.FormView.nameDescriptorTitle, descriptorType: XLFormRowDescriptorTypeName, required: true)
+        addDescriptor(to: section, with: FormTag.birthdate, title: LocalizedString.FormView.birthdateDescriptorTitle, descriptorType: XLFormRowDescriptorTypeDate, required: true)
+        addDescriptor(to: section, with: FormTag.weight, title: LocalizedString.FormView.weightDescriptorTitle, descriptorType: XLFormRowDescriptorTypeInteger, required: true)
+        addDescriptor(to: section, with: FormTag.height, title: LocalizedString.FormView.heightDescriptorTitle, descriptorType: XLFormRowDescriptorTypeInteger, required: true)
     }
 
     private func addTrainingConfigurationSection(to form: XLFormDescriptor) {
-        let section = XLFormSectionDescriptor.formSection(withTitle: "WORKOUT_CONFIGURATION_SECTION_TITLE".localized) as XLFormSectionDescriptor
+        let section = XLFormSectionDescriptor.formSection(withTitle: LocalizedString.FormView.workoutconfigurationSectionTitle) as XLFormSectionDescriptor
         form.addFormSection(section)
 
         self.addObjectiveDescriptor(to: section)
@@ -68,7 +68,7 @@ class RegisterViewController: CleverFitFormViewController {
                                 displayText: UserExperience.half.rawValue.localized),
             XLFormOptionsObject(value: UserExperience.hard,
                                 displayText: UserExperience.hard.rawValue.localized)]
-        addDescriptor(to: section, with: FormTag.experience, title: "EXPERIENCE_DESCRIPTOR_TITLE".localized, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
+        addDescriptor(to: section, with: FormTag.experience, title: LocalizedString.FormView.experienceDescriptorTitle, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
 
     }
 
@@ -78,13 +78,13 @@ class RegisterViewController: CleverFitFormViewController {
                                                    displayText: UserObjective.loseWeight.rawValue.localized),
             XLFormOptionsObject(value: UserObjective.maintenanceWeight,
                                                    displayText: UserObjective.maintenanceWeight.rawValue.localized)]
-        addDescriptor(to: section, with: FormTag.objective, title: "OBJECTIVE_DESCRIPTOR_TITLE".localized, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
+        addDescriptor(to: section, with: FormTag.objective, title: LocalizedString.FormView.objectiveDescriptorTitle, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
 
     }
 
     private func configureNextButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(RegisterViewController.validateForm(_:)))
-        navigationItem.rightBarButtonItem?.title = "REGISTER_BUTTON_TITLE".localized
+        navigationItem.rightBarButtonItem?.title = LocalizedString.RegisterView.registerButtonTitle
     }
 
     func validateForm(_ buttonItem: UIBarButtonItem) {
