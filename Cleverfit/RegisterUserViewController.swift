@@ -20,6 +20,7 @@ class RegisterViewController: CleverFitFormViewController {
             user.weight = form.formRow(withTag: FormTag.weight.rawValue)?.value as! Int
             user.objectiveFeedback = (form.formRow(withTag: FormTag.objective.rawValue)?.value as! XLFormOptionObject).formValue() as! UserObjective
             user.userExperience = (form.formRow(withTag: FormTag.experience.rawValue)?.value as! XLFormOptionObject).formValue() as! UserExperience
+            user.maxRoutineDurationInSeconds = (form.formRow(withTag: FormTag.maxDuration.rawValue)?.value as! XLFormOptionObject).formValue() as! Int * 60
             
             return user
         }
@@ -58,6 +59,7 @@ class RegisterViewController: CleverFitFormViewController {
 
         self.addObjectiveDescriptor(to: section)
         self.addExperienceDescriptor(to: section)
+        self.addWorkoutDurationDescriptor(to: section)
     }
 
     private func addExperienceDescriptor(to section: XLFormSectionDescriptor) {
@@ -82,6 +84,22 @@ class RegisterViewController: CleverFitFormViewController {
 
     }
 
+    private func addWorkoutDurationDescriptor(to section: XLFormSectionDescriptor) {
+        let options = [
+            XLFormOptionsObject(value: 7,
+                                displayText: "7 minutos"),
+            XLFormOptionsObject(value: 10,
+                                displayText: "10 minutos"),
+            XLFormOptionsObject(value: 15,
+                                displayText: "15 minutos"),
+            XLFormOptionsObject(value: 20,
+                                 displayText: "20 minutos"),
+            XLFormOptionsObject(value: 30,
+                                displayText: "30 minutos")]
+        addDescriptor(to: section, with: FormTag.maxDuration, title: LocalizedString.FormView.maxDurationDescriptorTitle, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
+        
+    }
+    
     private func configureNextButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(RegisterViewController.validateForm(_:)))
         navigationItem.rightBarButtonItem?.title = LocalizedString.RegisterView.registerButtonTitle

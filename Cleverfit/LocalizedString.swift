@@ -169,6 +169,11 @@ final class LocalizedString {
                 return "WORKOUT_CONFIGURATION_SECTION_TITLE".localized
             }
         }
+        static var maxDurationDescriptorTitle: String {
+            get {
+                return "MAX_DURATION_DESCRIPTOR_TITLE".localized
+            }
+        }
     }
     
     

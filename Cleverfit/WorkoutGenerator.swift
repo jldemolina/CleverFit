@@ -10,14 +10,27 @@ import Foundation
 import RealmSwift
 
 class WorkoutGenerator {
+    
+    fileprivate static let maximunRestTime = 60
+    fileprivate static let mediumRestTime = 40
+    fileprivate static let minorRestTime = 30
+    
+    fileprivate static let maximunExerciseTime = 60
+    fileprivate static let mediumExerciseTime = 40
+    fileprivate static let minorExerciseTime = 20
+    
+    fileprivate static let maximunAddedTime = 15
+    fileprivate static let mediumAddedTime = 5
+    fileprivate static let minorAddedTime = 0
+    
     private let user: User
     private let exercises: [Exercise]
-
+    
     init(forUser: User, andExercises: [Exercise]) {
         user = forUser
         exercises = andExercises
     }
-
+    
     // TODO CALCULATE EXERCISE INTENSITY
     func generateRoutine() -> WorkoutRoutine {
         let workoutRoutine = WorkoutRoutine()
@@ -26,20 +39,17 @@ class WorkoutGenerator {
         let generatedExercises = cleverExerciseList.generateRecomendedExerciseList()
         
         for exercise in generatedExercises {
-            let workoutExercise = WorkoutExercise()
-            workoutExercise.durationInSeconds = 30 // TODO CALCULATE
-            workoutExercise.exercise = exercise
-            workoutRoutine.workoutExercises.append(workoutExercise)
+            workoutRoutine.workoutExercises.append(exercise)
         }
         
         return workoutRoutine
     }
-
-
+    
+    
     private func totalNumberOfExercises()-> Int {
         return (user.objectiveFeedback == UserObjective.loseWeight) ? 20 : 20
     }
-
+    
 }
 
 fileprivate class CleverExerciseList {
@@ -53,23 +63,78 @@ fileprivate class CleverExerciseList {
         fillList(with: exercises)
     }
     
-    public func generateRecomendedExerciseList()-> [Exercise] {
-        guard !exerciseNodes.isEmpty else { return [Exercise]() }
-        var generatedList = [Exercise]()
-        let exercisesNumber = 20 // TODO GENERATE THIS
-        for index in 1...exercisesNumber {
+    public func generateRecomendedExerciseList()-> [WorkoutExercise] {
+        guard !exerciseNodes.isEmpty else { return [WorkoutExercise]() }
+        var generatedList = [WorkoutExercise]()
+        var timeSpent = 0
+
+        while timeSpent < user.maxRoutineDurationInSeconds {
             var highestItem = exerciseNodes[0]
-            for item in exerciseNodes {
-                if (index != 0) {
-                    item.previousExercises = generatedList
-                }
-                if item.heuristicValue > highestItem.heuristicValue {
-                    highestItem = item
+            for index in 0..<exerciseNodes.count {
+                exerciseNodes[index].previousExercises = getExerciseList(from: generatedList)
+                
+                if exerciseNodes[index].heuristicValue > highestItem.heuristicValue {
+                    highestItem = exerciseNodes[index]
                 }
             }
-            generatedList.append(highestItem.value)
+            
+            let workoutExercise = WorkoutExercise()
+            
+            workoutExercise.exercise = highestItem.value
+            workoutExercise.restInSeconds =  calculateExerciseDuration(exercise: highestItem.value, timeSpent: timeSpent, totalTime: user.maxRoutineDurationInSeconds)
+            workoutExercise.durationInSeconds = calculateExerciseRestDuration(exercise: highestItem.value, timeSpent: timeSpent, totalTime: user.maxRoutineDurationInSeconds)
+            
+            timeSpent += workoutExercise.restInSeconds + workoutExercise.durationInSeconds
+            
+            generatedList.append(workoutExercise)
+            
         }
+        
         return generatedList
+    }
+    
+    private func getExerciseList(from workoutExerciseList: [WorkoutExercise])-> [Exercise] {
+        var exercises = [Exercise]()
+        for workoutExercise in workoutExerciseList {
+            if let exercise = workoutExercise.exercise {
+                exercises.append(exercise)
+            }
+        }
+        return exercises
+    }
+    
+    private func calculateExerciseDuration(exercise: Exercise, timeSpent: Int, totalTime: Int)-> Int {
+        var exerciseDuration = 0
+        switch exercise.exerciseDifficulty {
+        case ExerciseDifficulty.hard:
+            exerciseDuration += WorkoutGenerator.maximunRestTime
+        case ExerciseDifficulty.medium:
+            exerciseDuration += WorkoutGenerator.mediumRestTime
+        default:
+            exerciseDuration += WorkoutGenerator.minorRestTime
+        }
+        
+        switch user.userExperience {
+        case UserExperience.hard:
+            exerciseDuration += WorkoutGenerator.maximunAddedTime
+        case UserExperience.half:
+            exerciseDuration += WorkoutGenerator.mediumAddedTime
+        default:
+            exerciseDuration += WorkoutGenerator.minorAddedTime
+        }
+        
+        return exerciseDuration
+    }
+    
+    private func calculateExerciseRestDuration(exercise: Exercise, timeSpent: Int, totalTime: Int)-> Int {
+        switch exercise.exerciseDifficulty {
+        case ExerciseDifficulty.hard:
+            return WorkoutGenerator.minorRestTime
+        case ExerciseDifficulty.medium:
+            return WorkoutGenerator.mediumRestTime
+        default:
+            return WorkoutGenerator.minorRestTime
+        }
     }
     
     private func fillList(with data: [Exercise]) {
@@ -100,7 +165,6 @@ fileprivate class CleverExerciseListItem {
             return calculateHeuristicValueForNode()
         }
     }
-
     
     init(value: Exercise, for user: User, with previousExercises: [Exercise]?) {
         self.value = value
@@ -113,7 +177,7 @@ fileprivate class CleverExerciseListItem {
     }
     
     private func calculateHeuristicValueForNode()-> Int {
-        return calculateExperienceValue() + calculateValueForRepetitiveExercise() - numberOfTimesTrainedInParent()
+        return calculateExperienceValue() + calculateExperienceValue() - numberOfTimesTrainedInParent() * 2
     }
     
     private func calculateExperienceValue()-> Int {
@@ -128,7 +192,7 @@ fileprivate class CleverExerciseListItem {
         } else if user.isNotExperimented() && value.isEasy() {
             return 2
         }
-    
+        
         if (user.isExperimented() && value.isHard()) {
             return 3
         } else if user.isNotExperimented() && value.isNormal() {
@@ -144,7 +208,8 @@ fileprivate class CleverExerciseListItem {
         }
         return 3
     }
-    
+
+
     private func exerciseExistsInParent()-> Bool {
         if previousExercises == nil {
             return false
@@ -167,7 +232,7 @@ fileprivate class CleverExerciseListItem {
         var repetitions = 0
         
         for previousExercise in previousExercises! {
-            if previousExercise.id == value.id {
+            if previousExercise.name.lowercased() == value.name.lowercased() {
                 repetitions += 1
             }
         }
@@ -176,3 +241,7 @@ fileprivate class CleverExerciseListItem {
     }
     
 }
+
+
+
+

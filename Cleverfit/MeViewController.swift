@@ -17,7 +17,8 @@ class MeViewController: CleverFitViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        hideNavigationBar()
+        showNavigationBar()
+        hideBackButton(animated: false)
     }
 
 }

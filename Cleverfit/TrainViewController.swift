@@ -67,6 +67,8 @@ class TrainViewController: CleverFitViewController {
         circularProgressView.value = 30
         circularProgressView.maxValue = 30
         
+        ExerciseImageView.image = UIImage(named: "rest")
+        
         hideNavigationBar()
         
     }
@@ -79,8 +81,21 @@ extension TrainViewController: WorkoutExerciseTimerDelegate {
         circularProgressView.value = CGFloat(currentTimeValue)
     }
     
+    func restTimeUpdated(currentTimeValue: Int) {
+        circularProgressView.value = CGFloat(currentTimeValue)
+    }
+    
     func workoutStarted() {
         // TODO - ¿?
+    }
+    
+    func restTimeStarted(workoutExercise: WorkoutExercise) {
+        circularProgressView.maxValue = CGFloat(workoutExercise.durationInSeconds)
+        circularProgressView.value = CGFloat(workoutExercise.durationInSeconds)
+        if let exercise = workoutExercise.exercise {
+            exerciseNameLabel.text = exercise.name.uppercased()
+            ExerciseImageView.image = UIImage(named: "rest")
+        }
     }
     
     func workoutFinished() {

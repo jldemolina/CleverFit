@@ -24,6 +24,8 @@ class SettingsViewController: CleverFitFormViewController {
             if let selectedExperience = form.formRow(withTag: FormTag.experience.rawValue)?.value as? UserExperience {
                 user.userExperience = selectedExperience
             }
+            user.maxRoutineDurationInSeconds = (form.formRow(withTag: FormTag.maxDuration.rawValue)?.value as! XLFormOptionObject).formValue() as! Int * 60
+            
             return user
         }
     }
@@ -73,6 +75,7 @@ class SettingsViewController: CleverFitFormViewController {
         
         self.addObjectiveDescriptor(to: section)
         self.addExperienceDescriptor(to: section)
+        self.addWorkoutDurationDescriptor(to: section)
     }
     
     private func addExperienceDescriptor(to section: XLFormSectionDescriptor) {
@@ -97,6 +100,22 @@ class SettingsViewController: CleverFitFormViewController {
         
     }
     
+    private func addWorkoutDurationDescriptor(to section: XLFormSectionDescriptor) {
+        let options = [
+            XLFormOptionsObject(value: 7,
+                                displayText: "7 minutos"),
+            XLFormOptionsObject(value: 10,
+                                displayText: "10 minutos"),
+            XLFormOptionsObject(value: 15,
+                                displayText: "15 minutos"),
+            XLFormOptionsObject(value: 20,
+                                displayText: "20 minutos"),
+            XLFormOptionsObject(value: 30,
+                                displayText: "30 minutos")]
+        addDescriptor(to: section, with: FormTag.maxDuration, title: LocalizedString.FormView.maxDurationDescriptorTitle, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
+        
+    }
+    
     private func configureNextButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(RegisterViewController.validateForm(_:)))
         navigationItem.rightBarButtonItem?.title = LocalizedString.SettingsView.registerButtonTitle
@@ -110,6 +129,7 @@ class SettingsViewController: CleverFitFormViewController {
             form.formRow(withTag: FormTag.weight.rawValue)?.value = loadedUser.weight
             form.formRow(withTag: FormTag.experience.rawValue)?.value = loadedUser.userExperience.rawValue.localized
             form.formRow(withTag: FormTag.objective.rawValue)?.value = loadedUser.objectiveFeedback.rawValue.localized
+            form.formRow(withTag: FormTag.maxDuration.rawValue)?.value = Int(loadedUser.maxRoutineDurationInSeconds / 60)
         }
     }
     

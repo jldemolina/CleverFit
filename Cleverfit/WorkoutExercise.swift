@@ -13,6 +13,7 @@ class WorkoutExercise: Object {
     dynamic var id = ""
     dynamic var exercise: Exercise?
     dynamic var durationInSeconds = 0
+    dynamic var restInSeconds = 0
     private dynamic var feedback = WorkoutExerciseFeedback.well.rawValue
     var workoutExerciseFeedback: WorkoutExerciseFeedback {
         get {

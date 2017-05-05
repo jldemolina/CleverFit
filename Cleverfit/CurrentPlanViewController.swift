@@ -22,6 +22,10 @@ class CurrentPlanViewController: CleverFitViewController {
         OpenTrainViewCommand(currentNavigationController: navigationController!, workoutToOpen: workoutRoutine).execute()
     }
     
+    @IBAction func generateNewRoutine(_ sender: Any) {
+        GenerateRoutineCommand(with: self).execute()
+    }
+    
     convenience init?(coder aDecoder: NSCoder, with workoutRoutine: WorkoutRoutine) {
         self.init(coder: aDecoder)
         self.workoutRoutine = workoutRoutine

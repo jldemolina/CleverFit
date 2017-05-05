@@ -22,7 +22,7 @@ class WorkoutExerciseTimer {
     private var currentExercise: WorkoutExercise? {
         didSet(newExercixe) {
             if newExercixe != nil {
-                currentTimeValue = currentExercise!.durationInSeconds
+                currentTimeValue = currentExercise!.durationInSeconds + currentExercise!.restInSeconds
                 delegate.exerciseChanged(workoutExercise: currentExercise!)
             }
         }
@@ -64,18 +64,37 @@ class WorkoutExerciseTimer {
     }
     
     private func updateTime() {
-        if currentTimeValue == 0 {
-            timer?.invalidate()
-            if changeExerciseIfPossible() {
-                play()
-            } else {
-                delegate.workoutFinished()
-                paused = true
+        if timeHasFinished() {
+            updateTimerWhenExerciseFinished()
+        } else if isRestTime() {
+            updateRestTime()
+        } else {
+            if currentExercise != nil {
+                delegate.timeUpdated(currentTimeValue: currentTimeValue - currentExercise!.restInSeconds)
             }
         }
         
-        delegate.timeUpdated(currentTimeValue: currentTimeValue)
         currentTimeValue -= 1
+    }
+    
+    private func updateRestTime() {
+        if currentExercise != nil {
+            if restTimeHasJustStarted() {
+                delegate.restTimeStarted(workoutExercise: currentExercise!)
+            } else {
+                delegate.restTimeUpdated(currentTimeValue: currentTimeValue - currentExercise!.durationInSeconds + 1)
+            }
+        }
+    }
+    
+    private func updateTimerWhenExerciseFinished() {
+        timer?.invalidate()
+        if changeExerciseIfPossible() {
+            play()
+        } else {
+            delegate.workoutFinished()
+            paused = true
+        }
     }
     
     public func changeExerciseIfPossible()-> Bool {
@@ -86,18 +105,41 @@ class WorkoutExerciseTimer {
         
         return true
     }
-    
+
     private func prepareInitialExercise() {
         if !workoutRoutine.workoutExercises.isEmpty {
             self.currentExercise = workoutRoutine.workoutExercises.first
         }
     }
     
+    private func isRestTime()-> Bool {
+        if currentExercise != nil {
+            if currentExercise!.restInSeconds != 0 {
+                return currentTimeValue < currentExercise!.restInSeconds
+            }
+        }
+        
+        return false
+    }
+    
+    private func restTimeHasJustStarted()-> Bool {
+        if currentExercise != nil {
+            return currentTimeValue == currentExercise!.restInSeconds - 1
+        }
+        
+        return false
+    }
+    
+    private func timeHasFinished()-> Bool {
+        return currentTimeValue == 0
+    }
 }
 
 protocol WorkoutExerciseTimerDelegate {
-    func timeUpdated(currentTimeValue: Int)
     func workoutStarted()
     func workoutFinished()
+    func timeUpdated(currentTimeValue: Int)
+    func restTimeUpdated(currentTimeValue: Int)
     func exerciseChanged(workoutExercise: WorkoutExercise)
+    func restTimeStarted(workoutExercise: WorkoutExercise)
 }
