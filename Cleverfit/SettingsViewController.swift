@@ -18,13 +18,19 @@ class SettingsViewController: CleverFitFormViewController {
             user.birthDate = form.formRow(withTag: FormTag.birthdate.rawValue)?.value as! NSDate
             user.height = form.formRow(withTag: FormTag.height.rawValue)?.value as! Int
             user.weight = form.formRow(withTag: FormTag.weight.rawValue)?.value as! Int
+            
+            if let gender = form.formRow(withTag: FormTag.gender.rawValue)?.value as? UserGender {
+                user.userGender = gender
+            }
             if let selectedObjective = form.formRow(withTag: FormTag.objective.rawValue)?.value as? UserObjective {
                 user.objectiveFeedback = selectedObjective
             }
             if let selectedExperience = form.formRow(withTag: FormTag.experience.rawValue)?.value as? UserExperience {
                 user.userExperience = selectedExperience
             }
-            user.maxRoutineDurationInSeconds = (form.formRow(withTag: FormTag.maxDuration.rawValue)?.value as! XLFormOptionObject).formValue() as! Int * 60
+            if let maxRoutineInSeconds = form.formRow(withTag: FormTag.maxDuration.rawValue)?.value as? XLFormOptionObject {
+                user.maxRoutineDurationInSeconds = maxRoutineInSeconds.formValue() as! Int * 60
+            }
             
             return user
         }
@@ -67,6 +73,8 @@ class SettingsViewController: CleverFitFormViewController {
         addDescriptor(to: section, with: FormTag.birthdate, title: LocalizedString.FormView.birthdateDescriptorTitle, descriptorType: XLFormRowDescriptorTypeDate, required: true)
         addDescriptor(to: section, with: FormTag.weight, title: LocalizedString.FormView.weightDescriptorTitle, descriptorType: XLFormRowDescriptorTypeInteger, required: true)
         addDescriptor(to: section, with: FormTag.height, title: LocalizedString.FormView.heightDescriptorTitle, descriptorType: XLFormRowDescriptorTypeInteger, required: true)
+        self.addGenderDescriptor(to: section)
+
     }
     
     private func addTrainingConfigurationSection(to form: XLFormDescriptor) {
@@ -93,25 +101,33 @@ class SettingsViewController: CleverFitFormViewController {
     private func addObjectiveDescriptor(to section: XLFormSectionDescriptor) {
         let options = [
             XLFormOptionsObject(value: UserObjective.loseWeight,
-                                displayText: UserObjective.loseWeight.rawValue.localized),
-            XLFormOptionsObject(value: UserObjective.maintenanceWeight,
-                                displayText: UserObjective.maintenanceWeight.rawValue.localized)]
+                                displayText: UserObjective.loseWeight.rawValue.localized)]
         addDescriptor(to: section, with: FormTag.objective, title: LocalizedString.FormView.objectiveDescriptorTitle, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
+        
+    }
+    
+    private func addGenderDescriptor(to section: XLFormSectionDescriptor) {
+        let options = [
+            XLFormOptionsObject(value: UserGender.man,
+                                displayText: UserGender.man.rawValue.localized),
+            XLFormOptionsObject(value: UserGender.woman,
+                                displayText: UserGender.woman.rawValue.localized)]
+        addDescriptor(to: section, with: FormTag.gender, title: LocalizedString.FormView.genderDescriptorTitle, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
         
     }
     
     private func addWorkoutDurationDescriptor(to section: XLFormSectionDescriptor) {
         let options = [
             XLFormOptionsObject(value: 7,
-                                displayText: "7 minutos"),
+                                displayText: LocalizedString.FormView.seven_minutes_workout),
             XLFormOptionsObject(value: 10,
-                                displayText: "10 minutos"),
+                                displayText: LocalizedString.FormView.ten_minutes_workout),
             XLFormOptionsObject(value: 15,
-                                displayText: "15 minutos"),
+                                displayText: LocalizedString.FormView.fifteen_seven_minutes_workout),
             XLFormOptionsObject(value: 20,
-                                displayText: "20 minutos"),
+                                displayText: LocalizedString.FormView.thirsty_minutes_workout),
             XLFormOptionsObject(value: 30,
-                                displayText: "30 minutos")]
+                                displayText: LocalizedString.FormView.maxDurationDescriptorTitle)]
         addDescriptor(to: section, with: FormTag.maxDuration, title: LocalizedString.FormView.maxDurationDescriptorTitle, descriptorType: XLFormRowDescriptorTypeSelectorPickerView, options: options as! [XLFormOptionsObject], required: true)
         
     }
@@ -127,9 +143,9 @@ class SettingsViewController: CleverFitFormViewController {
             form.formRow(withTag: FormTag.birthdate.rawValue)?.value = loadedUser.birthDate
             form.formRow(withTag: FormTag.height.rawValue)?.value = loadedUser.height
             form.formRow(withTag: FormTag.weight.rawValue)?.value = loadedUser.weight
+            form.formRow(withTag: FormTag.gender.rawValue)?.value = loadedUser.userGender.rawValue.localized
             form.formRow(withTag: FormTag.experience.rawValue)?.value = loadedUser.userExperience.rawValue.localized
             form.formRow(withTag: FormTag.objective.rawValue)?.value = loadedUser.objectiveFeedback.rawValue.localized
-            form.formRow(withTag: FormTag.maxDuration.rawValue)?.value = Int(loadedUser.maxRoutineDurationInSeconds / 60)
         }
     }
     

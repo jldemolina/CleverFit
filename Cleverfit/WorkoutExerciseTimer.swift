@@ -19,7 +19,7 @@ class WorkoutExerciseTimer {
     private var timer: Timer?
     private var paused: Bool
     
-    private var currentExercise: WorkoutExercise? {
+    public var currentExercise: WorkoutExercise? {
         didSet(newExercixe) {
             if newExercixe != nil {
                 currentTimeValue = currentExercise!.durationInSeconds + currentExercise!.restInSeconds
@@ -112,7 +112,7 @@ class WorkoutExerciseTimer {
         }
     }
     
-    private func isRestTime()-> Bool {
+    public func isRestTime()-> Bool {
         if currentExercise != nil {
             if currentExercise!.restInSeconds != 0 {
                 return currentTimeValue < currentExercise!.restInSeconds

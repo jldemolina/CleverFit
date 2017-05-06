@@ -87,6 +87,25 @@ class DatabaseManager {
         }
         return updated
     }
+    
+    func updateStatus(exercise: WorkoutExercise, in routine: WorkoutRoutine) -> Bool {
+        var updated = false
+        let storedRoutine = realm.objects(WorkoutRoutine.self).filter("id = \(routine.id)").first
+
+        if storedRoutine == nil {
+            try! realm.write {
+                for index in 0..<storedRoutine!.workoutExercises.count {
+                    if exercise.id == storedRoutine!.workoutExercises[index].id {
+                        storedRoutine!.workoutExercises[index] = exercise
+                    }
+                }
+                updated = true
+            }
+        }
+
+        return updated
+    }
+
 
     func delete(routine: WorkoutRoutine) -> Bool {
         var updated = false

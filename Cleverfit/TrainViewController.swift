@@ -13,12 +13,11 @@ class TrainViewController: CleverFitViewController {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
-    @IBOutlet weak var doNotLikeButton: UIButton!
     @IBOutlet weak var exerciseNameLabel: UILabel!
     @IBOutlet weak var circularProgressView: UICircularProgressRingView!
     @IBOutlet weak var ExerciseImageView: UIImageView!
     
-    private var workoutExerciseTimer: WorkoutExerciseTimer?
+    fileprivate var workoutExerciseTimer: WorkoutExerciseTimer?
     public var workoutRoutine: WorkoutRoutine? {
         didSet {
             if workoutRoutine != nil {
@@ -43,10 +42,6 @@ class TrainViewController: CleverFitViewController {
             workoutExerciseTimer!.pause()
         }
     }
-
-    @IBAction func doNotLikeWorkoutAction(_ sender: AnyObject) {
-        // TODO
-    }
     
     convenience init?(coder aDecoder: NSCoder, with workoutRoutine: WorkoutRoutine) {
         self.init(coder: aDecoder)
@@ -68,7 +63,7 @@ class TrainViewController: CleverFitViewController {
         circularProgressView.maxValue = 30
         
         ExerciseImageView.image = UIImage(named: "rest")
-        
+
         hideNavigationBar()
         
     }

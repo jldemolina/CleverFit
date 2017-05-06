@@ -35,11 +35,18 @@ final class RegisterCommand: FeedbackCommand {
     }
     
     private func openViewController()-> Bool {
-        if let meViewController = currentNavigationController.storyboard?.instantiateViewController(withIdentifier: CleverFitParams.ViewController.meViewController.rawValue) as? MeViewController {
-            currentNavigationController.pushViewController(meViewController, animated: true)
-            currentNavigationController.navigationItem.hidesBackButton = true
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        let navigationController = UIStoryboard(name: CleverFitParams.storyboardName, bundle: nil).instantiateViewController(withIdentifier: CleverFitParams.ViewController.mainNavigationController.rawValue) as? MainNavigationController
+        
+        if let viewControllerToOpen = navigationController?.storyboard?.instantiateViewController(withIdentifier: CleverFitParams.ViewController.meViewController.rawValue) {
+            navigationController?.pushViewController(viewControllerToOpen, animated: true)
+            
+            appDelegate.window?.rootViewController = navigationController
             return true
+
         }
+        
         return false
     }
 }

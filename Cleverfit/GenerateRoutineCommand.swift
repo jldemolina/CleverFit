@@ -24,10 +24,12 @@ final class GenerateRoutineCommand: NoFeedbackCommand {
     func execute() {
         let user: User? = DatabaseManager.sharedInstance.load()
         let exercises: [Exercise] = DatabaseManager.sharedInstance.load()
+        let workoutRoutines: [WorkoutRoutine] = DatabaseManager.sharedInstance.load() ?? [WorkoutRoutine]()
+        
         notifyGenerationStarted()
-        if (user != nil && !exercises.isEmpty) {
+        if user != nil && !exercises.isEmpty {
             let workoutGenerator = WorkoutGenerator(forUser: user!, andExercises: exercises)
-            let workoutRoutine = workoutGenerator.generateRoutine()
+            let workoutRoutine = workoutGenerator.generateRoutine(history: workoutRoutines)
             notifyGenerationFinished(workoutRoutine: workoutRoutine)
         }
     }

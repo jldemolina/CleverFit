@@ -74,4 +74,5 @@ enum FormTag: String {
     case name
     case birthdate
     case maxDuration
+    case gender
 }

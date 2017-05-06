@@ -21,9 +21,14 @@
 "NAME_DESCRIPTOR_TITLE" = "NOMBRE";
 "WEIGHT_DESCRIPTOR_TITLE" = "PESO";
 "HEIGHT_DESCRIPTOR_TITLE" = "ALTURA";
+"GENDER_DESCRIPTOR_TITLE" = "GÉNERO";
 "FORM_ERROR_MESSAGE_TITLE" = "UUUPS!";
 "FORM_ERROR_REQUIRED_MESSAGE_BODY" = "Parece que no has completado todos los campos. Es necesario introducir todos los datos, así podremos ofrecer los mejores resultados.";
-"REGISTER_BUTTON_TITLE" = "Comenzar";
+"7_MINUTES_WORKOUT" = "7 minutos (principiantes)";
+"10_MINUTES_WORKOUT" = "10 minutos (principiantes)";
+"15_MINUTES_WORKOUT" = "15 minutos (cierta experiencia)";
+"20_MINUTES_WORKOUT" = "20 minutos (experiencia media)";
+"30_MINUTES_WORKOUT" = "30 minutos (avanzado)";
 
 // USER EXPERIENCE
 "USER_EXPERIENCE_NEW" = "Nuevo";
@@ -37,6 +42,10 @@
 // USER OBJECTIVE
 "USER_OBJECTIVE_LOSE_WEIGHT" = "Perder peso";
 "USER_OBJECTIVE_MAINTENANCE" = "Mantener peso";
+
+// USER GENDER
+"WOMAN" = "Mujer";
+"MAN" = "Hombre";
 
 // EXERCISE DIFFICULTY
 "EXERCISE_DIFFICULTY_LOW" = "Bajo";
@@ -65,6 +74,7 @@
 
 // PROGRESS VIEW
 "WEIGHT_EVOLUTION" = "Evolución de peso";
+"IMC_EVOLUTION" = "Evolución de Índice de Masa Corporal";
 "MONTH" = "Mes";
 
 // HISTORY VIEW
@@ -73,3 +83,9 @@
 
 // CURRENT PAN EXERCISE CELL
 "SECONDS" = "segundos";
+
+// TRAIN VIEW
+"FEEDBACK_OK" = ":)";
+"FEEDBACK_BAD" = ":(";
+
+

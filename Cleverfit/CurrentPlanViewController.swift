@@ -15,8 +15,7 @@ class CurrentPlanViewController: CleverFitViewController {
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var trainButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    public var workoutRoutine: WorkoutRoutine
-    
+    public var workoutRoutine: WorkoutRoutine    
     
     @IBAction func startworkoutAction(_ sender: Any) {
         OpenTrainViewCommand(currentNavigationController: navigationController!, workoutToOpen: workoutRoutine).execute()
@@ -42,8 +41,8 @@ class CurrentPlanViewController: CleverFitViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        configureTitle()
         showNavigationBar()
+        configureView()
         if loadExercisesIfNeeded() && currentRoutineHasFinished() {
             showGenerateNewRoutineModal()
         }
@@ -54,11 +53,15 @@ class CurrentPlanViewController: CleverFitViewController {
         workoutRoutine = WorkoutRoutine()
     }
     
-    private func configureTitle() {
+    private func configureView() {
         if workoutRoutine.workoutExercises.isEmpty {
             self.title = LocalizedString.CurrentPlanView.title
         } else {
             self.title = workoutRoutine.startDate.description
+            DispatchQueue.main.async() {
+                self.trainButton.isHidden = true
+                self.generateButton.isHidden = true
+            }
         }
     }
     
@@ -89,7 +92,6 @@ class CurrentPlanViewController: CleverFitViewController {
         }
     }
     
-    // TODO - DATE FROM 1975...
     private func showGenerateNewRoutineModal() {
         let appearance = SCLAlertView.SCLAppearance(showCloseButton: false)
         let alertView = SCLAlertView(appearance: appearance)
@@ -116,11 +118,14 @@ extension CurrentPlanViewController: UITableViewDelegate, UITableViewDataSource 
         return workoutRoutine.workoutExercises.count
     }
 
-    // TODO REFACTOR AND STORE IDS, CREATE CELLS
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (workoutRoutine.workoutExercises.isEmpty) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "currentPlanDoNotExistsCell") as! CurrentPlanDoNotExists
             cell.delegates.append(self)
+            DispatchQueue.main.async() {
+                self.trainButton.isHidden = true
+                self.generateButton.isHidden = true
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "currentPlanExerciseCell") as! CurrentPlanExerciseCell
@@ -148,6 +153,10 @@ extension CurrentPlanViewController: GenerateRoutineCommandDelegate {
     
     func generationStarted() {
         print(LocalizedString.CurrentPlanView.generationStarted)
+        DispatchQueue.main.async() {
+            self.trainButton.isHidden = true
+            self.generateButton.isHidden = true
+        }
     }
     
     func generationFinished(workoutRoutine: WorkoutRoutine) {
@@ -156,6 +165,10 @@ extension CurrentPlanViewController: GenerateRoutineCommandDelegate {
         if saveExercises(workoutRoutine: workoutRoutine) {
             self.workoutRoutine = workoutRoutine
             self.tableView.reloadData()
+        }
+        
+        DispatchQueue.main.async() {
+            self.trainButton.isHidden = false
         }
     }
     

@@ -254,58 +254,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8p8-8W-B2Z">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RZk-Pw-m9H">
+                                <rect key="frame" x="8" y="336" width="359" height="76"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="6HE-ZU-z5c"/>
+                                    <constraint firstAttribute="width" constant="359" id="Q4Z-p1-Sun"/>
+                                </constraints>
+                                <string key="text">El Índice de masa corporal refleja la relación entre peso y altura. Es una medida a tener en cuenta si estás en un periodo de quema de grasa, y tu índice de grasa corporal es elevado.</string>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6mQ-yN-MkF" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="413" width="375" height="246"/>
+                                <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="246" id="1Ai-lf-4KJ"/>
+                                    <constraint firstAttribute="width" constant="375" id="qC6-QO-LIi"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVOLUCIÓN DEL IMC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cx-jh-4rc">
+                                <rect key="frame" x="8" y="318" width="359" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="WO9-1u-WcJ"/>
+                                    <constraint firstAttribute="width" constant="359" id="nGv-xh-CfM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kYZ-li-qyy">
+                                <rect key="frame" x="8" y="15" width="359" height="21"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-R7-FK1" customClass="BarChartView" customModule="Charts">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="324"/>
-                                        <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVOLUCIÓN ACTUAL DE PESO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7n-7s-PuT">
+                                        <rect key="frame" x="0.0" y="0.0" width="359" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="324" id="TmX-bC-dsi"/>
+                                            <constraint firstAttribute="width" constant="359" id="Pk6-Ra-S6b"/>
+                                            <constraint firstAttribute="height" constant="21" id="aIP-af-aqi"/>
                                         </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAd-rm-hFq">
-                                        <rect key="frame" x="66" y="332" width="243" height="327"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="327" id="xrL-No-Jz5"/>
-                                        </constraints>
-                                        <attributedString key="attributedText">
-                                            <fragment content="Añadiremos más gráficas dentro de poco para que puedas comprobar tu progreso de forma más exhaustiva :)">
-                                                <attributes>
-                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <font key="NSFont" size="18" name="Futura-Medium"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qq-R7-FK1" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="40" width="375" height="257"/>
                                 <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="2Qq-R7-FK1" secondAttribute="trailing" id="2wS-8l-R3C"/>
-                                    <constraint firstItem="2Qq-R7-FK1" firstAttribute="centerX" secondItem="xAd-rm-hFq" secondAttribute="centerX" id="EmG-Cg-g7h"/>
-                                    <constraint firstItem="xAd-rm-hFq" firstAttribute="top" secondItem="2Qq-R7-FK1" secondAttribute="bottom" constant="8" symbolic="YES" id="KkJ-bc-U1o"/>
-                                    <constraint firstItem="xAd-rm-hFq" firstAttribute="leading" secondItem="8p8-8W-B2Z" secondAttribute="leading" constant="66" id="c6N-AZ-Xff"/>
-                                    <constraint firstItem="2Qq-R7-FK1" firstAttribute="leading" secondItem="8p8-8W-B2Z" secondAttribute="leading" id="ch3-rE-TUX"/>
-                                    <constraint firstItem="xAd-rm-hFq" firstAttribute="bottom" secondItem="8p8-8W-B2Z" secondAttribute="bottomMargin" id="idP-Ch-97t"/>
-                                    <constraint firstItem="2Qq-R7-FK1" firstAttribute="centerX" secondItem="8p8-8W-B2Z" secondAttribute="centerX" id="wmc-65-T8z"/>
-                                    <constraint firstItem="2Qq-R7-FK1" firstAttribute="top" secondItem="8p8-8W-B2Z" secondAttribute="top" id="zMl-yR-Qog"/>
+                                    <constraint firstAttribute="height" constant="257" id="D6d-d6-MLR"/>
+                                    <constraint firstAttribute="width" constant="375" id="fxo-em-pk9"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="8p8-8W-B2Z" secondAttribute="trailing" id="Dau-g1-ceO"/>
-                            <constraint firstItem="8p8-8W-B2Z" firstAttribute="leading" secondItem="PXt-kq-Hhi" secondAttribute="leading" id="P4v-eU-lvZ"/>
-                            <constraint firstItem="8p8-8W-B2Z" firstAttribute="top" secondItem="PXt-kq-Hhi" secondAttribute="top" id="fEf-K2-Gom"/>
-                            <constraint firstItem="8p8-8W-B2Z" firstAttribute="bottom" secondItem="FpB-Fv-jh7" secondAttribute="top" id="jZr-bf-hEv"/>
+                            <constraint firstItem="5cx-jh-4rc" firstAttribute="top" secondItem="2Qq-R7-FK1" secondAttribute="bottom" constant="21" id="49g-LD-D74"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="centerX" secondItem="PXt-kq-Hhi" secondAttribute="centerX" id="4fd-3Z-5jJ"/>
+                            <constraint firstItem="5cx-jh-4rc" firstAttribute="centerX" secondItem="PXt-kq-Hhi" secondAttribute="centerX" id="D2g-8H-ENV"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="leading" secondItem="6mQ-yN-MkF" secondAttribute="leading" constant="8" id="JgN-EY-IOq"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="trailing" secondItem="5cx-jh-4rc" secondAttribute="trailing" id="LiL-gh-bqj"/>
+                            <constraint firstItem="2Qq-R7-FK1" firstAttribute="top" secondItem="kYZ-li-qyy" secondAttribute="bottom" constant="4" id="VUT-yq-TTI"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="trailing" secondItem="6mQ-yN-MkF" secondAttribute="trailing" constant="-8" id="WwC-TQ-gCS"/>
+                            <constraint firstItem="2Qq-R7-FK1" firstAttribute="centerX" secondItem="PXt-kq-Hhi" secondAttribute="centerX" id="XNo-Qe-4eh"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="leading" secondItem="RZk-Pw-m9H" secondAttribute="leading" id="YcC-E2-9bx"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="leading" secondItem="2Qq-R7-FK1" secondAttribute="leading" constant="8" id="aUz-kx-Ezn"/>
+                            <constraint firstItem="6mQ-yN-MkF" firstAttribute="top" secondItem="RZk-Pw-m9H" secondAttribute="bottom" constant="1" id="aqt-hT-WpB"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="trailing" secondItem="2Qq-R7-FK1" secondAttribute="trailing" constant="-8" id="fQM-8J-Lzx"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="leading" secondItem="5cx-jh-4rc" secondAttribute="leading" id="lGY-kr-Wpx"/>
+                            <constraint firstItem="RZk-Pw-m9H" firstAttribute="centerX" secondItem="PXt-kq-Hhi" secondAttribute="centerX" id="nEg-nm-MIk"/>
+                            <constraint firstItem="6mQ-yN-MkF" firstAttribute="centerX" secondItem="PXt-kq-Hhi" secondAttribute="centerX" id="nhS-cR-GXh"/>
+                            <constraint firstItem="RZk-Pw-m9H" firstAttribute="top" secondItem="2Qq-R7-FK1" secondAttribute="bottom" constant="39" id="ypR-zz-59e"/>
+                            <constraint firstItem="kYZ-li-qyy" firstAttribute="top" secondItem="PXt-kq-Hhi" secondAttribute="top" constant="15" id="zDq-pT-8gS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sf0-hI-oZl"/>
                     <connections>
                         <outlet property="barChartView" destination="2Qq-R7-FK1" id="Yaq-bq-enT"/>
+                        <outlet property="imcChartView" destination="6mQ-yN-MkF" id="09h-b7-XOd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w9W-Us-zUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -737,7 +765,9 @@
                     <navigationItem key="navigationItem" id="132-Mv-19D"/>
                     <connections>
                         <outlet property="exercisesTableView" destination="M7H-DA-YNM" id="5je-az-vK0"/>
+                        <outlet property="generateButton" destination="wdc-0W-UBs" id="dPt-5y-XTs"/>
                         <outlet property="tableView" destination="M7H-DA-YNM" id="Aun-So-zEf"/>
+                        <outlet property="trainButton" destination="BDw-XC-iHs" id="bWZ-dN-dJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aKo-ch-asw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -811,32 +841,6 @@
                                     <action selector="skipWorkoutAction:" destination="b3e-Sd-1SP" eventType="touchUpInside" id="7Bf-cl-z55"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J22-Kr-vjX" customClass="UIButtonCorner" customModule="Cleverfit" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="615" width="61" height="52"/>
-                                <color key="backgroundColor" red="0.41270813772349491" green="0.47159015997919895" blue="0.70446878670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="61" id="a7p-Lf-WW8"/>
-                                </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content=":(">
-                                            <attributes>
-                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                                <font key="NSFont" size="18" name="Futura-Medium"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="doNotLikeWorkoutAction:" destination="b3e-Sd-1SP" eventType="touchUpInside" id="Nxx-aI-U1i"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQH-kM-0Sz" customClass="UIButtonCorner" customModule="Cleverfit" customModuleProvider="target">
                                 <rect key="frame" x="315" y="615" width="60" height="52"/>
                                 <color key="backgroundColor" red="0.70446878670000002" green="0.38628551030000002" blue="0.4346106736" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -894,8 +898,6 @@
                         <color key="backgroundColor" red="0.106365338" green="0.1158330888" blue="0.21580485999999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="EaK-lH-cKo" firstAttribute="centerX" secondItem="8eB-Lm-exY" secondAttribute="centerX" id="7yx-gK-znY"/>
-                            <constraint firstItem="J22-Kr-vjX" firstAttribute="leading" secondItem="Eu9-tQ-xJB" secondAttribute="leading" id="8iN-jF-13Q"/>
-                            <constraint firstItem="J22-Kr-vjX" firstAttribute="firstBaseline" secondItem="Eu9-tQ-xJB" secondAttribute="baseline" id="A8D-BA-8la"/>
                             <constraint firstItem="EX8-Yg-rXd" firstAttribute="top" secondItem="X9e-M1-Om7" secondAttribute="bottom" constant="25" id="ARp-i7-gvt"/>
                             <constraint firstItem="brb-xE-zA0" firstAttribute="centerY" secondItem="8eB-Lm-exY" secondAttribute="centerY" id="C8h-WC-7OU"/>
                             <constraint firstItem="EJF-cr-aHY" firstAttribute="centerX" secondItem="8eB-Lm-exY" secondAttribute="centerX" id="EEt-TD-k7r"/>
@@ -916,10 +918,8 @@
                             <constraint firstItem="EJF-cr-aHY" firstAttribute="centerY" secondItem="8eB-Lm-exY" secondAttribute="centerY" id="hMk-fo-qQB"/>
                             <constraint firstItem="Eu9-tQ-xJB" firstAttribute="leading" secondItem="8eB-Lm-exY" secondAttribute="leading" id="hUS-Sw-tiJ"/>
                             <constraint firstItem="Wdz-Lg-CoU" firstAttribute="top" secondItem="Eu9-tQ-xJB" secondAttribute="bottom" id="iby-at-mjF"/>
-                            <constraint firstItem="J22-Kr-vjX" firstAttribute="baseline" secondItem="aQH-kM-0Sz" secondAttribute="baseline" id="jOk-k3-YDC"/>
                             <constraint firstItem="brb-xE-zA0" firstAttribute="centerX" secondItem="8eB-Lm-exY" secondAttribute="centerX" id="kUo-YB-GfO"/>
                             <constraint firstItem="aQH-kM-0Sz" firstAttribute="baseline" secondItem="Eu9-tQ-xJB" secondAttribute="firstBaseline" id="pV8-Ul-Tu1"/>
-                            <constraint firstItem="J22-Kr-vjX" firstAttribute="top" secondItem="aQH-kM-0Sz" secondAttribute="top" id="scY-2D-1R2"/>
                             <constraint firstItem="brb-xE-zA0" firstAttribute="centerX" secondItem="8eB-Lm-exY" secondAttribute="centerX" id="tR6-GW-LBC"/>
                             <constraint firstItem="JdP-AL-VgY" firstAttribute="centerX" secondItem="8eB-Lm-exY" secondAttribute="centerX" id="y7K-mD-13U"/>
                         </constraints>
@@ -928,7 +928,6 @@
                     <connections>
                         <outlet property="ExerciseImageView" destination="brb-xE-zA0" id="KGq-sc-7Ex"/>
                         <outlet property="circularProgressView" destination="JdP-AL-VgY" id="KMM-tq-HPR"/>
-                        <outlet property="doNotLikeButton" destination="J22-Kr-vjX" id="afe-x4-Dhy"/>
                         <outlet property="exerciseNameLabel" destination="EX8-Yg-rXd" id="L93-K7-BXN"/>
                     </connections>
                 </viewController>

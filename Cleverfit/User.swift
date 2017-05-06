@@ -17,6 +17,7 @@ class User: Object {
     dynamic var maxRoutineDurationInSeconds = 0
     dynamic var birthDate = NSDate()
     private dynamic var objective = UserObjective.loseWeight.rawValue
+    private dynamic var gender = UserGender.man.rawValue
     private dynamic var experience = UserExperience.low.rawValue
     private dynamic var alertsPreference = UserAlertsPreference.notifyMe.rawValue
     var objectiveFeedback: UserObjective {
@@ -25,6 +26,14 @@ class User: Object {
         }
         set {
             objective = newValue.rawValue
+        }
+    }
+    var userGender: UserGender {
+        get {
+            return UserGender(rawValue: gender)!
+        }
+        set {
+            gender = newValue.rawValue
         }
     }
     var userExperience: UserExperience {
@@ -54,49 +63,33 @@ class User: Object {
     public func isExperimented()-> Bool {
         return userExperience == UserExperience.hard
     }
+    
+    public func calculateAge()-> Int {
+        let now = Date()
+        let calendar = Calendar.current
+        
+        let ageComponents = calendar.dateComponents([.year], from: birthDate as Date, to: now)
+        return ageComponents.year!
+    }
+}
+
+enum UserGender: String {
+    case woman = "WOMAN"
+    case man = "MAN"
 }
 
 enum UserObjective: String {
     case loseWeight = "USER_OBJECTIVE_LOSE_WEIGHT"
     case maintenanceWeight = "USER_OBJECTIVE_MAINTENANCE"
-
-    static func from(userObjectiveName: String) -> UserObjective {
-        switch userObjectiveName {
-        case UserObjective.loseWeight.rawValue:
-            return .loseWeight
-        default:
-            return .maintenanceWeight
-        }
-    }
 }
 
 enum UserExperience: String {
     case low = "USER_EXPERIENCE_NEW"
     case half = "USER_EXPERIENCE_HALF"
     case hard = "USER_EXPERIENCE_HIGH"
-
-    static func from(userExperience: String) -> UserExperience {
-        switch userExperience {
-        case UserExperience.low.rawValue:
-            return .low
-        case UserExperience.half.rawValue:
-            return .half
-        default:
-            return .hard
-        }
-    }
 }
 
 enum UserAlertsPreference: String {
     case doNotNotifyMe = "USER_ALERT_NOT_NOTIFY"
     case notifyMe = "USER_ALERT_NOTIFY"
-
-    static func from(userAlertsPreference: String) -> UserAlertsPreference {
-        switch userAlertsPreference {
-        case UserAlertsPreference.doNotNotifyMe.rawValue:
-            return .doNotNotifyMe
-        default:
-            return .notifyMe
-        }
-    }
 }

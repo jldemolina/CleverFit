@@ -13,15 +13,28 @@ import Charts
 class ProgressViewController: CleverFitViewController {
 
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var imcChartView: BarChartView!
     
-    var dataEntries: [BarChartDataEntry] = []
+    var entries: [ProgressLogEntry]?
+    var user: User?
+    
+    convenience init?(coder aDecoder: NSCoder, workoutExercise: WorkoutExercise) {
+        self.init(coder: aDecoder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.entries = DatabaseManager.sharedInstance.load()
+        self.user = DatabaseManager.sharedInstance.load()
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = LocalizedString.ProgressView.title
         
-        generateChart()
+        generateWeightChart()
+        generateIMCChart()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,10 +42,9 @@ class ProgressViewController: CleverFitViewController {
         showNavigationBar()
     }
     
-    func generateChart() {
+    func generateWeightChart() {
         var points = [String]()
         var units = [Double]()
-        let entries: [ProgressLogEntry]? = DatabaseManager.sharedInstance.load()
         
         if entries != nil {
             for entry in entries! {
@@ -41,12 +53,28 @@ class ProgressViewController: CleverFitViewController {
             }
         }
         
-        setChart(dataPoints: points, values: units)
+        setChart(dataPoints: points, values: units, barChartView: barChartView, title: LocalizedString.ProgressView.weightEvolution)
 
     }
     
+    func generateIMCChart() {
+        var points = [String]()
+        var units = [Double]()
+        
+        if entries != nil && user != nil {
+            for entry in entries! {
+                units.append(ObesityCalculator.calculateBasalMetabolism(height: Int(entry.height), weight: entry.weight, age: user!.calculateAge(), gender: user!.userGender) / 100)
+                points.append(String(Calendar.current.component(.month, from: entry.date as Date)))
+            }
+        }
+        
+        setChart(dataPoints: points, values: units, barChartView: imcChartView, title: LocalizedString.ProgressView.weightEvolution)
+        
+    }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChart(dataPoints: [String], values: [Double], barChartView: BarChartView, title: String) {
+        var dataEntries = [BarChartDataEntry]()
+
         for i in 0..<dataPoints.count {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]])
             dataEntries.append(dataEntry)
@@ -58,7 +86,7 @@ class ProgressViewController: CleverFitViewController {
         barChartView.data = chartData
         
         chartDataSet.colors = [UIColor.white]
-        barChartView.chartDescription?.text = LocalizedString.ProgressView.weightEvolution
+        barChartView.chartDescription?.text = title
         barChartView.chartDescription?.textColor = UIColor.white
         barChartView.tintColor = UIColor.white
         barChartView.noDataTextColor = UIColor.white

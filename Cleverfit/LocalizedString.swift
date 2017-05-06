@@ -21,6 +21,11 @@ final class LocalizedString {
                 return "WEIGHT_EVOLUTION".localized
             }
         }
+        static var imcEvolution: String {
+            get {
+                return "IMC_EVOLUTION".localized
+            }
+        }
         static var month: String {
             get {
                 return "MONTH".localized
@@ -128,6 +133,19 @@ final class LocalizedString {
         }
     }
     
+    class TrainView {
+        static var feedbackOk: String {
+            get {
+                return "FEEDBACK_OK".localized
+            }
+        }
+        static var feedbackBad: String {
+            get {
+                return "FEEDBACK_BAD".localized
+            }
+        }
+    }
+    
     class FormView {
         static var basicInformationSectionTitle: String {
             get {
@@ -172,6 +190,36 @@ final class LocalizedString {
         static var maxDurationDescriptorTitle: String {
             get {
                 return "MAX_DURATION_DESCRIPTOR_TITLE".localized
+            }
+        }
+        static var seven_minutes_workout: String {
+            get {
+                return "7_MINUTES_WORKOUT".localized
+            }
+        }
+        static var ten_minutes_workout: String {
+            get {
+                return "10_MINUTES_WORKOUT".localized
+            }
+        }
+        static var fifteen_seven_minutes_workout: String {
+            get {
+                return "15_MINUTES_WORKOUT".localized
+            }
+        }
+        static var twenty_minutes_workout: String {
+            get {
+                return "20_MINUTES_WORKOUT".localized
+            }
+        }
+        static var thirsty_minutes_workout: String {
+            get {
+                return "30_MINUTES_WORKOUT".localized
+            }
+        }
+        static var genderDescriptorTitle: String {
+            get {
+                return "GENDER_DESCRIPTOR_TITLE".localized
             }
         }
     }

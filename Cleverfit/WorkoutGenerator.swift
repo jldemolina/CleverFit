@@ -32,10 +32,11 @@ class WorkoutGenerator {
     }
     
     // TODO CALCULATE EXERCISE INTENSITY
-    func generateRoutine() -> WorkoutRoutine {
+    func generateRoutine(history: [WorkoutRoutine]) -> WorkoutRoutine {
         let workoutRoutine = WorkoutRoutine()
         
-        let cleverExerciseList = CleverExerciseList(exercises: exercises, for: user)
+        let cleverExerciseList = CleverExerciseList(exercises: exercises, for: user, previousWorkouts: history)
+        
         let generatedExercises = cleverExerciseList.generateRecomendedExerciseList()
         
         for exercise in generatedExercises {
@@ -55,15 +56,18 @@ class WorkoutGenerator {
 fileprivate class CleverExerciseList {
     private var exerciseNodes: [CleverExerciseListItem]
     private let user: User
+    private let exercises: [Exercise]
+    var previousWorkouts: [WorkoutRoutine]
     
-    
-    init(exercises: [Exercise], for user: User) {
+    init(exercises: [Exercise], for user: User, previousWorkouts: [WorkoutRoutine]) {
         self.exerciseNodes = [CleverExerciseListItem]()
         self.user = user
-        fillList(with: exercises)
+        self.previousWorkouts = previousWorkouts
+        self.exercises = exercises
     }
     
     public func generateRecomendedExerciseList()-> [WorkoutExercise] {
+        fillList(with: exercises)
         guard !exerciseNodes.isEmpty else { return [WorkoutExercise]() }
         var generatedList = [WorkoutExercise]()
         var timeSpent = 0
@@ -139,7 +143,7 @@ fileprivate class CleverExerciseList {
     
     private func fillList(with data: [Exercise]) {
         for index in 0...data.count - 1 {
-            exerciseNodes.append(CleverExerciseListItem(value: data[index], for: user))
+            exerciseNodes.append(CleverExerciseListItem(value: data[index], for: user, previousWorkouts: previousWorkouts))
         }
     }
     
@@ -160,24 +164,21 @@ fileprivate class CleverExerciseListItem {
     var value: Exercise
     var user: User
     var previousExercises: [Exercise]?
+    var previousWorkouts: [WorkoutRoutine]
     var heuristicValue: Int {
         get {
             return calculateHeuristicValueForNode()
         }
     }
     
-    init(value: Exercise, for user: User, with previousExercises: [Exercise]?) {
+    init(value: Exercise, for user: User, previousWorkouts: [WorkoutRoutine]) {
         self.value = value
         self.user = user
-        self.previousExercises = previousExercises
-    }
-    
-    convenience init(value: Exercise, for user: User) {
-        self.init(value: value, for: user, with: nil)
+        self.previousWorkouts = previousWorkouts
     }
     
     private func calculateHeuristicValueForNode()-> Int {
-        return calculateExperienceValue() + calculateExperienceValue() - numberOfTimesTrainedInParent() * 2
+        return calculateExperienceValue() + calculateExperienceValue() * 2 - numberOfTimesTrainedInParent()  - previousMuscularGroupTrainerIntensity() + calculateExistInPreviousRoutinesValue()
     }
     
     private func calculateExperienceValue()-> Int {
@@ -200,6 +201,24 @@ fileprivate class CleverExerciseListItem {
         }
         
         return 0
+    }
+    
+    private func previousMuscularGroupTrainerIntensity()-> Int {
+        var repetitions = 0
+
+        if previousExercises == nil {
+            return repetitions
+        }
+        
+        for previousExercise in previousExercises! {
+            for index in 0..<value.affectedMuscles.count {
+                if previousExercise.affectedMuscles.contains(value.affectedMuscles[index]) {
+                    repetitions += 1 * value.affectedMuscles.count - index
+                }
+            }
+        }
+        
+        return repetitions
     }
     
     private func calculateValueForRepetitiveExercise()-> Int {
@@ -234,6 +253,27 @@ fileprivate class CleverExerciseListItem {
         for previousExercise in previousExercises! {
             if previousExercise.name.lowercased() == value.name.lowercased() {
                 repetitions += 1
+            }
+        }
+        
+        return repetitions
+    }
+    
+    private func calculateExistInPreviousRoutinesValue()-> Int {
+        guard !previousWorkouts.isEmpty else { return 0 }
+        
+        var repetitions = 0
+
+        for index in 0..<previousWorkouts.count {
+            for workoutExercise in previousWorkouts[index].workoutExercises {
+                if let exercise = workoutExercise.exercise {
+                    if exercise.name.lowercased() == value.name.lowercased() {
+                        repetitions -= 1
+                        if index == previousWorkouts.count - 1 {
+                            repetitions -= index
+                        }
+                    }
+                }
             }
         }
         
