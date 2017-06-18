@@ -31,7 +31,6 @@ class WorkoutGenerator {
         exercises = andExercises
     }
     
-    // TODO CALCULATE EXERCISE INTENSITY
     func generateRoutine(history: [WorkoutRoutine]) -> WorkoutRoutine {
         let workoutRoutine = WorkoutRoutine()
         

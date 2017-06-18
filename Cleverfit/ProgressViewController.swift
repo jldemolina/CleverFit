@@ -9,7 +9,6 @@
 import UIKit
 import Charts
 
-// TODO - IMPROVE DESIGN
 class ProgressViewController: CleverFitViewController {
 
     @IBOutlet weak var barChartView: BarChartView!

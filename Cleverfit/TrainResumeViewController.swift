@@ -8,7 +8,6 @@
 
 import UIKit
 
-// TODO Localized strings
 class TrainResumeViewController: CleverFitViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

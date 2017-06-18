@@ -81,7 +81,6 @@ extension TrainViewController: WorkoutExerciseTimerDelegate {
     }
     
     func workoutStarted() {
-        // TODO - ¿?
     }
     
     func restTimeStarted(workoutExercise: WorkoutExercise) {

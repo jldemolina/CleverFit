@@ -26,7 +26,6 @@ final class RegisterCommand: FeedbackCommand {
         return false
     }
     
-    // TODO Fix units conversion
     private func insertUserIntoDatabase()-> Bool {
         if DatabaseManager.sharedInstance.add(user: user) {
             return DatabaseManager.sharedInstance.addProgressEntry(height: Double(user.height), weight: Double(user.weight))
